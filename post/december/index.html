@@ -63,9 +63,9 @@
     "name" : "Mike Turko"
   },
   "headline": "December",
-  "description" : "\u003c!DOCTYPE html\u003e Triathlon Time Calculator Triathlon Time Calculator Select Race Type: Sprint Triathlon Olympic Triathlon 70.3 Ironman Ironman Swim Pace (minutes per 100 meters): Swim Time: 0:00:00 T1 Transition Time (minutes): Bike Speed (mph): Bike Time: 0:00:00 T2 Transition Time (minutes): Run Pace (minutes per mile): Run Time: 0:00:00 ",
+  "description" : "\u003c!DOCTYPE html\u003e Triathlon Time Calculator Triathlon Time Calculator Select Race Type: Sprint Triathlon Olympic Triathlon 70.3 Ironman Ironman Swim Pace (minutes per 100 meters): 1500m Swim Time: 0:00:00 T1 Transition Time (minutes): Bike Speed (mph): 40km Bike Time: 0:00:00 T2 Transition Time (minutes): Run Pace (minutes per mile): 10km Run Time: 0:00:00 ",
   "inLanguage" : "en",
-  "wordCount":  49 ,
+  "wordCount":  52 ,
   "datePublished" : "2024-12-01T15:18:29-05:00",
   "dateModified" : "2024-12-01T15:18:29-05:00",
   "image" : "https:\/\/miketurko.com\/img\/avatar-icon.png",
@@ -338,7 +338,7 @@ function includeHTML() {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;49&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;52&nbsp;words
   
   
     
@@ -382,7 +382,7 @@ function includeHTML() {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;49&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;52&nbsp;words
   
   
     
@@ -411,22 +411,13 @@ function includeHTML() {
         	
 
 
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Triathlon Time Calculator</title>
     <style>
         .container2 {
-            max-width: 100%;
+            max-width: 600px;
             margin: 20px auto;
             padding: 20px;
             font-family: Arial, sans-serif;
@@ -475,7 +466,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="swim">Swim Pace (minutes per 100 meters):</label>
             <input type="number" id="swim" step="0.1" value="2.0">
-            <div class="event-time">Swim Time: <span id="swimTime">0:00:00</span></div>
+            <div class="event-time"><span id="swimDistance">1500</span>m Swim Time: <span id="swimTime">0:00:00</span></div>
         </div>
 
         <div class="input-group">
@@ -486,7 +477,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="bike">Bike Speed (mph):</label>
             <input type="number" id="bike" step="0.1" value="20.0">
-            <div class="event-time">Bike Time: <span id="bikeTime">0:00:00</span></div>
+            <div class="event-time"><span id="bikeDistance">40</span>km Bike Time: <span id="bikeTime">0:00:00</span></div>
         </div>
 
         <div class="input-group">
@@ -497,7 +488,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="run">Run Pace (minutes per mile):</label>
             <input type="number" id="run" step="0.1" value="8.0">
-            <div class="event-time">Run Time: <span id="runTime">0:00:00</span></div>
+            <div class="event-time"><span id="runDistance">10</span>km Run Time: <span id="runTime">0:00:00</span></div>
         </div>
 
         <div id="result"></div>
@@ -535,14 +526,20 @@ function includeHTML() {
 
             // Get race distances
             const distances = raceDistances[raceType];
-            const swimDistance = distances.swim; // meters
-            const bikeDistance = distances.bike * 0.621371; // convert km to miles
-            const runDistance = distances.run * 0.621371; // convert km to miles
+            
+            // Update displayed distances
+            document.getElementById('swimDistance').textContent = distances.swim;
+            document.getElementById('bikeDistance').textContent = distances.bike;
+            document.getElementById('runDistance').textContent = distances.run;
+
+            // Convert bike/run distances to miles for calculations
+            const bikeDistanceMiles = distances.bike * 0.621371;
+            const runDistanceMiles = distances.run * 0.621371;
 
             // Calculate individual times
-            const swimTime = (swimPace * swimDistance) / 100;
-            const bikeTime = (bikeDistance / bikeSpeed) * 60;
-            const runTime = runPace * runDistance;
+            const swimTime = (swimPace * distances.swim) / 100;
+            const bikeTime = (bikeDistanceMiles / bikeSpeed) * 60;
+            const runTime = runPace * runDistanceMiles;
 
             // Display individual event times
             document.getElementById('swimTime').textContent = formatTime(swimTime);
@@ -567,11 +564,6 @@ function includeHTML() {
     </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
