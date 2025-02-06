@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on PlanetEasyPeasy</title>
-    <link>https://planeteasypeasy.com/tags/</link>
+    <link>https://miketurko.com/tags/</link>
     <description>Recent content in Tags on PlanetEasyPeasy</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>youremail@domain.com (Some Person)</managingEditor>
     <webMaster>youremail@domain.com (Some Person)</webMaster>
     <lastBuildDate>Mon, 02 Dec 2024 11:03:47 -0500</lastBuildDate>
-    <atom:link href="https://planeteasypeasy.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Image</title>
-      <link>https://planeteasypeasy.com/tags/image/</link>
+      <link>https://miketurko.com/tags/image/</link>
       <pubDate>Mon, 02 Dec 2024 11:03:47 -0500</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/image/</guid>
+      <guid>https://miketurko.com/tags/image/</guid>
       <description></description>
     </item>
     <item>
       <title>Test</title>
-      <link>https://planeteasypeasy.com/tags/test/</link>
+      <link>https://miketurko.com/tags/test/</link>
       <pubDate>Mon, 02 Dec 2024 11:03:47 -0500</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/test/</guid>
+      <guid>https://miketurko.com/tags/test/</guid>
       <description></description>
     </item>
     <item>
       <title>Example</title>
-      <link>https://planeteasypeasy.com/tags/example/</link>
+      <link>https://miketurko.com/tags/example/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/example/</guid>
+      <guid>https://miketurko.com/tags/example/</guid>
       <description></description>
     </item>
     <item>
       <title>Photoswipe</title>
-      <link>https://planeteasypeasy.com/tags/photoswipe/</link>
+      <link>https://miketurko.com/tags/photoswipe/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/photoswipe/</guid>
+      <guid>https://miketurko.com/tags/photoswipe/</guid>
       <description></description>
     </item>
     <item>
       <title>Bigimg</title>
-      <link>https://planeteasypeasy.com/tags/bigimg/</link>
+      <link>https://miketurko.com/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/bigimg/</guid>
+      <guid>https://miketurko.com/tags/bigimg/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
-      <link>https://planeteasypeasy.com/tags/math/</link>
+      <link>https://miketurko.com/tags/math/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/math/</guid>
+      <guid>https://miketurko.com/tags/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Code</title>
-      <link>https://planeteasypeasy.com/tags/code/</link>
+      <link>https://miketurko.com/tags/code/</link>
       <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/code/</guid>
+      <guid>https://miketurko.com/tags/code/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>https://planeteasypeasy.com/tags/markdown/</link>
+      <link>https://miketurko.com/tags/markdown/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate><author>youremail@domain.com (Some Person)</author>
-      <guid>https://planeteasypeasy.com/tags/markdown/</guid>
+      <guid>https://miketurko.com/tags/markdown/</guid>
       <description></description>
     </item>
   </channel>
