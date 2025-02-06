@@ -371,7 +371,7 @@ function includeHTML() {
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;40&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;49&nbsp;words
   
   
     
@@ -395,7 +395,7 @@ function includeHTML() {
     <title>Triathlon Time Calculator</title>
     <style>
         .container {
-            max-width: 600px;
+            max-width: 100%;
             margin: 20px auto;
             padding: 20px;
             font-family: Arial, sans-serif;
@@ -410,6 +410,11 @@ function includeHTML() {
         input, select {
             width: 100%;
             padding: 8px;
+            margin-bottom: 5px;
+        }
+        .event-time {
+            font-size: 0.9em;
+            color: #666;
             margin-bottom: 10px;
         }
         #result {
@@ -439,6 +444,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="swim">Swim Pace (minutes per 100 meters):</label>
             <input type="number" id="swim" step="0.1" value="2.0">
+            <div class="event-time">Swim Time: <span id="swimTime">0:00:00</span></div>
         </div>
 
         <div class="input-group">
@@ -449,6 +455,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="bike">Bike Speed (mph):</label>
             <input type="number" id="bike" step="0.1" value="20.0">
+            <div class="event-time">Bike Time: <span id="bikeTime">0:00:00</span></div>
         </div>
 
         <div class="input-group">
@@ -459,6 +466,7 @@ function includeHTML() {
         <div class="input-group">
             <label for="run">Run Pace (minutes per mile):</label>
             <input type="number" id="run" step="0.1" value="8.0">
+            <div class="event-time">Run Time: <span id="runTime">0:00:00</span></div>
         </div>
 
         <div id="result"></div>
@@ -466,11 +474,18 @@ function includeHTML() {
 
     <script>
         const raceDistances = {
-            sprint: { swim: 750, bike: 20, run: 5 }, // km (bike/run distances)
+            sprint: { swim: 750, bike: 20, run: 5 },
             olympic: { swim: 1500, bike: 40, run: 10 },
-            '70.3': { swim: 1931, bike: 90, run: 21.1 }, // 70.3 miles = 113km
+            '70.3': { swim: 1931, bike: 90, run: 21.1 },
             ironman: { swim: 3862, bike: 180, run: 42.2 }
         };
+
+        function formatTime(minutes) {
+            const hours = Math.floor(minutes / 60);
+            const mins = Math.floor(minutes % 60);
+            const secs = Math.round((minutes * 60) % 60);
+            return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
 
         function calculateTime() {
             // Get input values
@@ -493,24 +508,22 @@ function includeHTML() {
             const bikeDistance = distances.bike * 0.621371; // convert km to miles
             const runDistance = distances.run * 0.621371; // convert km to miles
 
-            // Calculate times in minutes
+            // Calculate individual times
             const swimTime = (swimPace * swimDistance) / 100;
             const bikeTime = (bikeDistance / bikeSpeed) * 60;
             const runTime = runPace * runDistance;
 
-            // Total time in minutes (including transitions)
+            // Display individual event times
+            document.getElementById('swimTime').textContent = formatTime(swimTime);
+            document.getElementById('bikeTime').textContent = formatTime(bikeTime);
+            document.getElementById('runTime').textContent = formatTime(runTime);
+
+            // Calculate total time
             const totalMinutes = swimTime + t1 + bikeTime + t2 + runTime;
-
-            // Convert to hours, minutes, seconds
-            const hours = Math.floor(totalMinutes / 60);
-            const minutes = Math.floor(totalMinutes % 60);
-            const seconds = Math.round((totalMinutes * 60) % 60);
-
-            // Format the result
-            let result = `${hours} hours, ${minutes} minutes`;
-            if (seconds > 0) result += `, ${seconds} seconds`;
-
-            document.getElementById('result').textContent = `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${result}`;
+            
+            // Display formatted total time
+            document.getElementById('result').textContent = 
+                `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${formatTime(totalMinutes)}`;
         }
 
         // Add event listeners
