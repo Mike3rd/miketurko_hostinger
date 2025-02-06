@@ -411,10 +411,10 @@ function includeHTML() {
   <i class="fas fa-calendar"></i>&nbsp;Posted on December 1, 2024
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;0&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;0&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;40&nbsp;words
   
   
     
@@ -428,7 +428,160 @@ function includeHTML() {
     </p>
     <div class="post-entry">
         
+        	
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triathlon Time Calculator</title>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Triathlon Time Calculator</h2>
         
+        <div class="input-group">
+            <label for="raceType">Select Race Type:</label>
+            <select id="raceType">
+                <option value="sprint">Sprint Triathlon</option>
+                <option value="olympic" selected>Olympic Triathlon</option>
+                <option value="70.3">70.3 Ironman</option>
+                <option value="ironman">Ironman</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="swim">Swim Pace (minutes per 100 meters):</label>
+            <input type="number" id="swim" step="0.1" value="2.0">
+        </div>
+
+        <div class="input-group">
+            <label for="t1">T1 Transition Time (minutes):</label>
+            <input type="number" id="t1" step="0.1" value="2.0">
+        </div>
+
+        <div class="input-group">
+            <label for="bike">Bike Speed (mph):</label>
+            <input type="number" id="bike" step="0.1" value="20.0">
+        </div>
+
+        <div class="input-group">
+            <label for="t2">T2 Transition Time (minutes):</label>
+            <input type="number" id="t2" step="0.1" value="1.0">
+        </div>
+
+        <div class="input-group">
+            <label for="run">Run Pace (minutes per mile):</label>
+            <input type="number" id="run" step="0.1" value="8.0">
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const raceDistances = {
+            sprint: { swim: 750, bike: 20, run: 5 }, // km (bike/run distances)
+            olympic: { swim: 1500, bike: 40, run: 10 },
+            '70.3': { swim: 1931, bike: 90, run: 21.1 }, // 70.3 miles = 113km
+            ironman: { swim: 3862, bike: 180, run: 42.2 }
+        };
+
+        function calculateTime() {
+            // Get input values
+            const raceType = document.getElementById('raceType').value;
+            const swimPace = parseFloat(document.getElementById('swim').value);
+            const bikeSpeed = parseFloat(document.getElementById('bike').value);
+            const runPace = parseFloat(document.getElementById('run').value);
+            const t1 = parseFloat(document.getElementById('t1').value) || 0;
+            const t2 = parseFloat(document.getElementById('t2').value) || 0;
+
+            // Validate inputs
+            if ([swimPace, bikeSpeed, runPace, t1, t2].some(x => x < 0 || isNaN(x))) {
+                document.getElementById('result').textContent = "Please enter valid non-negative numbers";
+                return;
+            }
+
+            // Get race distances
+            const distances = raceDistances[raceType];
+            const swimDistance = distances.swim; // meters
+            const bikeDistance = distances.bike * 0.621371; // convert km to miles
+            const runDistance = distances.run * 0.621371; // convert km to miles
+
+            // Calculate times in minutes
+            const swimTime = (swimPace * swimDistance) / 100;
+            const bikeTime = (bikeDistance / bikeSpeed) * 60;
+            const runTime = runPace * runDistance;
+
+            // Total time in minutes (including transitions)
+            const totalMinutes = swimTime + t1 + bikeTime + t2 + runTime;
+
+            // Convert to hours, minutes, seconds
+            const hours = Math.floor(totalMinutes / 60);
+            const minutes = Math.floor(totalMinutes % 60);
+            const seconds = Math.round((totalMinutes * 60) % 60);
+
+            // Format the result
+            let result = `${hours} hours, ${minutes} minutes`;
+            if (seconds > 0) result += `, ${seconds} seconds`;
+
+            document.getElementById('result').textContent = `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${result}`;
+        }
+
+        // Add event listeners
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', calculateTime);
+        });
+
+        // Initial calculation
+        calculateTime();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
     </div>
 
