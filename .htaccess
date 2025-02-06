@@ -1,9 +1,0 @@
-# Prevent Apache from serving .ht* files:
-<FilesMatch "^\.ht">
-Order allow,deny
-Deny from all
-</FilesMatch>
-
-
-Header set Access-Control-Allow-Origin "https://planeteasypeasy.com"
-Header set Access-Control-Allow-Origin "https://www.planeteasypeasy.com"
