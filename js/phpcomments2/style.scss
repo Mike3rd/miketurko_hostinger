@@ -1,0 +1,92 @@
+$font: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+$font-size: 16px;
+$background-color: #FFFFFF;
+$content-width: 1000px;
+* {
+	box-sizing: border-box;
+	font-family: $font;
+    font-size: $font-size;
+}
+body {
+    background-color: $background-color;
+	margin: 0;
+}
+$navtop-background-color: #3f69a8;
+.navtop {
+	background-color: $navtop-background-color;
+	height: 60px;
+	width: 100%;
+	border: 0;
+	div {
+		display: flex;
+		margin: 0 auto;
+		width: $content-width;
+		height: 100%;
+		h1, a {
+			display: inline-flex;
+			align-items: center;
+		}
+		h1 {
+			flex: 1;
+			font-size: 24px;
+			padding: 0;
+			margin: 0;
+			color: mix(#fff, $navtop-background-color, 90);
+			font-weight: normal;
+		}
+		a {
+			padding: 0 20px;
+			text-decoration: none;
+			color: mix(#fff, $navtop-background-color, 70);
+			font-weight: bold;
+			i {
+				padding: 2px 8px 0 0;
+			}
+			&:hover {
+				color: mix(#fff, $navtop-background-color, 90);
+			}
+		}
+	}
+}
+.content {
+	width: $content-width;
+	margin: 0 auto;
+	h2 {
+		margin: 0;
+		padding: 25px 0;
+		font-size: 22px;
+		border-bottom: 1px solid mix(#000, $background-color, 8);
+		color: darken($background-color, 60);
+	}
+}
+@media screen and (max-width: $content-width) {
+	.navtop {
+		height: auto;
+		div {
+			flex-flow:wrap;
+			width: 100%;
+			h1 {
+				display: block;
+				flex-basis: 100%;
+				padding: 15px 10px;
+			}
+			> a {
+				padding: 10px;
+				font-size: 14px;
+				font-weight: 600;
+				flex-basis: 100%;
+				background-color: darken($navtop-background-color, 10);
+				border-bottom: 1px solid darken($navtop-background-color, 13);
+			}
+		}
+	}
+	.content {
+		padding: 10px;
+		width: 100%;
+	}
+	.responsive-width-100 {
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+	}
+}

@@ -1,0 +1,245 @@
+/* =================================================================== 
+ * Mike Turko Stylesheet Mturko
+ * Template Ver. 1.0.0
+ * 01-15-2024
+ * ------------------------------------------------------------------*/
+ 
+:root{
+	--checkout-text-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue","Ubuntu",sans-serif; 
+	
+	
+	
+	
+	--post-title: #2596BE;
+	--post-title-hover: #2587be;
+	
+	
+  /* shades */	
+  --color-black: #000000;
+  --color-gray-19: #141415;
+  --color-gray-18: #27292a;
+  --color-gray-17: #3b3d40;
+  --color-gray-16: #4f5255;
+  --color-gray-15: #63676a;
+  --color-gray-14: #767b7f;
+  --color-gray-13: #8a9094;
+  --color-gray-12: #9ea4aa;
+  --color-gray-11: #b1b9bf;
+  --color-gray-10: #c5cdd4;
+  --color-gray-9: #cbd2d8;
+  --color-gray-8: #d1d7dd;
+  --color-gray-7: #d6dce1;
+  --color-gray-6: #dce1e5;
+  --color-gray-5: #e2e6ea;
+  --color-gray-4: #e8ebee;
+  --color-gray-3: #eef0f2;
+  --color-gray-2: #f3f5f6;
+  --color-gray-1: #f9fafb;
+  --color-white: #ffffff;	
+  
+  
+ }
+ 
+ 
+ /* SIGNUP FORM */
+
+ 
+.container_form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top:25px
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+#subForm label{
+  font-family:  var(--checkout-text-font-family);
+  font-weight: normal
+}
+
+.iagree_text{font-size:15px}
+ 
+button[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family:  var(--checkout-text-font-family);
+} 
+ 
+ 
+ 
+ button[type=submit]:hover {
+  background-color: #45a049;
+}
+ 
+ /* END SIGNUP FORM */ 
+a {color:#008AFF }
+
+/* blog title and subtitle*/
+.post-preview a:focus,
+.post-preview a:hover {
+  text-decoration: none;
+  color: #008AFF;
+}
+
+.post-title{
+  color: var(--post-title);
+}
+
+.post-title:hover{
+  color: var(--post-title-hover)!important;
+}
+
+
+/* blog tags*/
+.blog-tags a {color:#008AFF}
+ 
+.page-heading {color:#404040;}
+.page-subheading {color:purple; font-weight:700!important}
+.well h2{color:#404040;}
+.well {background-color:#f5f5f5}
+
+
+.container-top {
+  --offset: 100px;
+  --fade: 80px;
+  
+  display: flex;
+  align-items: flex-end;
+  width: 60px;
+  justify-self: end;
+  justify-content: flex-end;
+  -webkit-mask:linear-gradient(#0000 calc(100vh + var(--offset)),#000 calc(100vh + var(--offset) + var(--fade)));
+}
+
+.top {
+  position: sticky;
+  bottom: 20px;      
+  margin-right:10px; 
+  
+  /* visual styling */
+  width:100%;
+  aspect-ratio:1;
+  background:#ff8b24;
+  border-radius:10px;
+}
+.top:before {
+  content:"";
+  position:absolute;
+  inset:30%;
+  transform:translateY(20%) rotate(-45deg);
+  border-top:5px solid #fff;
+  border-right:5px solid #fff;
+}
+
+
+
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #dddddd!important;
+    border-radius: 4px;
+}
+
+/*commentstko*/
+.commentwraptko {
+margin-top:10px;
+font-family:  var(--checkout-text-font-family);
+	
+}
+
+
+/* TKO TIP JAR AREA */
+* {
+  box-sizing: border-box;
+}
+
+/* Container for flexboxes */
+.tipjar_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom:10px;
+  margin-top:25px
+}
+
+/* Create four equal columns */
+.tipjar_column {
+  flex: 25%;
+  padding: 20px;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .tipjar_column {
+    flex: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .tipjar_row {
+    flex-direction: column;
+  }
+}
+
+
+/* PAYPAL BUTTON */
+
+
+#donate_paypal_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:5px
+}
+
+#donate_paypal{
+  background-color:white;
+    padding:10px;
+  border-radius:5px;
+}
+
+
+
+ a.button_paypal:link,  a.button_paypal:visited {
+  background-color: rgb(0, 116, 212);
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:265px;
+  border-radius:5px;
+  font-family:  var(--checkout-text-font-family);
+  font-weight: 500;
+  font-size: 15px
+}
+
+a.button_paypal:hover, a.button_paypal:active {
+  background-color: red;
+}
+
