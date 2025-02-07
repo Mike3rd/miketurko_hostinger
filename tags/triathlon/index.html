@@ -12,7 +12,7 @@
  
 
 
-      <title>Test - Mike Turko</title>
+      <title>Triathlon - Mike Turko</title>
 
   <meta name="author" content="Mike Turko"/><script type="application/ld+json">
 {
@@ -35,13 +35,13 @@
 }
 </script>
 
-<meta property="og:title" content="Test" />
+<meta property="og:title" content="Triathlon" />
 <meta property="og:image" content="https://miketurko.com/img/avatar-icon.png" />
-<meta property="og:url" content="https://miketurko.com/tags/test/" />
+<meta property="og:url" content="https://miketurko.com/tags/triathlon/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mike Turko" />
 
-  <meta name="twitter:title" content="Test" />
+  <meta name="twitter:title" content="Triathlon" />
   <meta name="twitter:image" content="https://miketurko.com/img/avatar-icon.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@username" />
@@ -262,7 +262,7 @@ function includeHTML() {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="tags-heading">
               
-                <h1>Test</h1>
+                <h1>Triathlon</h1>
               
               
                 <hr class="small">
@@ -286,15 +286,15 @@ function includeHTML() {
         <div class="posts-list">
           
             <article class="post-preview">
-    <a href="https://miketurko.com/post/baseurltest/">
-        <h2 class="post-title">BaseurlTest</h2>
+    <a href="https://miketurko.com/post/find-your-time/">
+        <h2 class="post-title">Find Your Time</h2>
         
         <h3 class="post-subtitle">
-            Reserved for Subtitle
+            Triathlon Finish Time Calculator
         </h3>
         
         
-        <img src="../../img/path.jpg" alt="BaseurlTest" class="img-title" />
+        <img src="../../img/path.jpg" alt="Find Your Time" class="img-title" />
         
         
     </a>
@@ -303,13 +303,13 @@ function includeHTML() {
         <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on December 2, 2024
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 6, 2025
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;296&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;52&nbsp;words
   
   
     
@@ -323,13 +323,165 @@ function includeHTML() {
     </p>
     <div class="post-entry">
         
-        <h1 id="7-essential-graphic-design-tips-for-non-designers">7 Essential Graphic Design Tips for Non-Designers</h1>
-<p>Creating compelling designs is achievable even without formal training. Whether you&rsquo;re managing social media posts, ad banners, or your own website, these graphic design tips will help you craft professional-looking visuals:</p>
-<h2 id="1-leverage-white-space">1. Leverage White Space</h2>
-<p>White space, or negative space, is crucial in design. It improves readability and separates elements. Ensure your layout isn&rsquo;t overcrowded to maintain a clean, appealing look.</p>
-<h2 id="2-limit-fonts-to-two">2. Limit Fonts to Two</h2>
-<p>For clarity, use no more than two fonts. Pair one for headings and another for body text. This simplicity enhances readability and gives your design a polished look.</p>
-        <a href="https://miketurko.com/post/baseurltest/" class="post-read-more">[Read More]</a>
+        	
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triathlon Time Calculator</title>
+    <style>
+        .container2 {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .input-group2 {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+        }
+        .event-time {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <h2>Triathlon Time Calculator</h2>
+        
+        <div class="input-group2">
+            <label for="raceType">Select Race Type:</label>
+            <select id="raceType">
+                <option value="sprint">Sprint Triathlon</option>
+                <option value="olympic" selected>Olympic Triathlon</option>
+                <option value="70.3">70.3 Ironman</option>
+                <option value="ironman">Ironman</option>
+            </select>
+        </div>
+
+        <div class="input-group2">
+            <label for="swim">Swim Pace (minutes per 100 meters):</label>
+            <input type="number" id="swim" step="0.1" value="2.0">
+            <div class="event-time"><span id="swimDistance">1500</span>m Swim Time: <span id="swimTime">0:00:00</span></div>
+        </div>
+
+        <div class="input-group2">
+            <label for="t1">T1 Transition Time (minutes):</label>
+            <input type="number" id="t1" step="0.1" value="2.0">
+        </div>
+
+        <div class="input-group2">
+            <label for="bike">Bike Speed (mph):</label>
+            <input type="number" id="bike" step="0.1" value="20.0">
+            <div class="event-time"><span id="bikeDistance">40</span>km Bike Time: <span id="bikeTime">0:00:00</span></div>
+        </div>
+
+        <div class="input-group2">
+            <label for="t2">T2 Transition Time (minutes):</label>
+            <input type="number" id="t2" step="0.1" value="1.0">
+        </div>
+
+        <div class="input-group2">
+            <label for="run">Run Pace (minutes per mile):</label>
+            <input type="number" id="run" step="0.1" value="8.0">
+            <div class="event-time"><span id="runDistance">10</span>km Run Time: <span id="runTime">0:00:00</span></div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const raceDistances = {
+            sprint: { swim: 750, bike: 20, run: 5 },
+            olympic: { swim: 1500, bike: 40, run: 10 },
+            '70.3': { swim: 1931, bike: 90, run: 21.1 },
+            ironman: { swim: 3862, bike: 180, run: 42.2 }
+        };
+
+        function formatTime(minutes) {
+            const hours = Math.floor(minutes / 60);
+            const mins = Math.floor(minutes % 60);
+            const secs = Math.round((minutes * 60) % 60);
+            return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function calculateTime() {
+            // Get input values
+            const raceType = document.getElementById('raceType').value;
+            const swimPace = parseFloat(document.getElementById('swim').value);
+            const bikeSpeed = parseFloat(document.getElementById('bike').value);
+            const runPace = parseFloat(document.getElementById('run').value);
+            const t1 = parseFloat(document.getElementById('t1').value) || 0;
+            const t2 = parseFloat(document.getElementById('t2').value) || 0;
+
+            // Validate inputs
+            if ([swimPace, bikeSpeed, runPace, t1, t2].some(x => x < 0 || isNaN(x))) {
+                document.getElementById('result').textContent = "Please enter valid non-negative numbers";
+                return;
+            }
+
+            // Get race distances
+            const distances = raceDistances[raceType];
+            
+            // Update displayed distances
+            document.getElementById('swimDistance').textContent = distances.swim;
+            document.getElementById('bikeDistance').textContent = distances.bike;
+            document.getElementById('runDistance').textContent = distances.run;
+
+            // Convert bike/run distances to miles for calculations
+            const bikeDistanceMiles = distances.bike * 0.621371;
+            const runDistanceMiles = distances.run * 0.621371;
+
+            // Calculate individual times
+            const swimTime = (swimPace * distances.swim) / 100;
+            const bikeTime = (bikeDistanceMiles / bikeSpeed) * 60;
+            const runTime = runPace * runDistanceMiles;
+
+            // Display individual event times
+            document.getElementById('swimTime').textContent = formatTime(swimTime);
+            document.getElementById('bikeTime').textContent = formatTime(bikeTime);
+            document.getElementById('runTime').textContent = formatTime(runTime);
+
+            // Calculate total time
+            const totalMinutes = swimTime + t1 + bikeTime + t2 + runTime;
+            
+            // Display formatted total time
+            document.getElementById('result').textContent = 
+                `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${formatTime(totalMinutes)}`;
+        }
+
+        // Add event listeners
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', calculateTime);
+        });
+
+        // Initial calculation
+        calculateTime();
+    </script>
+</body>
+</html>
+
+
+
         
     </div>
 
@@ -337,10 +489,7 @@ function includeHTML() {
     <div class="blog-tags">
         
        
-       <a href="https://miketurko.com/tags/test/">test</a>&nbsp;
-        
-       
-       <a href="https://miketurko.com/tags/image/">image</a>&nbsp;
+       <a href="https://miketurko.com/tags/triathlon/">triathlon</a>&nbsp;
          
     </div>
     
@@ -433,7 +582,7 @@ function includeHTML() {
           
           
           <li>
-            <a href="../../tags/test/index.xml" title="RSS">
+            <a href="../../tags/triathlon/index.xml" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fas fa-circle fa-stack-2x"></i>
                 <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
