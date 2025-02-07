@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Image on Mike Turko</title>
-    <link>http://localhost:1313/tags/image/</link>
+    <link>https://miketurko.com/tags/image/</link>
     <description>Recent content in Image on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>youremail@domain.com (Mike Turko)</managingEditor>
     <webMaster>youremail@domain.com (Mike Turko)</webMaster>
     <lastBuildDate>Mon, 02 Dec 2024 11:03:47 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/tags/image/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>BaseurlTest</title>
-      <link>http://localhost:1313/post/baseurltest/</link>
+      <link>https://miketurko.com/post/baseurltest/</link>
       <pubDate>Mon, 02 Dec 2024 11:03:47 -0500</pubDate><author>youremail@domain.com (Mike Turko)</author>
-      <guid>http://localhost:1313/post/baseurltest/</guid>
+      <guid>https://miketurko.com/post/baseurltest/</guid>
       <description>&lt;h1 id=&#34;7-essential-graphic-design-tips-for-non-designers&#34;&gt;7 Essential Graphic Design Tips for Non-Designers&lt;/h1&gt;&#xA;&lt;p&gt;Creating compelling designs is achievable even without formal training. Whether you&amp;rsquo;re managing social media posts, ad banners, or your own website, these graphic design tips will help you craft professional-looking visuals:&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-leverage-white-space&#34;&gt;1. Leverage White Space&lt;/h2&gt;&#xA;&lt;p&gt;White space, or negative space, is crucial in design. It improves readability and separates elements. Ensure your layout isn&amp;rsquo;t overcrowded to maintain a clean, appealing look.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2-limit-fonts-to-two&#34;&gt;2. Limit Fonts to Two&lt;/h2&gt;&#xA;&lt;p&gt;For clarity, use no more than two fonts. Pair one for headings and another for body text. This simplicity enhances readability and gives your design a polished look.&lt;/p&gt;</description>
     </item>
   </channel>
