@@ -2,85 +2,85 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://miketurko.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/find-your-time/</loc>
+    <loc>http://localhost:1313/post/find-your-time/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/</loc>
+    <loc>http://localhost:1313/post/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/triathlon/</loc>
+    <loc>http://localhost:1313/tags/triathlon/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/baseurltest/</loc>
+    <loc>http://localhost:1313/post/baseurltest/</loc>
     <lastmod>2024-12-02T11:03:47-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/image/</loc>
+    <loc>http://localhost:1313/tags/image/</loc>
     <lastmod>2024-12-02T11:03:47-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/test/</loc>
+    <loc>http://localhost:1313/tags/test/</loc>
     <lastmod>2024-12-02T11:03:47-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/example/</loc>
+    <loc>http://localhost:1313/tags/example/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/photoswipe/</loc>
+    <loc>http://localhost:1313/tags/photoswipe/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2017-03-20-photoswipe-gallery-sample/</loc>
+    <loc>http://localhost:1313/post/2017-03-20-photoswipe-gallery-sample/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2017-03-07-bigimg-sample/</loc>
+    <loc>http://localhost:1313/post/2017-03-07-bigimg-sample/</loc>
     <lastmod>2017-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/bigimg/</loc>
+    <loc>http://localhost:1313/tags/bigimg/</loc>
     <lastmod>2017-03-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/math/</loc>
+    <loc>http://localhost:1313/tags/math/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2017-03-05-math-sample/</loc>
+    <loc>http://localhost:1313/post/2017-03-05-math-sample/</loc>
     <lastmod>2017-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/code/</loc>
+    <loc>http://localhost:1313/tags/code/</loc>
     <lastmod>2016-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2016-03-08-code-sample/</loc>
+    <loc>http://localhost:1313/post/2016-03-08-code-sample/</loc>
     <lastmod>2016-03-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-02-26-flake-it-till-you-make-it/</loc>
+    <loc>http://localhost:1313/post/2015-02-26-flake-it-till-you-make-it/</loc>
     <lastmod>2015-02-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/markdown/</loc>
+    <loc>http://localhost:1313/tags/markdown/</loc>
     <lastmod>2015-02-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-02-20-test-markdown/</loc>
+    <loc>http://localhost:1313/post/2015-02-20-test-markdown/</loc>
     <lastmod>2015-02-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-02-13-hamlet-monologue/</loc>
+    <loc>http://localhost:1313/post/2015-02-13-hamlet-monologue/</loc>
     <lastmod>2015-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-01-27-dear-diary/</loc>
+    <loc>http://localhost:1313/post/2015-01-27-dear-diary/</loc>
     <lastmod>2015-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-01-19-soccer/</loc>
+    <loc>http://localhost:1313/post/2015-01-19-soccer/</loc>
     <lastmod>2015-01-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-01-15-pirates/</loc>
+    <loc>http://localhost:1313/post/2015-01-15-pirates/</loc>
     <lastmod>2015-01-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/2015-01-04-first-post/</loc>
+    <loc>http://localhost:1313/post/2015-01-04-first-post/</loc>
     <lastmod>2015-01-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/page/about/</loc>
+    <loc>http://localhost:1313/page/about/</loc>
   </url><url>
-    <loc>https://miketurko.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://miketurko.com/page/</loc>
+    <loc>http://localhost:1313/page/</loc>
   </url>
 </urlset>
