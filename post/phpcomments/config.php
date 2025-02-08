@@ -1,12 +1,12 @@
 <?php
 // Your MySQL database hostname.
-define('db_host','u940803011_miketurko');
+define('db_host','localhost');
 // Your MySQL database username.
 define('db_user','u940803011_miketurko');
 // Your MySQL database password.
 define('db_pass','9tXPvlX08]8?');
 // Your MySQL database name.
-define('db_name','phpcomments_advanced');
+define('db_name','u940803011_miketurko');
 // Your MySQL database charset.
 define('db_charset','utf8');
 /* Comments */
