@@ -32,8 +32,9 @@
 	--text-dark: hsla(0, 0%, 20%, 1);
 	
 	 /* Derived colors */
+	--page-subheading: hsla(293, 83%, 63%, 1);
 	--post-title: hsla(154, 25%, 31%, 1);
-	--post-subtitle: hsla(293, 86%, 63%, 1);
+	--post-subtitle: hsla(4, 100%, 68%, 1);
 	--callout-bg: hsla(0, 100%, 95%, 0.2);
 	--border: hsla(0, 0%, 83%, 1);
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
@@ -112,7 +113,7 @@ footer a{
 .blog-tags a {color:#008AFF}
  
 .page-heading {color:var(--primary);}
-.page-subheading {color:var(--secondary);font-weight:700!important}
+.page-subheading {color:var(--page-subheading);font-weight:700!important}
 .well h2{color:#404040;}
 .well {background-color:#f5f5f5}
 
