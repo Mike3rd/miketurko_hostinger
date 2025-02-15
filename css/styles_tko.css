@@ -99,8 +99,9 @@ footer a{
   color: var(--post-title);
 }
 
-.post-subtitle{
+.post-preview .post-subtitle{
   color: var(--post-subtitle);
+  font-weight: 500
 }
 
 .post-title:hover{
