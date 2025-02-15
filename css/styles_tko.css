@@ -3,19 +3,53 @@
  * Template Ver. 1.0.0
  * 01-15-2024
  * ------------------------------------------------------------------*/
+ @import url("fonts.css");
+ 
+ /*font-family: 'Merriweather', serif; normal, italic, bold, bold italic*/
+:root{
+	
+	
+	--regular: normal;
+    --bold: bold;
+  	--light		:400;  
+	--regular   :500;
+	--semi-bold  :600;
+	--bold 		 :700;
+	--xbold 	 :800;
+	--checkout-text-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue","Ubuntu",sans-serif;
+	--theme-font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+} 
  
 :root{
-	--checkout-text-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Helvetica Neue","Ubuntu",sans-serif; 
+
 	
+	  /* Base palette */
+	--primary-hue: 170;
+	--secondary-hue: 4;
+	--primary: hsla(var(--primary-hue), 25%, 23%, 1);
+	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
+	--neutral-bg: hsla(120, 8%, 97%, 1);
+	--text-dark: hsla(0, 0%, 20%, 1);
 	
-	
-	
-	--post-title: #2596BE;
-	--post-title-hover: #2587be;
-	
+	 /* Derived colors */
+	--post-title: hsla(154, 25%, 31%, 1);
+	--post-subtitle: hsla(4, 100%, 68%, 1);
+	--callout-bg: hsla(0, 100%, 95%, 0.2);
+	--border: hsla(0, 0%, 83%, 1);
+	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
+	--code-highlite-text: hsla(0, 0%, 100%, 1);
+	--links: hsla(170, 25%, 23%, 1);
+	--links-hover: hsla(4, 100%, 68%, 1)
+  
+  
+	--contact-section-wrap: hsla(52, 100%, 50%, .5);
+	--tipjar-section-wrap: hsla(52, 100%, 50%, .5);
+	--donate-button-text: hsla(0, 0%, 0%, 1);
+	--donate-button-fill: hsla(52, 100%, 50%, 1);
+	--donate-button-hover: hsla(52, 100%, 50%, .8);
 	
   /* shades */	
-  --color-black: #000000;
+  --color-black: hsla(0, 0%, 0%, 1);
   --color-gray-19: #141415;
   --color-gray-18: #27292a;
   --color-gray-17: #3b3d40;
@@ -40,6 +74,111 @@
   
  }
  
+
+
+body{}
+
+.navbar-custom .navbar-brand, .navbar-custom .nav li a{
+	color: var(--primary)
+}
+
+
+footer a{
+	color: var(--primary)
+}
+
+/* blog title and subtitle*/
+.post-preview a:focus,
+.post-preview a:hover {
+  text-decoration: none;
+  color: var(--secondary)
+}
+
+.post-title{
+  color: var(--post-title);
+}
+
+.post-subtitle{
+  color: var(--post-subtitle);
+}
+
+.post-title:hover{
+  color: var(--secondary)!important;
+}
+.post-read-more{color:var(--primary);}
+
+
+/* blog tags*/
+.blog-tags a {color:#008AFF}
+ 
+.page-heading {color:var(--primary);}
+.page-subheading {color:var(--secondary);font-weight:700!important}
+.well h2{color:#404040;}
+.well {background-color:#f5f5f5}
+
+/* blog post page*/
+
+.blog-post h2{
+  color: var(--post-title);
+	
+}
+
+
+.container-top {
+  --offset: 100px;
+  --fade: 80px;
+  
+  display: flex;
+  align-items: flex-end;
+  width: 60px;
+  justify-self: end;
+  justify-content: flex-end;
+  -webkit-mask:linear-gradient(#0000 calc(100vh + var(--offset)),#000 calc(100vh + var(--offset) + var(--fade)));
+}
+
+.top {
+  position: sticky;
+  bottom: 20px;      
+  margin-right:10px; 
+  
+  /* visual styling */
+  width:100%;
+  aspect-ratio:1;
+  background:var(--callout-bg);
+  border-radius:10px;
+}
+.top:before {
+  content:"";
+  position:absolute;
+  inset:30%;
+  transform:translateY(20%) rotate(-45deg);
+  border-top:5px solid #fff;
+  border-right:5px solid #fff;
+}
+
+.well{
+	background-color:var(--neutral-bg);
+	font-family: var(--theme-font-family)
+	
+}
+
+
+/*hugo markup hilight text*/
+code {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: var(--code-highlite-text);
+    background-color:var(--code-highlite); 
+    border-radius: 4px;
+}
+
+/*commentstko*/
+.commentwraptko {
+margin-top:10px;
+font-family:  var(--checkout-text-font-family);
+	
+}
+
  
  /* SIGNUP FORM */
 
@@ -77,7 +216,17 @@ input[type=email], select, textarea {
   font-weight: normal
 }
 
-.iagree_text{font-size:15px}
+#cm-privacy-consent{
+ width:auto;
+  
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;}
+  
+.iagree_text{font-size:15px; display:inline}
  
 button[type=submit] {
   background-color: #04AA6D;
@@ -96,82 +245,6 @@ button[type=submit] {
 }
  
  /* END SIGNUP FORM */ 
-a {color:#008AFF }
-
-/* blog title and subtitle*/
-.post-preview a:focus,
-.post-preview a:hover {
-  text-decoration: none;
-  color: #008AFF;
-}
-
-.post-title{
-  color: var(--post-title);
-}
-
-.post-title:hover{
-  color: var(--post-title-hover)!important;
-}
-
-
-/* blog tags*/
-.blog-tags a {color:#008AFF}
- 
-.page-heading {color:#404040;}
-.page-subheading {color:purple; font-weight:700!important}
-.well h2{color:#404040;}
-.well {background-color:#f5f5f5}
-
-
-.container-top {
-  --offset: 100px;
-  --fade: 80px;
-  
-  display: flex;
-  align-items: flex-end;
-  width: 60px;
-  justify-self: end;
-  justify-content: flex-end;
-  -webkit-mask:linear-gradient(#0000 calc(100vh + var(--offset)),#000 calc(100vh + var(--offset) + var(--fade)));
-}
-
-.top {
-  position: sticky;
-  bottom: 20px;      
-  margin-right:10px; 
-  
-  /* visual styling */
-  width:100%;
-  aspect-ratio:1;
-  background:#ff8b24;
-  border-radius:10px;
-}
-.top:before {
-  content:"";
-  position:absolute;
-  inset:30%;
-  transform:translateY(20%) rotate(-45deg);
-  border-top:5px solid #fff;
-  border-right:5px solid #fff;
-}
-
-
-
-code {
-    padding: 2px 4px;
-    font-size: 90%;
-    color: #c7254e;
-    background-color: #dddddd!important;
-    border-radius: 4px;
-}
-
-/*commentstko*/
-.commentwraptko {
-margin-top:10px;
-font-family:  var(--checkout-text-font-family);
-	
-}
-
 
 /* TKO TIP JAR AREA */
 * {
@@ -183,7 +256,8 @@ font-family:  var(--checkout-text-font-family);
   display: flex;
   flex-wrap: wrap;
   margin-bottom:10px;
-  margin-top:25px
+  margin-top:25px;
+  background-color:var(--primary);
 }
 
 /* Create four equal columns */
@@ -192,10 +266,20 @@ font-family:  var(--checkout-text-font-family);
   padding: 20px;
 }
 
+.contact_column {
+  flex: 25%;
+  padding: 20px;
+  border-right:3px solid white;
+}
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
   .tipjar_column {
     flex: 50%;
+  }
+  .contact_column {
+    flex: 50%;
+
   }
 }
 
@@ -204,6 +288,14 @@ font-family:  var(--checkout-text-font-family);
   .tipjar_row {
     flex-direction: column;
   }
+  
+    .contact_column {
+   
+	  border-right:none;
+	  border-bottom:3px solid white;
+  }
+  
+  
 }
 
 
@@ -226,8 +318,8 @@ font-family:  var(--checkout-text-font-family);
 
 
  a.button_paypal:link,  a.button_paypal:visited {
-  background-color: rgb(0, 116, 212);
-  color: white;
+  background-color: var(--donate-button-fill);
+  color: var(--donate-button-text);
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
@@ -240,6 +332,20 @@ font-family:  var(--checkout-text-font-family);
 }
 
 a.button_paypal:hover, a.button_paypal:active {
-  background-color: red;
+  background-color: var(--donate-button-hover);
 }
 
+.fa {
+	
+	color:var(--primary);
+	font-size:21px;
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid var(--secondary);
+	background-color:var(--callout-bg);
+	
+}
