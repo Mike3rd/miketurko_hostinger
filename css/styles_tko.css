@@ -74,7 +74,6 @@
   
  }
  
-<<<<<<< HEAD
 
 
 body{}
@@ -183,100 +182,6 @@ font-family:  var(--checkout-text-font-family);
  
  /* SIGNUP FORM */
 
-=======
-
-a {color:#008AFF }
-
-
-
-
-
-
-/* blog title and subtitle*/
-.post-preview a:focus,
-.post-preview a:hover {
-  text-decoration: none;
-  color: #008AFF;
-}
-
-.post-title{
-  color: var(--post-title);
-}
-
-.post-title:hover{
-  color: var(--post-title-hover)!important;
-}
-
-
-/* blog tags*/
-.blog-tags a {color:#008AFF}
- 
-.page-heading {color:#404040;}
-.page-subheading {color:purple; font-weight:700!important}
-.well h2{color:#404040;}
-.well {background-color:#f5f5f5}
-
-/* blog post page*/
-
-.blog-post h2{
-  color: var(--post-title);
-	
-}
-
-
-.container-top {
-  --offset: 100px;
-  --fade: 80px;
-  
-  display: flex;
-  align-items: flex-end;
-  width: 60px;
-  justify-self: end;
-  justify-content: flex-end;
-  -webkit-mask:linear-gradient(#0000 calc(100vh + var(--offset)),#000 calc(100vh + var(--offset) + var(--fade)));
-}
-
-.top {
-  position: sticky;
-  bottom: 20px;      
-  margin-right:10px; 
-  
-  /* visual styling */
-  width:100%;
-  aspect-ratio:1;
-  background:#ff8b24;
-  border-radius:10px;
-}
-.top:before {
-  content:"";
-  position:absolute;
-  inset:30%;
-  transform:translateY(20%) rotate(-45deg);
-  border-top:5px solid #fff;
-  border-right:5px solid #fff;
-}
-
-
-
-code {
-    padding: 2px 4px;
-    font-size: 90%;
-    color: #c7254e;
-    background-color: #dddddd!important;
-    border-radius: 4px;
-}
-
-/*commentstko*/
-.commentwraptko {
-margin-top:10px;
-font-family:  var(--checkout-text-font-family);
-	
-}
-
- 
- /* SIGNUP FORM */
-
->>>>>>> d30c77b1cb4d93ceecf7514ad5c3c1ac00eaf18e
  
 .container_form {
   border-radius: 5px;
