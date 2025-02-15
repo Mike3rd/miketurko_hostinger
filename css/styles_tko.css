@@ -32,7 +32,7 @@
 	--text-dark: hsla(0, 0%, 20%, 1);
 	
 	 /* Derived colors */
-	--page-subheading: hsla(293, 83%, 63%, 1);
+	--page-subheading: hsla(var(--primary-hue), 25%, 23%, 1);
 	--post-title: hsla(154, 25%, 31%, 1);
 	--post-subtitle: hsla(4, 100%, 68%, 1);
 	--callout-bg: hsla(0, 100%, 95%, 0.2);
