@@ -33,7 +33,7 @@
 	
 	 /* Derived colors */
 	--post-title: hsla(154, 25%, 31%, 1);
-	--post-subtitle: hsla(4, 100%, 68%, 1);
+	--post-subtitle: hsla(293, 86%, 63%, 1);
 	--callout-bg: hsla(0, 100%, 95%, 0.2);
 	--border: hsla(0, 0%, 83%, 1);
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
