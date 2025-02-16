@@ -263,6 +263,13 @@ button[type=submit] {
 }
 
 /* Create four equal columns */
+
+.tipjar_row p{
+color: var(--color-white);
+font-family: var(--theme-font-family);	
+}
+
+
 .tipjar_column {
   flex: 25%;
   padding: 20px;
@@ -272,10 +279,14 @@ button[type=submit] {
   flex: 25%;
   padding: 20px;
   border-right:3px solid white;
+ 
 }
 
-.contact_title, .tipjar_title p{
+
+
+.contact_title, .tipjar_title{
   color: var(--color-white);
+
 }
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
