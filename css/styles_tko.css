@@ -30,6 +30,7 @@
 	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
 	--text-dark: hsla(0, 0%, 20%, 1);
+	--heather-gray hsla(201, 19%, 76%, 1)
 	
 	 /* Derived colors */
 	--page-subheading: hsla(var(--primary-hue), 25%, 23%, 1);
@@ -306,7 +307,7 @@ font-family: var(--theme-font-family);
     flex-direction: column;
   }
   
-    .contact_column h3{
+    .contact_column{
    
 	  border-right:none;
 	  border-bottom:3px solid white;
@@ -366,3 +367,21 @@ blockquote {
 	background-color:var(--callout-bg);
 	
 }
+
+.post-read-more {
+color: var(--primary)
+}
+
+.post-preview a{
+color: var(--primary)
+}
+
+hr.small{
+border-color: var(--secondary)
+
+}
+
+.share_post{
+font-family:var(--theme-font-family);
+color:var(--heather-gray);
+font-size:17px
