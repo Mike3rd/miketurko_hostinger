@@ -275,6 +275,10 @@ button[type=submit] {
   color: var(--color-white);
 }
 
+.contact_title, .tipjar_title {
+  color: var(--color-white);
+}
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 992px) {
   .tipjar_column {
