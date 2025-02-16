@@ -5,6 +5,10 @@
  * ------------------------------------------------------------------*/
  @import url("fonts.css");
  
+ :root[data-theme="holiday"] {
+  --primary-hue: 0; /* Red instead of teal */
+}
+ 
  /*font-family: 'Merriweather', serif; normal, italic, bold, bold italic*/
 :root{
 	
@@ -28,6 +32,7 @@
 	--secondary-hue: 4;
 	--primary: hsla(var(--primary-hue), 25%, 23%, 1);
 	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
+	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
 	--text-dark: hsla(0, 0%, 20%, 1);
 	--heather-gray hsla(201, 19%, 76%, 1)
@@ -385,3 +390,77 @@ border-color: var(--secondary)
 font-family:var(--theme-font-family);
 color:var(--heather-gray);
 font-size:17px
+}
+/* FIND YOUR TIME*/
+        .container2 {
+            max-width: 100%;
+            margin: 0px auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .input-group2 {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 5px;
+        }
+        .event-time {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+/*END FIND YOUR TIME*/
+
+
+/*ALERT CIRCLE CHECK SHORTCODE*/
+.alert {
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+
+}
+
+.alert-content {
+  font-family:  var(--checkout-text-font-family);
+  font-weight: var(--semi-bold)
+}
+
+.alert-circle-check {
+  background: var(--neutral-bg);
+  border: 1px solid var(--primary);
+}
+
+.alert-warning {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+}
+
+.alert-icon {
+  font-size: 1.2em;
+}
+
+.alert-circle-check .alert-icon {
+  color: var(--primary);
+}
+
+.alert-warning .alert-icon {
+  color: #ef6c00;
+}
+/*END SHORTCODE*?

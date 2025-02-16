@@ -414,14 +414,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
             <article class="post-preview">
     <a href="https://miketurko.com/post/find-your-time/">
-        <h2 class="post-title">Find Your Time</h2>
+        <h2 class="post-title">Triathlon Time Calculator: Predict Your Race Finish</h2>
         
         <h3 class="post-subtitle">
-            Triathlon Finish Time Calculator
+            Calculate your triathlon finish time for Sprint, Olympic, 70.3, or Ironman distances using swim, bike, run, and transition paces.
         </h3>
         
         
-        <img src="../img/path.jpg" alt="Find Your Time" class="img-title" />
+        <img src="../img/path.jpg" alt="Triathlon Time Calculator: Predict Your Race Finish" class="img-title" />
         
         
     </a>
@@ -433,10 +433,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <i class="fas fa-calendar"></i>&nbsp;Posted on February 6, 2025
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;55&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;260&nbsp;words
   
   
     
@@ -450,161 +450,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </p>
     <div class="post-entry">
         
-        	
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Triathlon Time Calculator</title>
-    <style>
-        .container2 {
-            max-width: 100%;
-            margin: 0px auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-        }
-        .input-group2 {
-            margin: 15px 0;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 5px;
-        }
-        .event-time {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        #result {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f0f0f0;
-            border-radius: 4px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container2">
-        <h2>Triathlon Time Calculator</h2>
-        
-        <div class="input-group2">
-            <label for="raceType">Select Race Type:</label>
-            <select id="raceType">
-                <option value="sprint">Sprint Triathlon</option>
-                <option value="olympic" selected>Olympic Triathlon</option>
-                <option value="70.3">70.3 Ironman</option>
-                <option value="ironman">Ironman</option>
-            </select>
-        </div>
-
-        <div class="input-group2">
-            <label for="swim">Swim Pace (minutes per 100 yards):</label>
-            <input type="number" id="swim" step="0.1" value="2.0">
-            <div class="event-time"><span id="swimDistance">1640</span> yd Swim Time: <span id="swimTime">0:00:00</span></div>
-        </div>
-
-        <div class="input-group2">
-            <label for="t1">T1 Transition Time (minutes):</label>
-            <input type="number" id="t1" step="0.1" value="2.0">
-        </div>
-
-        <div class="input-group2">
-            <label for="bike">Bike Speed (mph):</label>
-            <input type="number" id="bike" step="0.1" value="20.0">
-            <div class="event-time"><span id="bikeDistance">24.8</span> mi Bike Time: <span id="bikeTime">0:00:00</span></div>
-        </div>
-
-        <div class="input-group2">
-            <label for="t2">T2 Transition Time (minutes):</label>
-            <input type="number" id="t2" step="0.1" value="1.0">
-        </div>
-
-        <div class="input-group2">
-            <label for="run">Run Pace (minutes per mile):</label>
-            <input type="number" id="run" step="0.1" value="8.0">
-            <div class="event-time"><span id="runDistance">6.2</span> mi Run Time: <span id="runTime">0:00:00</span></div>
-        </div>
-
-        <div id="result"></div>
-    </div>
-
-    <script>
-        const raceDistances = {
-            sprint: { swim: 820, bike: 12.4, run: 3.1 },    // 750m/20km/5km converted
-            olympic: { swim: 1640, bike: 24.8, run: 6.2 },  // 1500m/40km/10km converted
-            '70.3': { swim: 2112, bike: 56, run: 13.1 },    // 1.2mi/56mi/13.1mi
-            ironman: { swim: 4224, bike: 112, run: 26.2 }   // 2.4mi/112mi/26.2mi
-        };
-
-        function formatTime(minutes) {
-            const hours = Math.floor(minutes / 60);
-            const mins = Math.floor(minutes % 60);
-            const secs = Math.round((minutes * 60) % 60);
-            return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function calculateTime() {
-            // Get input values
-            const raceType = document.getElementById('raceType').value;
-            const swimPace = parseFloat(document.getElementById('swim').value);
-            const bikeSpeed = parseFloat(document.getElementById('bike').value);
-            const runPace = parseFloat(document.getElementById('run').value);
-            const t1 = parseFloat(document.getElementById('t1').value) || 0;
-            const t2 = parseFloat(document.getElementById('t2').value) || 0;
-
-            // Validate inputs
-            if ([swimPace, bikeSpeed, runPace, t1, t2].some(x => x < 0 || isNaN(x))) {
-                document.getElementById('result').textContent = "Please enter valid non-negative numbers";
-                return;
-            }
-
-            // Get race distances
-            const distances = raceDistances[raceType];
-            
-            // Update displayed distances
-            document.getElementById('swimDistance').textContent = distances.swim;
-            document.getElementById('bikeDistance').textContent = distances.bike;
-            document.getElementById('runDistance').textContent = distances.run;
-
-            // Calculate individual times
-            const swimTime = (swimPace * distances.swim) / 100;
-            const bikeTime = (distances.bike / bikeSpeed) * 60;
-            const runTime = runPace * distances.run;
-
-            // Display individual event times
-            document.getElementById('swimTime').textContent = formatTime(swimTime);
-            document.getElementById('bikeTime').textContent = formatTime(bikeTime);
-            document.getElementById('runTime').textContent = formatTime(runTime);
-
-            // Calculate total time
-            const totalMinutes = swimTime + t1 + bikeTime + t2 + runTime;
-            
-            // Display formatted total time
-            document.getElementById('result').textContent = 
-                `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${formatTime(totalMinutes)}`;
-        }
-
-        // Add event listeners
-        document.querySelectorAll('input, select').forEach(element => {
-            element.addEventListener('input', calculateTime);
-        });
-
-        // Initial calculation
-        calculateTime();
-    </script>
-</body>
-</html>
-
-
-
+        <p><strong>Unlock Your Triathlon Potential</strong><br>
+<em>Precision Race Time Calculator</em></p>
+<p>Ready to take your triathlon training to the next level? Whether you’re a seasoned Ironman veteran or a first-time Sprint competitor, my calculator helps you predict your finish time with accuracy—tailored to <strong>your</strong> pace and race distance.</p>
+        <a href="https://miketurko.com/post/find-your-time/" class="post-read-more">[Read More]</a>
         
     </div>
 
