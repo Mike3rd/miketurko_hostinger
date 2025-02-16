@@ -1,12 +1,12 @@
 <?php
 // Your MySQL database hostname.
-define('db_host','db-pepxyz.cjqemucsql96.us-east-2.rds.amazonaws.com');
+define('db_host','local');
 // Your MySQL database username.
-define('db_user','admin');
+define('db_user','u940803011_miketurko');
 // Your MySQL database password.
-define('db_pass','DB$pepxyz2025');
+define('db_pass','9tXPvlX08]8?');
 // Your MySQL database name.
-define('db_name','phpcomments_advanced');
+define('db_name','u940803011_miketurko');
 // Your MySQL database charset.
 define('db_charset','utf8');
 /* Comments */
@@ -26,7 +26,7 @@ define('max_comment_edit_time',60);
 // If enabled, the user can search for comments.
 define('search_enabled',false);
 // The directory URL where the comment files are located.
-define('comments_url','https://planeteasypeasy.com/post/phpcomments/');
+define('comments_url','https://miketurko.com/post/phpcomments/');
 /* Mail */
 // Send mail to users, etc?
 define('mail_enabled',false);
