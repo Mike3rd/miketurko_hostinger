@@ -1,6 +1,6 @@
 <?php
 // Your MySQL database hostname.
-define('db_host','local');
+define('db_host','localhost');
 // Your MySQL database username.
 define('db_user','u940803011_miketurko');
 // Your MySQL database password.
