@@ -272,6 +272,7 @@ button[type=submit] {
   flex: 25%;
   padding: 20px;
   border-right:3px solid white;
+  color: var(--color-white);
 }
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
