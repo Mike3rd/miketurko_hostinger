@@ -292,7 +292,7 @@ button[type=submit] {
     flex-direction: column;
   }
   
-    .contact_column {
+    .contact_column h3{
    
 	  border-right:none;
 	  border-bottom:3px solid white;
