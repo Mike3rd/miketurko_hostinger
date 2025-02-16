@@ -4,9 +4,9 @@ define('db_host','localhost');
 // Your MySQL database username.
 define('db_user','u940803011_mturko');
 // Your MySQL database password.
-define('db_pass','MT@easyhrcomments25');
+define('db_pass','9tXPvlX08]8?');
 // Your MySQL database name.
-define('db_name','u940803011_easyhrcomms');
+define('db_name','u940803011_miketurko');
 // Your MySQL database charset.
 define('db_charset','utf8');
 /* Comments */
@@ -26,7 +26,7 @@ define('max_comment_edit_time',60);
 // If enabled, the user can search for comments.
 define('search_enabled',false);
 // The directory URL where the comment files are located.
-define('comments_url','http://easyhrcomms.com/post/phpcomments/');
+define('comments_url','http://miketurko.com/post/phpcomments/');
 /* Mail */
 // Send mail to users, etc?
 define('mail_enabled',false);
