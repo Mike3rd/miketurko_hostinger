@@ -392,6 +392,17 @@ color:var(--heather-gray);
 font-size:17px
 }
 /* FIND YOUR TIME*/
+
+		.error-message {
+            color: #dc3545;
+            font-size: 0.9em;
+            margin-top: 4px;
+            display: block;
+        }
+        .invalid-time {
+            color: #dc3545 !important;
+        }
+		
         .container2 {
             max-width: 100%;
             margin: 0px auto;
