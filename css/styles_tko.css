@@ -85,6 +85,9 @@
 
 body{}
 
+.post-subheading{}
+
+
 .navbar-custom .navbar-brand, .navbar-custom .nav li a{
 	color: var(--primary)
 }
