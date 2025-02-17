@@ -65,7 +65,7 @@
   "headline": "Triathlon Time Calculator: Predict Your Race Finish",
   "description" : "Unlock Your Triathlon Potential Precision Race Time Calculator\nReady to take your triathlon training to the next level? Whether you’re a seasoned Ironman veteran or a first-time Sprint competitor, my calculator helps you predict your finish time with accuracy—tailored to your pace and race distance.\n",
   "inLanguage" : "en",
-  "wordCount":  260 ,
+  "wordCount":  282 ,
   "datePublished" : "2025-02-06T20:02:08-05:00",
   "dateModified" : "2025-02-06T20:02:08-05:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -341,7 +341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;260&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;282&nbsp;words
   
   
     
@@ -385,7 +385,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;2&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;260&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;282&nbsp;words
   
   
     
@@ -488,14 +488,16 @@ See how pace adjustments impact total time in real-time</p>
         </div>
 
         <div class="input-group2">
-            <label for="swim">Swim Pace (minutes per 100 yards):</label>
-            <input type="number" id="swim" step="0.1" value="2.0">
+            <label for="swim">Swim Pace (per 100 yards):</label>
+            <input type="text" id="swim" placeholder="mm:ss" value="2:00">
+            <div class="time-format-example">Example: 2:30 = 2 minutes 30 seconds/100y</div>
             <div class="event-time"><span id="swimDistance">1640</span> yd Swim Time: <span id="swimTime">0:00:00</span></div>
         </div>
 
         <div class="input-group2">
-            <label for="t1">T1 Transition Time (minutes):</label>
-            <input type="number" id="t1" step="0.1" value="2.0">
+            <label for="t1">T1 Transition Time:</label>
+            <input type="text" id="t1" placeholder="mm:ss" value="2:00">
+            <div class="time-format-example">Example: 1:30 = 1 minute 30 seconds</div>
         </div>
 
         <div class="input-group2">
@@ -505,13 +507,15 @@ See how pace adjustments impact total time in real-time</p>
         </div>
 
         <div class="input-group2">
-            <label for="t2">T2 Transition Time (minutes):</label>
-            <input type="number" id="t2" step="0.1" value="1.0">
+            <label for="t2">T2 Transition Time:</label>
+            <input type="text" id="t2" placeholder="mm:ss" value="1:00">
+            <div class="time-format-example">Example: 0:45 = 45 seconds</div>
         </div>
 
-        <div class="input-group2">
-            <label for="run">Run Pace (minutes per mile):</label>
-            <input type="number" id="run" step="0.1" value="8.0">
+        <div class="input-group">
+            <label for="run">Run Pace (per mile):</label>
+            <input type="text" id="run" placeholder="mm:ss" value="8:00">
+            <div class="time-format-example">Example: 7:30 = 7 minutes 30 seconds/mile</div>
             <div class="event-time"><span id="runDistance">6.2</span> mi Run Time: <span id="runTime">0:00:00</span></div>
         </div>
 
@@ -519,6 +523,23 @@ See how pace adjustments impact total time in real-time</p>
     </div>
 
     <script>
+	
+	 function parseTimeToMinutes(timeString) {
+            if (!timeString) return 0;
+            
+            const parts = timeString.split(':');
+            if (parts.length < 1 || parts.length > 2 || 
+                isNaN(parts[0]) || (parts[1] && isNaN(parts[1]))) {
+                return null;
+            }
+            
+            const minutes = parseInt(parts[0], 10);
+            const seconds = parts[1] ? parseInt(parts[1], 10) : 0;
+            
+            if (seconds >= 60) return null;
+            
+            return minutes + (seconds / 60);
+        }
         const raceDistances = {
             sprint: { swim: 820, bike: 12.4, run: 3.1 },    // 750m/20km/5km converted
             olympic: { swim: 1640, bike: 24.8, run: 6.2 },  // 1500m/40km/10km converted
@@ -534,21 +555,30 @@ See how pace adjustments impact total time in real-time</p>
         }
 
         function calculateTime() {
-            // Get input values
-            const raceType = document.getElementById('raceType').value;
-            const swimPace = parseFloat(document.getElementById('swim').value);
-            const bikeSpeed = parseFloat(document.getElementById('bike').value);
-            const runPace = parseFloat(document.getElementById('run').value);
-            const t1 = parseFloat(document.getElementById('t1').value) || 0;
-            const t2 = parseFloat(document.getElementById('t2').value) || 0;
+            // Parse all time-based inputs
+            const inputs = {
+                swim: parseTimeToMinutes(document.getElementById('swim').value),
+                t1: parseTimeToMinutes(document.getElementById('t1').value),
+                bike: parseFloat(document.getElementById('bike').value),
+                t2: parseTimeToMinutes(document.getElementById('t2').value),
+                run: parseTimeToMinutes(document.getElementById('run').value)
+            };
 
-            // Validate inputs
-            if ([swimPace, bikeSpeed, runPace, t1, t2].some(x => x < 0 || isNaN(x))) {
-                document.getElementById('result').textContent = "Please enter valid non-negative numbers";
+            // Validate all fields
+            let error = '';
+            if (inputs.swim === null) error += "• Invalid swim pace format (use mm:ss)\n";
+            if (inputs.t1 === null) error += "• Invalid T1 time format (use mm:ss)\n";
+            if (isNaN(inputs.bike) || inputs.bike <= 0) error += "• Invalid bike speed\n";
+            if (inputs.t2 === null) error += "• Invalid T2 time format (use mm:ss)\n";
+            if (inputs.run === null) error += "• Invalid run pace format (use mm:ss)\n";
+
+            if (error) {
+                document.getElementById('result').textContent = `Please fix:\n${error}`;
                 return;
             }
 
             // Get race distances
+            const raceType = document.getElementById('raceType').value;
             const distances = raceDistances[raceType];
             
             // Update displayed distances
@@ -557,21 +587,19 @@ See how pace adjustments impact total time in real-time</p>
             document.getElementById('runDistance').textContent = distances.run;
 
             // Calculate individual times
-            const swimTime = (swimPace * distances.swim) / 100;
-            const bikeTime = (distances.bike / bikeSpeed) * 60;
-            const runTime = runPace * distances.run;
+            const swimTime = (inputs.swim * distances.swim) / 100;
+            const bikeTime = (distances.bike / inputs.bike) * 60;
+            const runTime = inputs.run * distances.run;
 
-            // Display individual event times
+            // Display times
             document.getElementById('swimTime').textContent = formatTime(swimTime);
             document.getElementById('bikeTime').textContent = formatTime(bikeTime);
             document.getElementById('runTime').textContent = formatTime(runTime);
 
             // Calculate total time
-            const totalMinutes = swimTime + t1 + bikeTime + t2 + runTime;
-            
-            // Display formatted total time
+            const totalMinutes = swimTime + inputs.t1 + bikeTime + inputs.t2 + runTime;
             document.getElementById('result').textContent = 
-                `Total Time (${document.getElementById('raceType').options[document.getElementById('raceType').selectedIndex].text}): ${formatTime(totalMinutes)}`;
+                `Total Time (${document.getElementById('raceType').selectedOptions[0].text}): ${formatTime(totalMinutes)}`;
         }
 
         // Add event listeners
