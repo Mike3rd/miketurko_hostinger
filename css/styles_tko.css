@@ -394,6 +394,13 @@ font-family:var(--theme-font-family);
 color:var(--heather-gray);
 font-size:17px
 }
+.share-box{
+margin-top:2px;
+text-shadow:none
+}
+
+
+
 /* FIND YOUR TIME*/
 
 		.error-message {
