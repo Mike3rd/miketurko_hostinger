@@ -323,9 +323,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	    
                &nbsp;|&nbsp; 
+
+
+
+
+
 <div class="share-container">
   <button class="share-button" id="shareButton">
-    <i class="fas fa-share-alt"></i>
+    <i class="fas fa-share-alt" style="color:var(--secondary)"></i>
   </button>
   
   <div class="dropdown-content" id="dropdownContent">
@@ -352,83 +357,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+<script>
 
-<style>
+const shareButton = document.getElementById('shareButton');
+const dropdownContent = document.getElementById('dropdownContent');
+
+
+shareButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  dropdownContent.classList.toggle('show');
+});
+
+
+document.addEventListener('click', (e) => {
+  if (dropdownContent.classList.contains('show')) {
+    dropdownContent.classList.remove('show');
+  }
+});
  
-.share-container {
-  position: relative;
-  display: inline-block;
-}
 
-.share-button {
-  background: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
 
-.share-button:hover {
-  background: #f5f5f5;
-  transform: rotate(360deg);
-}
+    switch(true) {
+      case this.classList.contains('linkedin'):
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        break;
+      case this.classList.contains('facebook'):
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        break;
+      case this.classList.contains('bluesky'):
+        window.open(`https://bsky.app/intent/compose?text=${title}%20${url}`, '_blank');
+        break;
+      case this.classList.contains('email'):
+        window.location.href = `mailto:?subject=${title}&body=Check%20this%20out:%20${url}`;
+        break;
+      case this.classList.contains('copy-link'):
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => alert('Link copied to clipboard!'))
+          .catch(err => console.error('Failed to copy link:', err));
+        break;
+      case this.classList.contains('twitter'):
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+        break;
+    }
+  });
+});
+</script>
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background: white;
-  min-width: 200px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 10px 0;
-  margin-top: 10px;
-  z-index: 1;
-}
-
-.dropdown-content.show {
-  display: block;
-  animation: slideDown 0.3s ease;
-}
-
-.dropdown-item {
-  padding: 12px 20px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  color: #333;
-  transition: all 0.2s ease;
-}
-
-.dropdown-item:hover {
-  background: #f8f9fa;
-  transform: translateX(5px);
-}
-
-.dropdown-item i {
-  width: 25px;
-  margin-right: 15px;
-}
-
- 
-.linkedin { color: #0A66C2; }
-.facebook { color: #1877F2; }
-.bluesky { color: #1185F0; }
-.email { color: #EA4335; }
-.copy-link { color: #6c757d; }
-.twitter { color: #000000; }
-
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-</style>
+  
         	
   
   
@@ -594,57 +574,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-
-<script>
-
-const shareButton = document.getElementById('shareButton');
-const dropdownContent = document.getElementById('dropdownContent');
-
-
-shareButton.addEventListener('click', (e) => {
-  e.stopPropagation();
-  dropdownContent.classList.toggle('show');
-});
-
-
-document.addEventListener('click', (e) => {
-  if (dropdownContent.classList.contains('show')) {
-    dropdownContent.classList.remove('show');
-  }
-});
- 
-
-document.querySelectorAll('.dropdown-item').forEach(item => {
-  item.addEventListener('click', function(e) {
-    e.preventDefault();
-    const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(document.title);
-
-    switch(true) {
-      case this.classList.contains('linkedin'):
-        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-        break;
-      case this.classList.contains('facebook'):
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        break;
-      case this.classList.contains('bluesky'):
-        window.open(`https://bsky.app/intent/compose?text=${title}%20${url}`, '_blank');
-        break;
-      case this.classList.contains('email'):
-        window.location.href = `mailto:?subject=${title}&body=Check%20this%20out:%20${url}`;
-        break;
-      case this.classList.contains('copy-link'):
-        navigator.clipboard.writeText(window.location.href)
-          .then(() => alert('Link copied to clipboard!'))
-          .catch(err => console.error('Failed to copy link:', err));
-        break;
-      case this.classList.contains('twitter'):
-        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
-        break;
-    }
-  });
-});
-</script>
 
     
 		
