@@ -5,7 +5,7 @@
  * ------------------------------------------------------------------*/
  @import url("fonts.css");
  
- :root[data-theme="holiday"] {
+ :root[data-theme="earthy"] {
   --primary-hue: 0; /* Red instead of teal */
 }
  
@@ -28,29 +28,30 @@
 
 	
 	  /* Base palette */
-	--primary-hue: 170; /*#304904*/
-	--secondary-hue: 4; /*#ff675c*/
-	--primary: hsla(var(--primary-hue), 25%, 23%, 1);
-	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
+	--base-bg: hsla(40, 30%, 98%, 1);  
+	--primary-hue: 160; /*#304904*/
+	--secondary-hue: 25; /*#ff675c*/
+	--primary: hsla(var(--primary-hue), 30%, 35%, 1);
+	--secondary: hsla(var(--secondary-hue), 50%, 60%, 1);
 	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
 	--text-dark: hsla(0, 0%, 20%, 1);
 	--heather-gray hsla(201, 19%, 76%, 1)
 	
 	 /* Derived colors */
-	--page-subheading: hsla(var(--primary-hue), 25%, 23%, 1);
-	--post-title: hsla(154, 25%, 31%, 1);
-	--post-subtitle: hsla(4, 100%, 68%, 1);
-	--callout-bg: hsla(0, 100%, 95%, 0.2);
+	--page-subheading: hsla(var(--primary-hue), 30%, 35%, 1);
+	--post-title: hsla(var(--primary-hue), 30%, 35%, 1);
+	--post-subtitle: hsla(var(--secondary-hue), 50%, 60%, 1);
+	--callout-bg: hsla(160, 30%, 35%, 0.05);
 	--border: hsla(0, 0%, 83%, 1);
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
 	--code-highlite-text: hsla(0, 0%, 100%, 1);
-	--links: hsla(170, 25%, 23%, 1);
-	--links-hover: hsla(4, 100%, 68%, 1)
+	--links: hsla(var(--primary-hue), 30%, 35%, 1);
+	--links-hover: hhsla(var(--secondary-hue), 50%, 60%, 1);
   
   
-	--contact-section-wrap: hsla(52, 100%, 50%, .5);
-	--tipjar-section-wrap: hsla(52, 100%, 50%, .5);
+	--contact-section-wrap: hsla(var(--primary-hue), 30%, 35%, 1);
+	--tipjar-section-wrap: hsla(var(--primary-hue), 30%, 35%, 1));
 	--donate-button-text: hsla(0, 0%, 0%, 1);
 	--donate-button-fill: hsla(52, 100%, 50%, 1);
 	--donate-button-hover: hsla(52, 100%, 50%, .8);
@@ -83,7 +84,13 @@
  
 
 
-body{}
+body{background:var(--base-bg);
+color: var(--text-dark);
+}
+
+.neon-button {
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+}
 
 .post-subheading{}
 
@@ -240,7 +247,7 @@ input[type=email], select, textarea {
 .iagree_text{font-size:15px; display:inline}
  
 button[type=submit] {
-  background-color: #04AA6D;
+  background-color: var(--primary);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -394,6 +401,13 @@ font-family:var(--theme-font-family);
 color:var(--heather-gray);
 font-size:17px
 }
+.share-box{
+margin-top:2px;
+text-shadow:none
+}
+
+
+
 /* FIND YOUR TIME*/
 
 		.error-message {
@@ -477,4 +491,88 @@ font-size:17px
 .alert-warning .alert-icon {
   color: #ef6c00;
 }
-/*END SHORTCODE*?
+/*END SHORTCODE*/
+
+
+
+/* SOCIAL SHARE TKO*/
+.posts-list .share-container {
+	display: none
+}
+
+
+.share-container {
+  position: relative;
+  display: inline-block;
+  text-shadow:none
+}
+
+.share-button {
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 3px var(--primary);
+}
+
+.share-button:hover {
+  background: #f5f5f5;
+  transform: rotate(360deg);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.dropdown-content.show {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+.dropdown-item {
+  padding: 12px 20px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+#dropdownContent .dropdown-item:hover {
+  background: #f8f9fa;
+  transform: translateX(5px);
+}
+
+.dropdown-item i {
+  width: 25px;
+  margin-right: 15px;
+}
+
+/* Platform-specific colors */
+#dropdownContent .linkedin { color: #0A66C2}
+#dropdownContent .facebook { color: #1877F2; }
+#dropdownContent .bluesky { color: #1185F0; }
+#dropdownContent .email { color: #EA4335; }
+#dropdownContent .copy-link { color: #6c757d; }
+#dropdownContent .twitter { color: #000000; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>

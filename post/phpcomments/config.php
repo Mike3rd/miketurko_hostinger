@@ -35,7 +35,7 @@ define('mail_from','mturko@outlook.com');
 // This is the email address that will receive the notifications.
 define('notification_email','mturko@outlook.com');
 // The name of your business.
-define('mail_name','Planet Easy Peasy');
+define('mail_name','Mike Turko');
 // If enabled, the mail will be sent using SMTP.
 define('SMTP',false);
 // Your SMTP hostname.
