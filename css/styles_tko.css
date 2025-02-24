@@ -1,11 +1,11 @@
 /* =================================================================== 
  * Mike Turko Stylesheet Mturko
  * Template Ver. 1.0.0
- * 01-15-2024
+ * 02-23-2024
  * ------------------------------------------------------------------*/
  @import url("fonts.css");
  
- :root[data-theme="earthy"] {
+ :root[data-theme="holiday"] {
   --primary-hue: 0; /* Red instead of teal */
 }
  
@@ -28,30 +28,29 @@
 
 	
 	  /* Base palette */
-	--base-bg: hsla(40, 30%, 98%, 1);  
-	--primary-hue: 160; /*#304904*/
-	--secondary-hue: 25; /*#ff675c*/
-	--primary: hsla(var(--primary-hue), 30%, 35%, 1);
-	--secondary: hsla(var(--secondary-hue), 50%, 60%, 1);
+	--primary-hue: 170; /*#304904*/
+	--secondary-hue: 4; /*#ff675c*/
+	--primary: hsla(var(--primary-hue), 25%, 23%, 1);
+	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
 	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
 	--text-dark: hsla(0, 0%, 20%, 1);
 	--heather-gray hsla(201, 19%, 76%, 1)
 	
 	 /* Derived colors */
-	--page-subheading: hsla(var(--primary-hue), 30%, 35%, 1);
-	--post-title: hsla(var(--primary-hue), 30%, 35%, 1);
-	--post-subtitle: hsla(var(--secondary-hue), 50%, 60%, 1);
-	--callout-bg: hsla(160, 30%, 35%, 0.05);
+	--page-subheading: hsla(var(--primary-hue), 25%, 23%, 1);
+	--post-title: hsla(var(--primary-hue), 25%, 23%, 1);
+	--post-subtitle: hsla(4, 100%, 68%, 1);
+	--callout-bg: hsla(0, 100%, 95%, 0.2);
 	--border: hsla(0, 0%, 83%, 1);
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
 	--code-highlite-text: hsla(0, 0%, 100%, 1);
-	--links: hsla(var(--primary-hue), 30%, 35%, 1);
-	--links-hover: hhsla(var(--secondary-hue), 50%, 60%, 1);
+	--links: hsla(170, 25%, 23%, 1);
+	--links-hover: hsla(4, 100%, 68%, 1);
   
   
-	--contact-section-wrap: hsla(var(--primary-hue), 30%, 35%, 1);
-	--tipjar-section-wrap: hsla(var(--primary-hue), 30%, 35%, 1));
+	--contact-section-wrap: hsla(52, 100%, 50%, .5);
+	--tipjar-section-wrap: hsla(52, 100%, 50%, .5);
 	--donate-button-text: hsla(0, 0%, 0%, 1);
 	--donate-button-fill: hsla(52, 100%, 50%, 1);
 	--donate-button-hover: hsla(52, 100%, 50%, .8);
@@ -84,13 +83,7 @@
  
 
 
-body{background:var(--base-bg);
-color: var(--text-dark);
-}
-
-.neon-button {
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
-}
+body{}
 
 .post-subheading{}
 
@@ -247,7 +240,7 @@ input[type=email], select, textarea {
 .iagree_text{font-size:15px; display:inline}
  
 button[type=submit] {
-  background-color: var(--primary);
+  background-color: #04AA6D;
   color: white;
   padding: 12px 20px;
   border: none;
