@@ -1,5 +1,5 @@
 /* =================================================================== 
- * Mike Turko Stylesheet Mturko
+ * Mike Turko Stylesheet MikeTurko.com
  * Template Ver. 1.0.0
  * 02-23-2024
  * ------------------------------------------------------------------*/
@@ -24,17 +24,17 @@
 	--theme-font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 } 
  
-:root{
-
-	
-	  /* Base palette */
+:root[data-theme="default"]{
+ /* Base palette */
 	--primary-hue: 170; /*#304904*/
 	--secondary-hue: 4; /*#ff675c*/
+	--base-bg: hsla(120, 8%, 97%, 1);
+	--headfoot-bg: hsla(0, 0%, 95%, 1);  	
 	--primary: hsla(var(--primary-hue), 25%, 23%, 1);
 	--secondary: hsla(var(--secondary-hue), 100%, 68%, 1);
 	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
-	--text-dark: hsla(0, 0%, 20%, 1);
+	--text: hsla(0, 0%, 20%, 1);
 	--heather-gray hsla(201, 19%, 76%, 1)
 	
 	 /* Derived colors */
@@ -76,21 +76,51 @@
   --color-gray-3: #eef0f2;
   --color-gray-2: #f3f5f6;
   --color-gray-1: #f9fafb;
-  --color-white: #ffffff;	
+  --color-white: #ffffff;
+  }
   
+:root[data-theme="cyber"]{
+/* Base palette */
+	--base-bg: hsla(240, 40%, 8%, 1);
+	--headfoot-bg: hsla(0, 0%, 98%, 1);  	
+	--primary-hue: 180; /*#304904*/
+	--secondary-hue: 320; /*#ff675c*/
+	--primary: hsla(var(--primary-hue), 100%, 50%, 1);
+	--secondary: hsla(var(--secondary-hue), 100%, 50%, 1);
+	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
+	--neutral-bg: hsla(120, 8%, 97%, 1);
+	--text: hsla(0, 0%, 95%, 1);
+	--heather-gray hsla(201, 19%, 76%, 1)
+	/* Derived colors */
+	--page-subheading: hsla(var(--primary-hue), 30%, 35%, 1);
+	--post-title: hsla(var(--primary-hue), 100%, 50%, 1);
+	--post-subtitle: hsla(var(--secondary-hue), 100%, 50%, 1);
+	--callout-bg: hsla(160, 30%, 35%, 0.05);
+	--border: hsla(0, 0%, 83%, 1);
+	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
+	--code-highlite-text: hsla(0, 0%, 100%, 1);
+	--links: hsla(var(--primary-hue), 30%, 35%, 1);
+	--links-hover: hhsla(var(--secondary-hue), 50%, 60%, 1);	
+}  
   
- }
  
 
+body{background:var(--base-bg);
+color: var(--text);
+}
 
-body{}
+.navbar, footer{
+	background:var(--headfoot-bg);
+	border-color:var(--color-gray-8);
+
+}
+
+
 
 .post-subheading{}
 
-
 .navbar-custom .navbar-brand, .navbar-custom .nav li a{
-	color: var(--primary)
-}
+	color: var(--primary)}
 
 
 footer a{
