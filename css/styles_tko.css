@@ -45,7 +45,7 @@
 	--border: hsla(0, 0%, 83%, 1);
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
 	--code-highlite-text: hsla(0, 0%, 100%, 1);
-	--links: hsla(170, 25%, 23%, 1);
+	--links: hsla(170, 25%, 23%, .8);
 	--links-hover: hsla(4, 100%, 68%, 1);
   
   
@@ -115,7 +115,9 @@ color: var(--text);
 
 }
 
+p a {color: var(--links)}
 
+a:hover {color: var(--links-hover)}
 
 .post-subheading{}
 
@@ -150,7 +152,7 @@ footer a{
 
 
 /* blog tags*/
-.blog-tags a {color:#008AFF}
+.blog-tags a {color:var(--links)}
  
 .page-heading {color:var(--primary);}
 .page-subheading {color:var(--page-subheading);font-weight:700!important}
