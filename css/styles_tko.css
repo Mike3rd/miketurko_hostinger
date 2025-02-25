@@ -272,7 +272,7 @@ input[type=email], select, textarea {
 .iagree_text{font-size:15px; display:inline}
  
 button[type=submit] {
-  background-color: #04AA6D;
+  background-color: var(--primary);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -280,12 +280,12 @@ button[type=submit] {
   cursor: pointer;
   font-family:  var(--checkout-text-font-family);
 } 
- 
- 
- 
+
  button[type=submit]:hover {
-  background-color: #45a049;
+  background-color: var(--links-hover);
 }
+
+ label .sc-dnqmqq{color: var(--secondary); } 
  
  /* END SIGNUP FORM */ 
 
@@ -324,10 +324,8 @@ font-family: var(--theme-font-family);
 }
 
 
-
 .contact_title, .tipjar_title{
   color: var(--color-white);
-
 }
 
 /* On screens that are 992px wide or less, go from four columns to two columns */
