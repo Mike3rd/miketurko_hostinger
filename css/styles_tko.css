@@ -9,14 +9,18 @@
  *      ## colors
  *      ## spacing and typescale
  *      ## grid variables
+ * # BODY
+ * # BLOCKQUOTE
  * # SOCIAL SHARE
+ *		## social colors
  * # COMMENTS
  * # FIND YOUR TIME
  * # TIP JAR CONTACT FORM
  * 		## two column set up
 		## paypal button
  * # ALERT CIRCLE MARKDOWN SHORTCODE
- * # BLOG PAGE
+ * # POST PAGE
+ *		## read more
  * # FOOTER
  *      ## copyright
  *      ## go top
@@ -129,6 +133,14 @@
 
 body{background:var(--base-bg);
 color: var(--text);
+}
+
+blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid var(--secondary);
+	background-color:var(--callout-bg);	
 }
 
 .navbar, footer{
@@ -246,8 +258,6 @@ font-family:  var(--checkout-text-font-family);
 
  
  /* SIGNUP FORM */
-
- 
 .container_form {
   border-radius: 5px;
   background-color: #f2f2f2;
@@ -419,14 +429,6 @@ a.button_paypal:hover, a.button_paypal:active {
 	font-size:21px;
 }
 
-blockquote {
-    padding: 10px 20px;
-    margin: 0 0 20px;
-    font-size: 17.5px;
-    border-left: 5px solid var(--secondary);
-	background-color:var(--callout-bg);
-	
-}
 
 .post-read-more {
 color: var(--primary)
@@ -542,18 +544,15 @@ text-shadow:none
 
 /* SOCIAL SHARE TKO*/
 
-/* move dropdown to left on mobile*/
-@media screen and (max-width: 600px) {
-  .dropdown-content {
-  left: 0px;
-	}
+#socialshare_tko {
+	
+	width:100%;
+	margin-top:5px
 }
-
 
 .posts-list .share-container {
 	display: none
 }
-
 
 .share-container {
   position: relative;
@@ -583,7 +582,7 @@ text-shadow:none
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0px;
+  left: 0px;
   background: white;
   min-width: 200px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
