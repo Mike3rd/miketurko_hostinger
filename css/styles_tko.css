@@ -2,7 +2,29 @@
  * Mike Turko Stylesheet MikeTurko.com
  * Template Ver. 1.0.0
  * 02-23-2024
+ 
+  * TOC:
+ * # SETTINGS
+ *      ## fonts
+ *      ## colors
+ *      ## spacing and typescale
+ *      ## grid variables
+ * # SOCIAL SHARE
+ * # COMMENTS
+ * # FIND YOUR TIME
+ * # TIP JAR CONTACT FORM
+ * 		## two column set up
+		## paypal button
+ * # ALERT CIRCLE MARKDOWN SHORTCODE
+ * # BLOG PAGE
+ * # FOOTER
+ *      ## copyright
+ *      ## go top
  * ------------------------------------------------------------------*/
+ 
+ 
+ 
+ 
  @import url("fonts.css");
  
  :root[data-theme="holiday"] {
@@ -519,6 +541,15 @@ text-shadow:none
 
 
 /* SOCIAL SHARE TKO*/
+
+/* move dropdown to left on mobile*/
+@media screen and (max-width: 600px) {
+  .dropdown-content {
+  left: 0px;
+	}
+}
+
+
 .posts-list .share-container {
 	display: none
 }
@@ -552,7 +583,7 @@ text-shadow:none
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0;
+  right: 0px;
   background: white;
   min-width: 200px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.1);
