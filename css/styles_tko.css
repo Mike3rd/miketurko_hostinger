@@ -61,6 +61,7 @@
 	--secondary-bg: hsla(var(--secondary-hue), 100%, 68%, .5);
 	--neutral-bg: hsla(120, 8%, 97%, 1);
 	--text: hsla(0, 0%, 20%, 1);
+	--text-well: hsla(0, 0%, 95%, 1);
 	--heather-gray hsla(201, 19%, 76%, 1)
 	
 	 /* Derived colors */
@@ -149,9 +150,21 @@ blockquote {
 
 }
 
+
+.well{
+	background-color: var(--primary);
+	font-family: var(--theme-font-family);
+	color:var(--text-well);	
+}
+
+
+
 p a {color: var(--links)}
 
-a:hover {color: var(--links-hover)}
+a:hover,
+a:focus {
+  color: var(--links-hover)!important;
+}
 
 
 /*Post title and subtitle theme color and white with big image*/
@@ -193,8 +206,7 @@ footer a{
  
 .page-heading {color:var(--primary);}
 .page-subheading {color:var(--page-subheading);font-weight:700!important}
-.well h2{color:#404040;}
-.well {background-color:#f5f5f5}
+
 
 /* blog post page*/
 
@@ -234,12 +246,6 @@ footer a{
   transform:translateY(20%) rotate(-45deg);
   border-top:5px solid #fff;
   border-right:5px solid #fff;
-}
-
-.well{
-	background-color:var(--neutral-bg);
-	font-family: var(--theme-font-family)
-	
 }
 
 
