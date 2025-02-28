@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://miketurko.com/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-02-09T16:42:36-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/graphic-design/2025/five-design-hacks/</loc>
+    <loc>http://localhost:1313/post/graphic-design/2025/five-design-hacks/</loc>
     <lastmod>2025-02-09T16:42:36-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/graphic-design/</loc>
+    <loc>http://localhost:1313/tags/graphic-design/</loc>
     <lastmod>2025-02-09T16:42:36-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/</loc>
+    <loc>http://localhost:1313/post/</loc>
     <lastmod>2025-02-09T16:42:36-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-02-09T16:42:36-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/tags/triathlon/</loc>
+    <loc>http://localhost:1313/tags/triathlon/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/post/find-your-time/</loc>
+    <loc>http://localhost:1313/post/find-your-time/</loc>
     <lastmod>2025-02-06T20:02:08-05:00</lastmod>
   </url><url>
-    <loc>https://miketurko.com/page/about/</loc>
+    <loc>http://localhost:1313/page/about/</loc>
   </url><url>
-    <loc>https://miketurko.com/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://miketurko.com/page/</loc>
+    <loc>http://localhost:1313/page/</loc>
   </url>
 </urlset>
