@@ -153,7 +153,8 @@ p a {color: var(--links)}
 
 a:hover {color: var(--links-hover)}
 
-.post-subheading{}
+.post-heading h1{color: var(--primary)}
+.post-subheading {color: var(--secondary)}
 
 .navbar-custom .navbar-brand, .navbar-custom .nav li a{
 	color: var(--primary)}
