@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mike Turko</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://miketurko.com/tags/</link>
     <description>Recent content in Tags on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>youremail@domain.com (Mike Turko)</managingEditor>
     <webMaster>youremail@domain.com (Mike Turko)</webMaster>
     <lastBuildDate>Sun, 09 Feb 2025 16:42:36 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graphic Design</title>
-      <link>http://localhost:1313/tags/graphic-design/</link>
+      <link>https://miketurko.com/tags/graphic-design/</link>
       <pubDate>Sun, 09 Feb 2025 16:42:36 -0500</pubDate><author>youremail@domain.com (Mike Turko)</author>
-      <guid>http://localhost:1313/tags/graphic-design/</guid>
+      <guid>https://miketurko.com/tags/graphic-design/</guid>
       <description></description>
     </item>
     <item>
       <title>Triathlon</title>
-      <link>http://localhost:1313/tags/triathlon/</link>
+      <link>https://miketurko.com/tags/triathlon/</link>
       <pubDate>Thu, 06 Feb 2025 20:02:08 -0500</pubDate><author>youremail@domain.com (Mike Turko)</author>
-      <guid>http://localhost:1313/tags/triathlon/</guid>
+      <guid>https://miketurko.com/tags/triathlon/</guid>
       <description></description>
     </item>
   </channel>
