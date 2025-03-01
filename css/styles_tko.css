@@ -127,7 +127,7 @@
 	--code-highlite: hsla(var(--primary-hue), 25%, 23%, .5);
 	--code-highlite-text: hsla(0, 0%, 100%, 1);
 	--links: hsla(var(--primary-hue), 30%, 35%, 1);
-	--links-hover: hhsla(var(--secondary-hue), 50%, 60%, 1);	
+	--links-hover: hsla(var(--secondary-hue), 50%, 60%, 1);	
 }  
   
  
@@ -157,7 +157,9 @@ blockquote {
 	color:var(--text-well);	
 }
 
-
+.well a{
+color: var(--color-gray-10)
+}
 
 p a {color: var(--links)}
 
