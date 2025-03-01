@@ -161,6 +161,16 @@ blockquote {
 color: var(--color-gray-10)
 }
 
+
+/* Previous Next post buttons*/
+.pager li a:hover,
+.pager li a:focus {
+  color: #FFF;
+  background: var(--primary);
+  border: 1px solid #0085a1;
+}
+
+
 p a {color: var(--links)}
 
 a:hover,
