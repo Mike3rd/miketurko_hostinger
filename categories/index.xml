@@ -6,8 +6,8 @@
     <description>Recent content in Categories on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>youremail@domain.com (Mike Turko)</managingEditor>
-    <webMaster>youremail@domain.com (Mike Turko)</webMaster>
+    <managingEditor>https://example.com (Mike Turko)</managingEditor>
+    <webMaster>https://example.com (Mike Turko)</webMaster>
     <atom:link href="https://miketurko.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

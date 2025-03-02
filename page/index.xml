@@ -6,13 +6,13 @@
     <description>Recent content in Pages on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <managingEditor>youremail@domain.com (Mike Turko)</managingEditor>
-    <webMaster>youremail@domain.com (Mike Turko)</webMaster>
+    <managingEditor>https://example.com (Mike Turko)</managingEditor>
+    <webMaster>https://example.com (Mike Turko)</webMaster>
     <atom:link href="https://miketurko.com/page/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About me</title>
       <link>https://miketurko.com/page/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>youremail@domain.com (Mike Turko)</author>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>https://example.com (Mike Turko)</author>
       <guid>https://miketurko.com/page/about/</guid>
       <description>&lt;p&gt;Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:&lt;/p&gt;</description>
     </item>
