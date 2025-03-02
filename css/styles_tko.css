@@ -446,12 +446,10 @@ a.button_paypal:hover, a.button_paypal:active {
   background-color: var(--donate-button-hover);
 }
 
-.fa {
-	
+.fa {	
 	color:var(--primary);
 	font-size:21px;
 }
-
 
 .post-read-more {
 color: var(--primary)
