@@ -146,6 +146,15 @@ blockquote {
 	background-color:var(--callout-bg);	
 }
 
+
+
+
+/* On screens that are 992px wide or less,reduce table fontsize */
+@media screen and (max-width: 992px) {
+table{display:none}
+}
+
+
 .navbar, footer{
 	background:var(--headfoot-bg);
 	border-color:var(--color-gray-8);
