@@ -688,16 +688,15 @@ text-shadow:none
 
 /* Table on mobile fix*/
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
+/* Force table to not behave like a table anymore */
 
-tr:nth-child(even){background-color: #f2f2f2}
+
+@media screen and (max-width: 25cm) {
+table{ 
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+	
+}
