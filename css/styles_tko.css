@@ -151,7 +151,7 @@ blockquote {
 
 /* On screens that are 992px wide or less,reduce table fontsize */
 @media screen and (max-width: 992px) {
-table{display:none}
+table{}
 }
 
 
