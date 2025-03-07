@@ -26,6 +26,8 @@
  * # FOOTER
  *      ## copyright
  *      ## go top
+ * # TABLES
+ * 		## fix table on mobile
  * ------------------------------------------------------------------*/
  
  
@@ -687,16 +689,9 @@ text-shadow:none
 /* END Social Share end of post*/
 
 /* Table on mobile fix*/
-
-
-/* Force table to not behave like a table anymore */
-
-
-@media screen and (max-width: 25cm) {
+@media screen and (max-width: 992px) {
 table{ 
     display: block;
     width: 100%;
-    overflow-x: auto;
-}
-	
+    overflow-x: auto;}	
 }
