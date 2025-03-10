@@ -65,7 +65,7 @@
   "headline": "About me",
   "description" : "Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:\n",
   "inLanguage" : "en",
-  "wordCount":  67 ,
+  "wordCount":  68 ,
   "datePublished" : "0001-01-01T00:00:00\u002b00:00",
   "dateModified" : "0001-01-01T00:00:00\u002b00:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -342,8 +342,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Ut enim ad minim veniam</li>
 </ul>
 <p>What else do you need?</p>
+
+  <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Ask the alien...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
 <h3 id="my-history">my history</h3>
 <p>Sollicitudin proin vitae lacinia himenaeos sagittis, <a href="https://example.com" rel="noopener" target="_blank" title=test&#32;link>Test Link</a> orci tempor. Nec in facilisi feugiat massa conubia praesent ornare nibh sem. Sit ligula est ipsum lobortis sed felis pellentesque pretium. Hac quam <strong>tortor</strong> tristique quam congue.</p>
+
+    <script>
+       function appendMessage(message, isUser) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+            messageDiv.textContent = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('user-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            appendMessage(message, true);
+            input.value = '';
+            
+            try {
+                const response = await fetch('https://mturko.pythonanywhere.com/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+                
+                const data = await response.json();
+                appendMessage(data.response, false);
+            } catch (error) {
+                appendMessage("Sorry, the alien is unavailable right now.", false);
+            }
+        }
+
+        // Allow Enter key to send message
+        document.getElementById('user-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+
+
 
 
 <div class="tipjar_row">
