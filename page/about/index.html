@@ -374,7 +374,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>Sollicitudin proin vitae lacinia himenaeos sagittis, <a href="https://example.com" rel="noopener" target="_blank" title=test&#32;link>Test Link</a> orci tempor. Nec in facilisi feugiat massa conubia praesent ornare nibh sem. Sit ligula est ipsum lobortis sed felis pellentesque pretium. Hac quam <strong>tortor</strong> tristique quam congue.</p>
 
     <script>
-               function appendMessage(message, isUser) {
+            function appendMessage(message, isUser) {
             const chatBox = document.getElementById('chat-box');
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
@@ -382,21 +382,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             chatBox.appendChild(messageDiv);
             chatBox.scrollTop = chatBox.scrollHeight;
         }
-
         async function sendMessage() {
             const input = document.getElementById('user-input');
             const message = input.value.trim();
-			
-			 const loading = document.getElementById('loading');
+			const loading = document.getElementById('loading');
     try {
         loading.style.display = 'block';
-        
         const response = await fetch('/chat', { /* ... */ });
-			
-			
-            
             if (!message) return;
-            
             appendMessage(message, true);
             input.value = '';
             
@@ -417,9 +410,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			
 			 } finally {
         loading.style.display = 'none';
-    }
-			
-			
+    }			
         }
 
         // Allow Enter key to send message
