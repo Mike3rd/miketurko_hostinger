@@ -3,7 +3,7 @@
  * Template Ver. 1.0.0
  * 02-23-2024
  
-  * TOC:
+ * TOC:
  * # SETTINGS
  *      ## fonts
  *      ## colors
@@ -30,6 +30,7 @@
  * 		## fix table on mobile
  * # ALIEN CHATBOX
 		## chatbox style
+		## loading indicator
  * ------------------------------------------------------------------*/
  
  
@@ -751,3 +752,61 @@ table{
     width: 100%;
     overflow-x: auto;}	
 }
+
+/*Alian chat Box Loading Indicator*/
+
+#loading {
+    display: none;
+    padding: 10px;
+    text-align: left;
+}
+
+.typing-indicator {
+    display: inline-block;
+    background: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-style: italic;
+}
+
+.typing-dots {
+    display: inline-block;
+}
+
+.typing-dots span {
+    animation: pulse 1.4s infinite;
+    margin: 0 2px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+//*--------LOADER---------*//
+#loading {
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    display: none;
+}
+
+.typing-indicator {
+    background-color: #f0f0f0;
+    padding: 12px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    font-style: italic;
+    color: #666;
+}
+
+.typing-dots span {
+    animation: blink 1.4s infinite;
+    margin: 0 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+//*--------LOADER---------*//
