@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Triathlon on Mike Turko</title>
-    <link>http://localhost:1313/tags/triathlon/</link>
+    <link>https://miketurko.com/tags/triathlon/</link>
     <description>Recent content in Triathlon on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>https://example.com (Mike Turko)</managingEditor>
     <webMaster>https://example.com (Mike Turko)</webMaster>
     <lastBuildDate>Thu, 06 Feb 2025 20:02:08 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/triathlon/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/tags/triathlon/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Triathlon Time Calculator: Predict Your Race Finish</title>
-      <link>http://localhost:1313/post/find-your-time/</link>
+      <link>https://miketurko.com/post/find-your-time/</link>
       <pubDate>Thu, 06 Feb 2025 20:02:08 -0500</pubDate><author>https://example.com (Mike Turko)</author>
-      <guid>http://localhost:1313/post/find-your-time/</guid>
+      <guid>https://miketurko.com/post/find-your-time/</guid>
       <description>&lt;h3 id=&#34;unlock-your-triathlon-potential&#34;&gt;Unlock Your Triathlon Potential&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;Precision Race Time Calculator&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Ready to take your triathlon training to the next level? Whether you’re a seasoned Ironman veteran or a first-time Sprint competitor, my calculator helps you predict your finish time with accuracy—tailored to &lt;strong&gt;your&lt;/strong&gt; pace and race distance.&lt;/p&gt;</description>
     </item>
   </channel>

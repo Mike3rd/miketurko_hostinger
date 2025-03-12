@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Graphic Design on Mike Turko</title>
-    <link>http://localhost:1313/tags/graphic-design/</link>
+    <link>https://miketurko.com/tags/graphic-design/</link>
     <description>Recent content in Graphic Design on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>https://example.com (Mike Turko)</managingEditor>
     <webMaster>https://example.com (Mike Turko)</webMaster>
     <lastBuildDate>Thu, 06 Mar 2025 10:40:38 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/graphic-design/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/tags/graphic-design/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Why Publisher&#39;s Retirement Might Be Your Design Wake-Up Call</title>
-      <link>http://localhost:1313/post/2025/farewell-microsoft-publiser/</link>
+      <link>https://miketurko.com/post/2025/farewell-microsoft-publiser/</link>
       <pubDate>Thu, 06 Mar 2025 10:40:38 -0500</pubDate><author>https://example.com (Mike Turko)</author>
-      <guid>http://localhost:1313/post/2025/farewell-microsoft-publiser/</guid>
+      <guid>https://miketurko.com/post/2025/farewell-microsoft-publiser/</guid>
       <description>&lt;h3 id=&#34;unveiling-the-future&#34;&gt;Unveiling The Future&lt;/h3&gt;&#xA;&lt;p&gt;In an effort to enhance user experience and introduce new features that go hand in hand with emerging trends, Microsoft occasionally discontinues services for some products. This time around it&amp;rsquo;s Microsoft Publisher that&amp;rsquo;s reaching its end of life in October 2026. However, don&amp;rsquo;t fret! As one door closes another opens - there are numerous other advanced tools within and outside the Microsoft 365 suite that offer similar functionalities.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Harnessing the Power of Free Stock Photos in 2025: </title>
-      <link>http://localhost:1313/post/2025/harnessing-the-power-of-free-stock-photos/</link>
+      <link>https://miketurko.com/post/2025/harnessing-the-power-of-free-stock-photos/</link>
       <pubDate>Fri, 28 Feb 2025 10:24:16 -0500</pubDate><author>https://example.com (Mike Turko)</author>
-      <guid>http://localhost:1313/post/2025/harnessing-the-power-of-free-stock-photos/</guid>
+      <guid>https://miketurko.com/post/2025/harnessing-the-power-of-free-stock-photos/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;myth-busting&#34;&gt;Myth Busting:&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;Are AI-generated images set to replace traditional stock photos?&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>5 Simple Design Hacks to Help Non-Graphic Designers Create Professional Results</title>
-      <link>http://localhost:1313/post/graphic-design/2025/five-design-hacks/</link>
+      <link>https://miketurko.com/post/graphic-design/2025/five-design-hacks/</link>
       <pubDate>Sun, 09 Feb 2025 16:42:36 -0500</pubDate><author>https://example.com (Mike Turko)</author>
-      <guid>http://localhost:1313/post/graphic-design/2025/five-design-hacks/</guid>
+      <guid>https://miketurko.com/post/graphic-design/2025/five-design-hacks/</guid>
       <description>&lt;h3 id=&#34;design-smart-not-hard&#34;&gt;Design Smart, Not Hard&lt;/h3&gt;&#xA;&lt;p&gt;Creating professional visuals doesn’t require years of training. Whether you’re designing social posts, flyers, or slides, these five strategic hacks will help you craft polished graphics that command attention. Let’s turn your DIY designs from &amp;ldquo;meh&amp;rdquo; to masterpiece.&lt;/p&gt;</description>
     </item>
   </channel>
