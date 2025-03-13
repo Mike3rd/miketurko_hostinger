@@ -410,10 +410,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
     } catch (error) {
         appendMessage(error.message.replace(/"/g, ''), false);
-    }
-	} finally {
+    } finally {
             loading.style.display = 'none';
         }
+	
 }
 
     // Allow Enter key to send message
