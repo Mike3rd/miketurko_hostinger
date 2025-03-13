@@ -389,6 +389,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const loading = document.getElementById('loading');
 
         if (!message) return;
+		loading.style.display = 'block';
+            appendMessage(message, true);
+            input.value = '';
 
         try {
         const response = await fetch('https://mturko.pythonanywhere.com/chat', {
