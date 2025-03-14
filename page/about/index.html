@@ -397,7 +397,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Input validation
         if (!message) return;
         if (message.length > 500) {
-            appendMessage("Message too long (max 100 characters)", false);
+            appendMessage("🚨 Message too long (max 500 characters)", false);
+			input.value = ''; 
             return;
         }
 
