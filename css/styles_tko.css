@@ -827,6 +827,9 @@ table{
     margin: 5px 5px 5px 20%;
     padding: 10px 15px;
     animation: floatUp 0.3s ease;
+	max-width: 600px;  /* Prevent ultra-long lines */
+    white-space: pre-wrap;  /* Maintain line breaks */
+    word-break: break-word;  /* Prevent overflow */
 }
 
 /* Animation */
