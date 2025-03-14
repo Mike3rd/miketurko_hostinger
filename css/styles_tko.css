@@ -31,6 +31,7 @@
  * # ALIEN CHATBOX
 		## chatbox style
 		## loading indicator
+		## user and alien message
  * ------------------------------------------------------------------*/
  
  
@@ -809,4 +810,36 @@ table{
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
 }
+
+/* User messages */
+.user-message {
+    background: #e3f2fd;
+    border-radius: 15px 15px 15px 0;
+    margin: 5px 20% 5px 5px;
+    padding: 10px 15px;
+    animation: floatUp 0.3s ease;
+}
+
+/* Alien messages */
+.alien-message {
+    background: #c7f0d2;
+    border-radius: 15px 15px 0 15px;
+    margin: 5px 5px 5px 20%;
+    padding: 10px 15px;
+    animation: floatUp 0.3s ease;
+}
+
+/* Animation */
+@keyframes floatUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
 //*--------LOADER---------*//

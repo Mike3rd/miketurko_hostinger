@@ -383,7 +383,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     function appendMessage(message, isUser) {
         const chatBox = document.getElementById('chat-box');
         const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+        messageDiv.className = isUser ? 'user-message' : 'alien-message';
         messageDiv.textContent = message;
         chatBox.appendChild(messageDiv);
         chatBox.scrollTop = chatBox.scrollHeight;
