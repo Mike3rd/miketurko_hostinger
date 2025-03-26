@@ -1,0 +1,12 @@
+{
+    "corporate": [
+        {
+            "main": "Roboto",
+            "sub": "Open Sans",
+            "main_category": "sans-serif",
+            "sub_category": "sans-serif"
+        }
+        // More combinations...
+    ]
+    // Other styles...
+}

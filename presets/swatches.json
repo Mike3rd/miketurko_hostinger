@@ -1,0 +1,20 @@
+{
+    "corporate": {
+        "light": [
+            {
+                "name": "Professional Blue",
+                "primary": "#2B579A",
+                "secondary": "#6B8CBE",
+                "accent": "#E81123",
+                "neutral": "#F2F2F2",
+                "body_text": "#333333",
+                "background": "#FFFFFF"
+            }
+            // More swatches...
+        ],
+        "dark": [
+            // Dark mode swatches...
+        ]
+    }
+    // Other styles...
+}

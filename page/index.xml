@@ -16,5 +16,12 @@
       <guid>https://miketurko.com/page/about/</guid>
       <description>&lt;p&gt;Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Brand Kit Generator</title>
+      <link>https://miketurko.com/page/brand_kit/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>https://example.com (Mike Turko)</author>
+      <guid>https://miketurko.com/page/brand_kit/</guid>
+      <description>&lt;p&gt;Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
