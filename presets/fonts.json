@@ -1,12 +1,17 @@
 {
     "corporate": [
-        {
-            "main": "Roboto",
-            "sub": "Open Sans",
-            "main_category": "sans-serif",
-            "sub_category": "sans-serif"
-        }
-        // More combinations...
+        {"main": "Playfair Display", "sub": "Open Sans", "main_category": "serif", "sub_category": "sans-serif"},
+        {"main": "Lora", "sub": "Montserrat", "main_category": "serif", "sub_category": "sans-serif"},
+        {"main": "Cormorant", "sub": "Fira Sans", "main_category": "serif", "sub_category": "sans-serif"},
+        {"main": "Alegreya", "sub": "Roboto", "main_category": "serif", "sub_category": "sans-serif"},
+        {"main": "EB Garamond", "sub": "Lato", "main_category": "serif", "sub_category": "sans-serif"}
+    ],
+    "fun": [
+        {"main": "Fredoka One", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Bungee", "sub": "Work Sans", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Luckiest Guy", "sub": "Comic Neue", "main_category": "display", "sub_category": "handwriting"},
+        {"main": "Chewy", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Modak", "sub": "Varela Round", "main_category": "display", "sub_category": "sans-serif"}
     ]
-    // Other styles...
+
 }

@@ -96,6 +96,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="apple-mobile-web-app-title" content="Easy HR Comms" />
 <link rel="manifest" href="../img/site.webmanifest" />
 
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/brand_kit.css">
+
+
+
+
  
 <script>
 function includeHTML() {
@@ -152,6 +161,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
             <li>
               <a title="Blog" href="../">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="tools" href="../">tools</a>
             </li>
           
         
@@ -422,7 +437,7 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         <h2 class="post-title">Brand Kit Generator</h2>
         
         <h3 class="post-subtitle">
-            About me
+            Create a professional brand color palette
         </h3>
         
         
@@ -543,7 +558,45 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
     </p>
     <div class="post-entry">
         
-        <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:</p>
+        <main>
+    <div class="columns-container">
+        <!-- Column 1 -->
+        <div class="column controls-column">
+            <section class="controls">
+                <div class="form-group">
+                    <label for="style">Select Style</label>
+                    <select id="style">
+                        <option value="corporate">Corporate</option>
+                        <option value="modern">Modern</option>
+                        <option value="fun">Fun</option>
+                        <option value="wild">Wild</option>
+						<option value="extraterrestrial">Extraterrestrial</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="background">Background Type</label>
+                    <select id="background">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                
+                <button id="generate-btn" class="btn-primary">Generate Brand Kit</button>
+            </section>
+        </div>
+        
+        <!-- Column 2 -->
+        <div class="column help-column">
+            <div class="help-card">
+                <h3>How To Use This Tool</h3>
+                <ol>
+                    <li><strong>Select a Style</strong>: Choose a style that matches your brand personality</li>
+                    <li><strong>Choose Background</strong>: Pick light or dark background preference</li>
+                    <li><strong>Generate</strong>: Create your brand kit with one click</li>
+                    <li><strong>Customize</strong>: Regenerate specific elements as needed</li>
+                </ol>
+                <p>Your brand kit includes color palette, accessibility check, typography, icons, and preview examples.</p>
         <a href="https://miketurko.com/page/brand_kit/" class="post-read-more">[Read More]</a>
         
     </div>

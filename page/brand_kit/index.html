@@ -14,7 +14,7 @@
 
       <title>Brand Kit Generator - Mike Turko</title>
 
-  <meta name="description" content="About me">
+  <meta name="description" content="Create a professional brand color palette">
   <meta name="author" content="Mike Turko"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -63,9 +63,9 @@
     "name" : "Mike Turko"
   },
   "headline": "Brand Kit Generator",
-  "description" : "Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:\n",
+  "description" : " Select Style Corporate Modern Fun Wild Extraterrestrial Background Type Light Dark Generate Brand Kit How To Use This Tool Select a Style: Choose a style that matches your brand personality Choose Background: Pick light or dark background preference Generate: Create your brand kit with one click Customize: Regenerate specific elements as needed Your brand kit includes color palette, accessibility check, typography, icons, and preview examples.\n",
   "inLanguage" : "en",
-  "wordCount":  92 ,
+  "wordCount":  194 ,
   "datePublished" : "0001-01-01T00:00:00\u002b00:00",
   "dateModified" : "0001-01-01T00:00:00\u002b00:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -86,14 +86,14 @@
 
 
 <meta property="og:title" content="Brand Kit Generator" />
-<meta property="og:description" content="About me">
+<meta property="og:description" content="Create a professional brand color palette">
 <meta property="og:image" content="https://miketurko.com/img/mturko_primary2_500x500.png" />
 <meta property="og:url" content="https://miketurko.com/page/brand_kit/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Mike Turko" />
 
   <meta name="twitter:title" content="Brand Kit Generator" />
-  <meta name="twitter:description" content="About me">
+  <meta name="twitter:description" content="Create a professional brand color palette">
   <meta name="twitter:image" content="https://miketurko.com/img/mturko_primary2_500x500.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@miketurkoturko" />
@@ -147,6 +147,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="Easy HR Comms" />
 <link rel="manifest" href="../../img/site.webmanifest" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&family=Roboto:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/brand_kit.css">
+
+
+
 
  
 <script>
@@ -204,6 +213,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
             <li>
               <a title="Blog" href="../../">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="tools" href="../../">tools</a>
             </li>
           
         
@@ -318,7 +333,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               
               
                 
-                  <span class="page-subheading">About me</span>
+                  <span class="page-subheading">Create a professional brand color palette</span>
                 
               
               
@@ -336,60 +351,103 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:</p>
-<ul>
-<li>Lorem ipsum dolor sit amet, consectetur</li>
-<li>Ut enim ad minim veniam</li>
-</ul>
-<p>What else do you need?</p>
+        
 
+   <main>
+    <div class="columns-container">
+        <!-- Column 1 -->
+        <div class="column controls-column">
+            <section class="controls">
+                <div class="form-group">
+                    <label for="style">Select Style</label>
+                    <select id="style">
+                        <option value="corporate">Corporate</option>
+                        <option value="modern">Modern</option>
+                        <option value="fun">Fun</option>
+                        <option value="wild">Wild</option>
+						<option value="extraterrestrial">Extraterrestrial</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="background">Background Type</label>
+                    <select id="background">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                
+                <button id="generate-btn" class="btn-primary">Generate Brand Kit</button>
+            </section>
+        </div>
+        
+        <!-- Column 2 -->
+        <div class="column help-column">
+            <div class="help-card">
+                <h3>How To Use This Tool</h3>
+                <ol>
+                    <li><strong>Select a Style</strong>: Choose a style that matches your brand personality</li>
+                    <li><strong>Choose Background</strong>: Pick light or dark background preference</li>
+                    <li><strong>Generate</strong>: Create your brand kit with one click</li>
+                    <li><strong>Customize</strong>: Regenerate specific elements as needed</li>
+                </ol>
+                <p>Your brand kit includes color palette, accessibility check, typography, icons, and preview examples.</p>
+            </div>
+        </div>
+    </div>
 
-
-
- 	<script src="../../css/brand_kit.css"></script> 
+   <section id="results" class="hidden">
+    <!-- Mood Description -->
+    <div class="mood-description"></div>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Color Palette -->
+    <div class="color-palette-section">
+        <h2>🎨 Professional Color Palette</h2>
+		<div class="current-swatch-header">
+        <span class="current-swatch-name"></span>
+        <span class="contrast-ratio-status"></span>
+    </div>
+        <div class="swatch-grid"></div>
+		<button id="regenerate-swatch" class="btn-secondary" style="display: none;">↻ Regenerate Swatches</button>
+    </div>
+	
 
-
-    <header>
-        <h1>Brand Kit Generator</h1>
-        <p>Create a professional brand color palette</p>
-    </header>
-
-    <main>
-        <section class="controls">
-            <div class="form-group">
-                <label for="style">Select Style</label>
-                <select id="style">
-                    <option value="corporate">Corporate</option>
-                    <option value="modern">Modern</option>
-                    <option value="fun">Fun</option>
-                    <option value="wild">Wild</option>
-                </select>
+    
+    <!-- Accessibility Check (new full-width section) -->
+    <div class="accessibility-section">
+        <h2>🛡️ Accessibility Check</h2>
+        
+        <div class="preview-box" style="background-color: var(--background-color)">
+            <div class="preview-text" style="color: var(--primary-color);font-size: 29px; font-weight: bold">Primary Color (60%): Use for main headers, buttons, and key elements.</div>
+            <div class="preview-text" style="color: var(--secondary-color);font-size: 23px; font-weight: normal; margin-top: 10px">Secondary Color (30%): Use for subheaders, secondary buttons, and less prominent elements.</div>
+			
+            <div class="preview-text" style="color: var(--accent-color); font-size: 20px; font-weight: bold; margin-top: 10px">ACCENT COLOR (10%): Use for call-to-action buttons, links, and highlights.</div>
+			
+            <div class="preview-text" style="color: var(--body-text-color);font-size: 16px; margin-top: 10px">Body Text Example- <b>60-30-10 Rule:</b> This rule helps in creating a balanced color scheme. Use 60% of the primary color, 30% of the secondary color, and 10% of the accent color in your design. Body Text Color, Background Color.</div>
+        </div>
+		
+		<div class="contrast-checks"></div>
+    </div>
+			
+			
+			<div class="preview-container">
+			<h2>🛡️ Layout Preview</h2>
+                <div class="preview-mode-selector">
+                    <button class="preview-mode-btn active" data-mode="website">Website Preview</button>
+                    <button class="preview-mode-btn" data-mode="print">Print Preview</button>
+                </div>
+                
+                <div id="website-preview" class="preview-content active"></div>
+                <div id="print-preview" class="preview-content"></div>
             </div>
             
-            <div class="form-group">
-                <label for="background">Background Type</label>
-                <select id="background">
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </div>
-            
-            <button id="generate-btn" class="btn-primary">Generate Brand Kit</button>
-        </section>
-
-        <section id="results" class="hidden">
-            <!-- All generated content will go here -->
-            <div id="color-palette"></div>
-            <div id="typography"></div>
-            <div id="icons"></div>
-            <div id="preview"></div>
             <button id="download-btn" class="btn-secondary">Download Brand Guidelines</button>
         </section>
     </main>
 
     <script src="../../js/brand_kit.js"></script>
+
+
 
 	
 
