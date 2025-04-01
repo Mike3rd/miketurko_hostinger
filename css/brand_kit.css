@@ -9,6 +9,8 @@
   --background-color: #FFFFFF;
   --body-font: 'Open Sans', sans-serif;
   --header-font: 'Roboto', sans-serif;
+   --personality-font: 'Arial', serif;
+    --body-font: 'Helvetica', sans-serif;
 }
 /*
 body {
@@ -35,6 +37,19 @@ main {
     box-sizing: border-box;
     overflow-x: hidden; /* Prevents horizontal scroll */
 }
+
+/* global*/ 
+.hidden {
+  display: none;
+}
+
+.preview-header,
+.preview-mode-selector-hide,
+.download-section {
+    display: none;
+}
+
+
 /*
 h1, h2, h3 {
   font-family: var(--header-font);
@@ -102,10 +117,6 @@ h1, h2, h3 {
   color: white;
 }
 
-/* Results Section */
-.hidden {
-  display: none;
-}
 
 /* Color Swatches */
 .color-swatches {
@@ -160,6 +171,7 @@ h1, h2, h3 {
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
+  background-color: #ccc; 
 }
 
 .preview-mode-btn.active {
@@ -184,6 +196,20 @@ h1, h2, h3 {
   color: var(--body-text-color);
   
 }
+
+/* Change print preview button style */
+.preview-mode-btn[data-mode="print"] {
+    background-color: #ccc; /* Darker gray */
+    color: white;
+}
+
+/* Active state */
+.preview-mode-btn[data-mode="print"].active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+
 
 
 /* Explicitly set text colors for interface elements */
@@ -330,11 +356,15 @@ h1, h2, h3 {
 }
 
 .help-column {
-    background: #f8f9fa;
+    background: #ffff;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #e0e0e0;
 	
+}
+
+.help-column{
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);	
 }
 
 .help-card h3 {
@@ -421,6 +451,7 @@ h1, h2, h3 {
     margin-bottom: 20px;
 	margin-top: 20px;
     border: 1px solid #ddd;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	
 }
 
@@ -619,3 +650,230 @@ h1, h2, h3 {
 #results.hidden {
     display: none;
 }
+
+/*FONTS*/
+.font-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.font-preview-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.font-example {
+    border-right: 1px solid #eee;
+    padding-right: 2rem;
+}
+
+.font-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.font-detail-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.font-detail-item p{
+    margin:0px;
+	font-family: var(--ui-text-font);
+}
+
+
+.personality-font-example {
+    font-size: 3rem;
+    margin: 0 0 1rem;
+}
+
+.body-font-example {
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.font-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.font-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.1em;
+}
+
+.personality-font-title {
+    /* Fallback values */
+    font-family: var(--header-font);
+    font-weight: 700;
+}
+
+.body-font-title {
+    /* Fallback values */
+    font-family: var(--body-font);
+    font-weight: 400;
+}
+
+
+
+/* Hide font section initially */
+.font-section {
+    display: none;
+}
+
+/* Show when generated */
+.font-section.visible {
+    display: block;
+}
+
+.font-preview-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .font-preview-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .font-example {
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .font-detail-item {
+        padding: 0.8rem;
+    }
+    
+    .personality-font-example {
+        font-size: 1.5rem;
+    }
+    
+    .body-font-example {
+        font-size: 0.9rem;
+    }
+    
+    .font-title {
+        font-size: 1rem;
+    }
+    
+    .font-detail-item p {
+        font-size: 0.9rem;
+    }
+    
+    .btn-secondary {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+}
+
+
+/*SWATCH AREA */
+
+.swatch-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.color-palette-section h2 {
+    margin-bottom: 0.5rem;
+    padding-left: 10px;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+    .swatch-container {
+        padding: 15px;
+        margin: 0.5rem 0;
+    }
+}
+
+
+/* Icon Section */
+.icon-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.icon-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.icon-col2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.icon-preview {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 3rem; /* Increased icon size */
+    margin-top: 0.5rem;
+}
+
+.icon-preview i {
+    font-size: inherit; /* Use parent font-size */
+}
+
+.icon-preview-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--neutral-color);
+}
+
+/* Vertical alignment fix */
+.icon-columns {
+    align-items: start;
+}
+
+/*------?---*/
+.icon-preview i:hover {
+    transform: scale(1.2);
+}
+
+.icon-section.visible {
+    display: block;
+}
+
+/*------?---*/
+
+
+@media (max-width: 768px) {
+    .icon-columns {
+        grid-template-columns: 1fr;
+    }
+    
+    .icon-preview {
+        justify-content: center;
+    }
+}
+	

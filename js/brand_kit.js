@@ -81,46 +81,64 @@ const DEFAULT_PRESETS = {
         sub_category: "sans-serif"
       }
     ]
-  }
+  },
+  
+  icons: {
+    corporate: [
+        {
+            type: "minimal outline",
+            source: "Material Icons",
+            additional_sources: ["Font Awesome", "Ionicons", "Feather Icons"],
+            icons: ["fas fa-building", "fas fa-chart-line", "fas fa-users"]
+        }
+    ]
+
+}
+   
 };
 
 
 let presets = {...DEFAULT_PRESETS};
 
+const GFONTS_API_KEY = 'AIzaSyCZXwIUwMq07UdWclEKu_5uS282ZfV6giQ'; 
 
 async function loadPresets() {
   try {
-    const [swatchesRes, fontsRes] = await Promise.all([
+    const [swatchesRes, fontsRes, iconsRes] = await Promise.all([
       fetch('/presets/swatches.json'),
-      fetch('/presets/fonts.json')
+      fetch('/presets/fonts.json'),
+      fetch('/presets/icons.json')
     ]);
 
     // Check network errors
     if (!swatchesRes.ok) throw new Error(`Swatches failed: ${swatchesRes.status}`);
     if (!fontsRes.ok) throw new Error(`Fonts failed: ${fontsRes.status}`);
+    if (!iconsRes.ok) throw new Error(`Icons failed: ${iconsRes.status}`);
 
     // Parse responses
-    const swatchesText = await swatchesRes.text();
-    const fontsText = await fontsRes.text();
-    
-    // Validate JSON syntax first
+    const [swatchesText, fontsText, iconsText] = await Promise.all([
+      swatchesRes.text(),
+      fontsRes.text(),
+      iconsRes.text()
+    ]);
+
+    // Validate JSON syntax
     try {
       presets.swatches = JSON.parse(swatchesText);
-    } catch (e) {
-      throw new Error(`Invalid swatches.json: ${e.message}`);
-    }
-    
-    try {
       presets.fonts = JSON.parse(fontsText);
+      presets.icons = JSON.parse(iconsText);
     } catch (e) {
-      throw new Error(`Invalid fonts.json: ${e.message}`);
+      throw new Error(`JSON parse error: ${e.message}`);
     }
 
     console.log('Loaded presets successfully');
   } catch (error) {
     console.error("Preset Loading Error:", error.message);
     console.log('Using default presets as fallback');
-    presets = {...DEFAULT_PRESETS};
+    presets = {
+      ...DEFAULT_PRESETS,
+      icons: DEFAULT_PRESETS.icons // Add missing comma here
+    };
   }
 }
 
@@ -137,32 +155,42 @@ function generateColors(style, backgroundType) {
   return swatches[Math.floor(Math.random() * swatches.length)];
 }
 
-function generateFonts(style) {
-  if (!presets.fonts[style]) {
-    console.warn(`No fonts for ${style}. Using defaults.`);
-    return {
-      main: "Arial",
-      sub: "Helvetica",
-      main_category: "sans-serif", 
-      sub_category: "sans-serif"
-    };
-  }
-  return presets.fonts[style][0]; // Or random selection
-}
 
 function generateIcons(style) {
-  const iconSets = {
-    corporate: ["fas fa-briefcase", "fas fa-building"],
-    modern: ["fas fa-code", "fas fa-cube"],
-    fun: ["fas fa-smile", "fas fa-gamepad"],
-    wild: ["fas fa-fire", "fas fa-bolt"],
-	extraterrestrial: ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
-  };
-  return iconSets[style] || iconSets.corporate;
+  // Return the full icon config object
+  if (presets.icons?.[style]?.length > 0) {
+    return presets.icons[style][0];
+  }
+  return DEFAULT_PRESETS.icons[style]?.[0] || DEFAULT_PRESETS.icons.corporate[0];
 }
 
-function displayResults(colors, fonts, icons, backgroundType) {
-  console.log('Displaying results with:', { colors, fonts, icons, backgroundType });
+function updateIconSection(style) {
+    const iconConfig = generateIcons(style);
+    const section = document.querySelector('.icon-section');
+    
+    // Update content
+    document.getElementById('icon-style-type').textContent = iconConfig.type;
+    document.getElementById('icon-source').textContent = iconConfig.source;
+    document.getElementById('icon-other-sources').textContent = iconConfig.additional_sources.join(', ');
+    
+    // Update icons
+    const preview = document.getElementById('icon-preview');
+    preview.innerHTML = iconConfig.icons.map(icon => 
+        icon.startsWith('fas ') ? 
+        `<i class="${icon}"></i>` : 
+        `<span>${icon}</span>`
+    ).join('');
+    
+    section.classList.remove('hidden');
+}
+
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadPresets();
+    
+  function displayResults(colors, fonts, iconConfig, backgroundType) {
+  console.log('Displaying results with:', { colors, fonts, iconConfig, backgroundType });
   
   // Set CSS variables for easy theming
   document.documentElement.style.setProperty('--primary-color', colors.primary);
@@ -173,6 +201,22 @@ function displayResults(colors, fonts, icons, backgroundType) {
   document.documentElement.style.setProperty('--background-color', colors.background);
   document.documentElement.style.setProperty('--body-font', fonts.sub);
   document.documentElement.style.setProperty('--header-font', fonts.main);
+  // Update font display
+  document.querySelector('.personality-font-example').style.fontFamily = fonts.main;
+  document.querySelector('.body-font-example').style.fontFamily = fonts.sub;
+  document.querySelector('.personality-font-name').textContent = fonts.main;
+  document.querySelector('.body-font-name').textContent = fonts.sub;
+  document.querySelector('.personality-font-category').textContent = fonts.main_category;
+  document.querySelector('.body-font-category').textContent = fonts.sub_category;
+  
+  // Force font update
+    document.querySelector('.personality-font-example').style.fontFamily = `'${fonts.main}'`;
+    document.querySelector('.body-font-example').style.fontFamily = `'${fonts.sub}'`;
+    document.querySelector('.personality-font-name').textContent = fonts.main;
+    document.querySelector('.body-font-name').textContent = fonts.sub;
+	 document.querySelector('.preview-header').style.display = 'block';
+    document.querySelector('.preview-mode-selector-hide').style.display = 'flex';
+    document.querySelector('.download-section').style.display = 'inline-block';
   
   const previewSections = document.querySelectorAll('.preview-box, .website-preview, .print-preview');
   previewSections.forEach(section => {
@@ -190,20 +234,33 @@ function displayResults(colors, fonts, icons, backgroundType) {
   
   // Add contrast checks
   displayContrastChecks(colors);
+  
+    
 
   // Generate previews
-  document.getElementById('website-preview').innerHTML = generateWebsitePreview(colors, fonts, icons);
-  document.getElementById('print-preview').innerHTML = generatePrintPreview(colors, fonts, icons);
+  document.getElementById('website-preview').innerHTML = generateWebsitePreview(colors, fonts, iconConfig);
+  document.getElementById('print-preview').innerHTML = generatePrintPreview(colors, fonts, iconConfig);
+  
+  updateIconSection(style);
   
   // Set up preview mode switcher
   setupPreviewModeSwitcher();
   
   // Show results section
   document.getElementById('results').classList.remove('hidden');
-}
   
-
-
+      getFontWeights(fonts.main).then(weights => {
+        const rec = recommendWeights('personality', weights);
+        document.querySelector('.personality-font-weight').textContent = rec;
+    });
+    getFontWeights(fonts.sub).then(weights => {
+        const rec = recommendWeights('neutral', weights);
+        document.querySelector('.body-font-weight').textContent = rec;
+    });
+  
+  
+}
+	
 function displayMoodDescription(style) {
     const descriptions = {
     corporate: "📊 Mood/Feel: Professional, sophisticated, polished, and trustworthy. These colors evoke confidence and competence, ideal for a business setting.",
@@ -334,8 +391,25 @@ function displayContrastChecks(colors) {
     
     contrastContainer.appendChild(columns);
 }
-
-// Add this contrast calculation function
+	
+function setupPreviewModeSwitcher() {
+  const buttons = document.querySelectorAll('.preview-mode-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active button
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      // Show corresponding preview
+      document.querySelectorAll('.preview-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById(`${btn.dataset.mode}-preview`).classList.add('active');
+    });
+  });
+}	
+	
+	
 function calculateContrastRatio(color1, color2) {
     // Convert hex to RGB
     const r1 = parseInt(color1.substr(1, 2), 16) / 255;
@@ -354,27 +428,201 @@ function calculateContrastRatio(color1, color2) {
     const lighter = Math.max(luminance1, luminance2);
     const darker = Math.min(luminance1, luminance2);
     return (lighter + 0.05) / (darker + 0.05);
-} 
-  
-
-function setupPreviewModeSwitcher() {
-  const buttons = document.querySelectorAll('.preview-mode-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update active button
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      
-      // Show corresponding preview
-      document.querySelectorAll('.preview-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      document.getElementById(`${btn.dataset.mode}-preview`).classList.add('active');
-    });
-  });
+} 	
+	
+	
+	// State Management
+    let usedSwatches = {
+        corporate: { light: [], dark: [] },
+        modern: { light: [], dark: [] },
+        fun: { light: [], dark: [] },
+        wild: { light: [], dark: [] },
+        extraterrestrial: { light: [], dark: [] }
+    };
+    
+	let usedFontCombos = {
+    corporate: [],
+    modern: [],
+    fun: [],
+    wild: [],
+    extraterrestrial: []
+	};
+	
+	let currentState = {
+        colors: null,
+        fonts: null,
+        icons: null,
+        style: null,
+        background: null
+    };
+	
+function generateFonts(style) {
+    if (!presets.fonts[style]) return DEFAULT_PRESETS.fonts[style];
+    
+    const available = presets.fonts[style].filter(
+        combo => !usedFontCombos[style].includes(combo.main)
+    );
+    
+    if (available.length === 0) {
+        usedFontCombos[style] = [];
+        showResetNotification('font');
+    }
+    
+    const combo = available.length > 0 
+        ? available[Math.floor(Math.random() * available.length)]
+        : presets.fonts[style][Math.floor(Math.random() * presets.fonts[style].length)];
+    
+    usedFontCombos[style].push(combo.main);
+    return combo;
 }
 
-function generateWebsitePreview(colors, fonts, icons) {
+		
+
+    // Generate Button Handler
+   document.getElementById('generate-btn').addEventListener('click', () => {
+    const style = document.getElementById('style').value;
+    const background = document.getElementById('background').value;
+    
+    try {
+        // Generate new brand kit
+        const newColors = generateColors(style, background);
+        const newFonts = generateFonts(style);
+        const iconConfig = generateIcons(style);
+
+        // Update current state
+        currentState = {
+            colors: newColors,
+            fonts: newFonts,
+            iconConfig: iconConfig,
+            style: style,
+            background: background
+        };
+
+        // Track swatch usage
+        trackSwatchUsage(style, background, newColors.name);
+        
+        // Update display - FIXED LINE 👇
+        displayResults(currentState.colors, currentState.fonts, currentState.iconConfig, background);
+        
+        document.getElementById('results').classList.remove('hidden');
+        document.getElementById('regenerate-swatch').style.display = 'inline-block';
+
+        // Load fonts dynamically
+        loadGoogleFont(newFonts.main);
+        loadGoogleFont(newFonts.sub);
+        
+        // Show font section
+        document.querySelector('.font-section').classList.add('visible');
+
+    } catch (error) {
+        console.error("Generation error:", error);
+        alert("Error generating kit. Please try again.");
+    }
+    
+    document.querySelector('.preview-mode-selector').classList.add('visible');
+});
+
+    // Regenerate Button Handler
+    document.getElementById('regenerate-swatch').addEventListener('click', () => {
+        if (!currentState.colors) {
+            alert('Please generate a brand kit first!');
+            return;
+        }
+        
+        try {
+            const newColors = getNewSwatch(currentState.style, currentState.background);
+            currentState.colors = newColors;
+            trackSwatchUsage(currentState.style, currentState.background, newColors.name);
+            
+            // Update display
+            displayResults(currentState.colors, currentState.fonts, currentState.iconConfig, currentState.background);
+            
+            // Show reset notification if needed
+            if (usedSwatches[currentState.style][currentState.background].length === 1) {
+                showResetNotification();
+            }
+            
+        } catch (error) {
+            console.error("Regeneration error:", error);
+            alert("Error regenerating swatch. Please try again.");
+        }
+    });
+	
+	//New Font button
+	document.getElementById('regenerate-fonts').addEventListener('click', () => {
+    if (!currentState.style) {
+        alert('Generate a brand kit first!');
+        return;
+    }
+    
+    try {
+        currentState.fonts = generateFonts(currentState.style);
+        loadGoogleFont(currentState.fonts.main);
+        loadGoogleFont(currentState.fonts.sub);
+        displayResults(currentState.colors, currentState.fonts, currentState.icons, currentState.background);
+    } catch (error) {
+        console.error("Font error:", error);
+    }
+});
+
+// HELPER FUNCTIONS
+    function trackSwatchUsage(style, backgroundType, swatchName) {
+        if (!usedSwatches[style][backgroundType].includes(swatchName)) {
+            usedSwatches[style][backgroundType].push(swatchName);
+        }
+    }
+
+    function getNewSwatch(style, backgroundType) {
+        const available = presets.swatches[style][backgroundType].filter(
+            swatch => !usedSwatches[style][backgroundType].includes(swatch.name)
+        );
+        
+        if (available.length === 0) {
+            usedSwatches[style][backgroundType] = [];
+            showResetNotification();
+            return presets.swatches[style][backgroundType][
+                Math.floor(Math.random() * presets.swatches[style][backgroundType].length)
+            ];
+        }
+        
+        return available[Math.floor(Math.random() * available.length)];
+    }
+
+    function showResetNotification() {
+        const notification = document.createElement('div');
+        notification.className = 'reset-notification';
+        notification.textContent = 'All swatches shown - resetting list';
+        document.body.appendChild(notification);
+        setTimeout(() => notification.remove(), 2000);
+    }
+	
+	// Font weight utilities
+    async function getFontWeights(fontName) {
+        try {
+            const response = await fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${GFONTS_API_KEY}`);
+            const data = await response.json();
+            const font = data.items.find(f => f.family === fontName);
+            return font ? font.variants : ['400'];
+        } catch {
+            return ['400'];
+        }
+    }
+
+    function recommendWeights(type, weights) {
+        const preferred = type === 'personality' ? ['700', '800', '600'] : ['400', '500'];
+        return weights.find(w => preferred.includes(w)) || weights[0];
+    }
+    
+	function loadGoogleFont(fontName) {
+    const link = document.createElement('link');
+    link.href = `https://fonts.googleapis.com/css2?family=${fontName.replace(' ', '+')}&display=swap`;
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+}
+
+ 
+
+function generateWebsitePreview(colors, fonts, iconConfig) {
   return `
     <div class="website-preview" style="color: ${colors.body_text}">
       <div class="header-container">
@@ -412,7 +660,7 @@ function generateWebsitePreview(colors, fonts, icons) {
       <a href="#" class="button" style="background-color: ${colors.accent}; color: ${colors.neutral}">Explore Our Brand Guidelines</a>
 
       <div class="icon-row">
-        ${icons.map(icon => 
+        ${iconConfig.icons.map(icon => // Use iconConfig.icons
           icon.startsWith('fas ') 
             ? `<i class="${icon}" style="color: ${colors.primary}; font-size: 28px;"></i>`
             : `<span class="icon" style="color: ${colors.primary}">${icon}</span>`
@@ -422,131 +670,20 @@ function generateWebsitePreview(colors, fonts, icons) {
   `;
 }
 
-function generatePrintPreview(colors, fonts, icons) {
+function generatePrintPreview(colors, fonts, iconConfig) { // Changed parameter name
   return `
-    <div class="print-preview" >
+    <div class="print-preview">
       <h1 style="font-family: ${fonts.main}; color: ${colors.primary}">Brand Flyer</h1>
       <p>This is a sample print document preview using your brand kit. The colors, fonts, and icons are dynamically applied to showcase how your brand might look in a printed format.</p>
       <p>Here's a <span class="highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
       <p>
-        ${icons.map(icon => 
+        ${iconConfig.icons.map(icon => 
           `<span class="icon" style="color: ${colors.primary}">${
             icon.startsWith('fas ') ? `<i class="${icon}"></i>` : icon
           }</span>`
         ).join(' ')}
-        Icons styled with your dominant color.
       </p>
     </div>
   `;
 }
-
-document.addEventListener('DOMContentLoaded', async () => {
-    await loadPresets();
-    
-    // State Management
-    let usedSwatches = {
-        corporate: { light: [], dark: [] },
-        modern: { light: [], dark: [] },
-        fun: { light: [], dark: [] },
-        wild: { light: [], dark: [] },
-        extraterrestrial: { light: [], dark: [] }
-    };
-    let currentState = {
-        colors: null,
-        fonts: null,
-        icons: null,
-        style: null,
-        background: null
-    };
-
-    // Generate Button Handler
-    document.getElementById('generate-btn').addEventListener('click', () => {
-        const style = document.getElementById('style').value;
-        const background = document.getElementById('background').value;
-        
-        try {
-            // Generate new brand kit
-            const newColors = generateColors(style, background);
-            const newFonts = generateFonts(style);
-            const newIcons = generateIcons(style);
-            
-            // Update state
-            currentState = {
-                colors: newColors,
-                fonts: newFonts,
-                icons: newIcons,
-                style,
-                background
-            };
-            
-            // Track swatch usage
-            trackSwatchUsage(style, background, newColors.name);
-            
-            // Update display
-            displayResults(currentState.colors, currentState.fonts, currentState.icons, background);
-            document.getElementById('results').classList.remove('hidden');
-            document.getElementById('regenerate-swatch').style.display = 'inline-block';
-            
-        } catch (error) {
-            console.error("Generation error:", error);
-            alert("Error generating kit. Please try again.");
-        }
-    });
-
-    // Regenerate Button Handler
-    document.getElementById('regenerate-swatch').addEventListener('click', () => {
-        if (!currentState.colors) {
-            alert('Please generate a brand kit first!');
-            return;
-        }
-        
-        try {
-            const newColors = getNewSwatch(currentState.style, currentState.background);
-            currentState.colors = newColors;
-            trackSwatchUsage(currentState.style, currentState.background, newColors.name);
-            
-            // Update display
-            displayResults(currentState.colors, currentState.fonts, currentState.icons, currentState.background);
-            
-            // Show reset notification if needed
-            if (usedSwatches[currentState.style][currentState.background].length === 1) {
-                showResetNotification();
-            }
-            
-        } catch (error) {
-            console.error("Regeneration error:", error);
-            alert("Error regenerating swatch. Please try again.");
-        }
-    });
-
-    // Helper Functions
-    function trackSwatchUsage(style, backgroundType, swatchName) {
-        if (!usedSwatches[style][backgroundType].includes(swatchName)) {
-            usedSwatches[style][backgroundType].push(swatchName);
-        }
-    }
-
-    function getNewSwatch(style, backgroundType) {
-        const available = presets.swatches[style][backgroundType].filter(
-            swatch => !usedSwatches[style][backgroundType].includes(swatch.name)
-        );
-        
-        if (available.length === 0) {
-            usedSwatches[style][backgroundType] = [];
-            showResetNotification();
-            return presets.swatches[style][backgroundType][
-                Math.floor(Math.random() * presets.swatches[style][backgroundType].length)
-            ];
-        }
-        
-        return available[Math.floor(Math.random() * available.length)];
-    }
-
-    function showResetNotification() {
-        const notification = document.createElement('div');
-        notification.className = 'reset-notification';
-        notification.textContent = 'All swatches shown - resetting list';
-        document.body.appendChild(notification);
-        setTimeout(() => notification.remove(), 2000);
-    }
 });

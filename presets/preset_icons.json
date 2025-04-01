@@ -1,0 +1,34 @@
+{
+    "corporate": [
+        {
+            "type": "minimal outline",
+            "source": "Material Icons",
+            "additional_sources": ["Font Awesome", "Ionicons", "Feather Icons"],
+            "icons": ["fas fa-building", "fas fa-chart-line", "fas fa-users"]
+        }
+    ],
+    "fun": [
+        {
+            "type": "emoji",
+            "source": "Emoji Library",
+            "additional_sources": ["Flaticon", "Iconfinder", "Icons8"],
+            "icons": ["🎈", "🎨", "🎉"]
+        }
+    ],
+    "modern": [
+        {
+            "type": "thin line",
+            "source": "Feather Icons",
+            "additional_sources": ["Line Awesome", "Eva Icons", "Remix Icon"],
+            "icons": ["fas fa-feather", "fas fa-pen", "fas fa-ruler"]
+        }
+    ],
+    "wild": [
+        {
+            "type": "hand-drawn",
+            "source": "The Noun Project",
+            "additional_sources": ["Hand Drawn Icons", "Doodle Icons", "DrawKit"],
+            "icons": ["✍️", "🎨", "🔥"]
+        }
+    ]
+}

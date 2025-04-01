@@ -65,7 +65,7 @@
   "headline": "Brand Kit Generator",
   "description" : " Select Style Corporate Modern Fun Wild Extraterrestrial Background Type Light Dark Generate Brand Kit How To Use This Tool Select a Style: Choose a style that matches your brand personality Choose Background: Pick light or dark background preference Generate: Create your brand kit with one click Customize: Regenerate specific elements as needed Your brand kit includes color palette, accessibility check, typography, icons, and preview examples.\n",
   "inLanguage" : "en",
-  "wordCount":  194 ,
+  "wordCount":  261 ,
   "datePublished" : "0001-01-01T00:00:00\u002b00:00",
   "dateModified" : "0001-01-01T00:00:00\u002b00:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -217,8 +217,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
         
           
-            <li>
-              <a title="tools" href="../../">tools</a>
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0">tools</a>
+              <div class="navlinks-children">
+                
+                  <a href="../../page/tri_time_calculator">Tri Time Calculator</a>
+                
+              </div>
             </li>
           
         
@@ -403,12 +408,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Color Palette -->
     <div class="color-palette-section">
         <h2>🎨 Professional Color Palette</h2>
+		
+		 <div class="swatch-container">
 		<div class="current-swatch-header">
         <span class="current-swatch-name"></span>
         <span class="contrast-ratio-status"></span>
     </div>
         <div class="swatch-grid"></div>
 		<button id="regenerate-swatch" class="btn-secondary" style="display: none;">↻ Regenerate Swatches</button>
+		</div>
     </div>
 	
 
@@ -428,11 +436,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		<div class="contrast-checks"></div>
     </div>
-			
-			
+	</section>
+	
+	<!-- fonts-->
+	
+	<section class="font-section">
+    <h2>🔤 Professional Font Pairing</h2>
+    <div class="font-controls">
+        <button id="regenerate-fonts" class="btn-secondary">↻ Try New Fonts</button>
+    </div>
+    <div class="font-preview-container">
+        <div class="font-example">
+            <h3 class="personality-font-example">Header Text Example</h3>
+            <p class="body-font-example">This is body text example. The secondary font should be readable at small sizes and pair well with our main font. Suggested fonts are free Google fonts.</p>
+        </div>
+        <div class="font-details">
+            <div class="font-detail-item">
+    <h4 class="font-title personality-font-title">Personality Font</h4>
+    <p class="personality-font-name">Playfair Display</p>
+    <p class="personality-font-category">serif</p>
+    <p>Recommended weight: <span class="personality-font-weight">700</span></p>
+</div>
+<div class="font-detail-item">
+    <h4 class="font-title body-font-title">Secondary / Body Font</h4>
+    <p class="body-font-name">Open Sans</p>
+    <p class="body-font-category">sans-serif</p>
+    <p>Recommended weight: <span class="body-font-weight">400</span></p>
+</div>
+        </div>
+    </div>
+</section>
+
+	<!-- icons-->
+<section class="icon-section hidden">
+    <h2>🖼️ Icon Style</h2>
+    <div class="icon-columns">
+        <div class="icon-col1">
+            <p><strong>Style:</strong> <span id="icon-style-type"></span></p>
+            <p><strong>Recommended Source:</strong> <span id="icon-source"></span></p>
+            <p><strong>Other Free Sources:</strong> <span id="icon-other-sources"></span></p>
+        </div>
+        <div class="icon-col2">
+		<p class="icon-preview-label">Icon Preview:</p>
+            <div class="icon-preview" id="icon-preview"></div>
+        </div>
+    </div>
+</section>
+		
+	<!-- Preview -->
+	<section>	
 			<div class="preview-container">
-			<h2>🛡️ Layout Preview</h2>
-                <div class="preview-mode-selector">
+			<h2 class="preview-header">🛡️ Layout Preview</h2>
+                <div class="preview-mode-selector-hide">
                     <button class="preview-mode-btn active" data-mode="website">Website Preview</button>
                     <button class="preview-mode-btn" data-mode="print">Print Preview</button>
                 </div>
@@ -441,8 +496,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div id="print-preview" class="preview-content"></div>
             </div>
             
-            <button id="download-btn" class="btn-secondary">Download Brand Guidelines</button>
+            <button id="download-btn" class="download-section btn-secondary">Download Brand Guidelines</button>
         </section>
+		<!-- Add to your HTML -->
+
+		
+		
+		
     </main>
 
     <script src="../../js/brand_kit.js"></script>

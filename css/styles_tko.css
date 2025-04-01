@@ -512,6 +512,10 @@ text-shadow:none
         .input-group2 {
             margin: 15px 0;
         }
+		.input-group{
+		width: 100%;	
+		}
+		
         label {
             display: block;
             margin-bottom: 5px;
