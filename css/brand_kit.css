@@ -43,11 +43,6 @@ main {
   display: none;
 }
 
-.preview-header,
-.preview-mode-selector-hide,
-.download-section {
-    display: none;
-}
 
 
 /*
@@ -155,6 +150,11 @@ h1, h2, h3 {
   margin-top: 3rem;
   overflow: visible;
   
+}
+
+.preview-header {
+    display: block; /* Explicit default */
+    
 }
 
 .preview-mode-selector {

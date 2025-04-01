@@ -214,9 +214,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.body-font-example').style.fontFamily = `'${fonts.sub}'`;
     document.querySelector('.personality-font-name').textContent = fonts.main;
     document.querySelector('.body-font-name').textContent = fonts.sub;
-	 document.querySelector('.preview-header').style.display = 'block';
-    document.querySelector('.preview-mode-selector-hide').style.display = 'flex';
-    document.querySelector('.download-section').style.display = 'inline-block';
+	document.querySelectorAll('.preview-header, .preview-mode-selector, .download-section')
+        .forEach(el => el.classList.remove('hidden'));
   
   const previewSections = document.querySelectorAll('.preview-box, .website-preview, .print-preview');
   previewSections.forEach(section => {
