@@ -100,7 +100,7 @@ const DEFAULT_PRESETS = {
 
 let presets = {...DEFAULT_PRESETS};
 
-const GFONTS_API_KEY = 'AIzaSyCZXwIUwMq07UdWclEKu_5uS282ZfV6giQ'; 
+const GFONTS_API_KEY = ''; 
 
 async function loadPresets() {
   try {
@@ -153,6 +153,15 @@ function generateColors(style, backgroundType) {
   
   const swatches = presets.swatches[style][backgroundType];
   return swatches[Math.floor(Math.random() * swatches.length)];
+}
+
+function isDarkColor(hexColor) {
+    const rgb = parseInt(hexColor.substring(1), 16);
+    const r = (rgb >> 16) & 0xff;
+    const g = (rgb >> 8) & 0xff;
+    const b = (rgb >> 0) & 0xff;
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    return luminance < 128; // Returns true if color is dark
 }
 
 
@@ -229,7 +238,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   displayMoodDescription(style);
   
   // Add color swatches
-  displayColorSwatches(colors);
+  displayColorSwatches(colors, backgroundType);
   
   // Add contrast checks
   displayContrastChecks(colors);
@@ -274,7 +283,7 @@ function displayMoodDescription(style) {
     moodElement.innerHTML = `<p>${descriptions[style] || ''}</p>`;
 }
 
-function displayColorSwatches(colors) {
+function displayColorSwatches(colors, backgroundType) {
     const swatchGrid = document.querySelector('.swatch-grid');
     swatchGrid.innerHTML = '';
     
@@ -282,7 +291,13 @@ function displayColorSwatches(colors) {
         { label: "Primary", value: colors.primary, usage: "60%", contrastTarget: 3 },
         { label: "Secondary", value: colors.secondary, usage: "30%", contrastTarget: 3 },
         { label: "Accent", value: colors.accent, usage: "10%", contrastTarget: 3 },
-        { label: "Neutral", value: colors.neutral, usage: "Backgrounds", contrastTarget: 3 },
+        { 
+            label: "Neutral", 
+            value: colors.neutral, 
+            usage: "Backgrounds", 
+            // Dynamic contrast target based on background type
+            contrastTarget: backgroundType === 'dark' ? 4.5 : 3 
+        },
         { label: "Body Text", value: colors.body_text, usage: "Text", contrastTarget: 4.5 },
         { label: "Background", value: colors.background, usage: "Base", contrastTarget: 1 }
     ];
@@ -315,18 +330,26 @@ function displayColorSwatches(colors) {
 
     // Update contrast status messages
     document.querySelectorAll('.swatch-contrast-status').forEach(item => {
-        const contrast = parseFloat(item.dataset.contrast);
-        const required = parseFloat(item.dataset.required);
-        const message = item.querySelector('.contrast-status-message');
-        
-        if (contrast >= required) {
-            message.textContent = "✅ Good Contrast";
-            message.classList.add('contrast-good');
-        } else {
-            message.textContent = "⚠️ Low Contrast";
-            message.classList.add('contrast-warning');
-        }
-    });
+    const contrast = parseFloat(item.dataset.contrast);
+    const required = parseFloat(item.dataset.required);
+    const message = item.querySelector('.contrast-status-message');
+    
+    // Get the swatch label from parent element
+    const swatchLabel = item.closest('.swatch-item')
+                          .querySelector('.swatch-label').textContent.trim();
+
+    if (contrast >= required) {
+        message.textContent = swatchLabel === "Neutral" 
+            ? "✅ Sufficient Contrast" 
+            : "✅ Good Contrast";
+        message.classList.add('contrast-good');
+    } else {
+        message.textContent = swatchLabel === "Neutral"
+            ? "⚠️ Low Contrast for Background"
+            : "⚠️ Low Contrast";
+        message.classList.add('contrast-warning');
+    }
+});
 }
 
 

@@ -62,6 +62,7 @@ h1, h2, h3 {
 
 .form-group {
   margin-bottom: 15px;
+  
 }
 
 .form-group label {
@@ -75,7 +76,7 @@ h1, h2, h3 {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-family: var(--body-font);
+   font-family: var(--ui-text-font);
   font-size: 16px;
 }
 
@@ -353,6 +354,7 @@ h1, h2, h3 {
 
 .controls-column {
     max-width: 400px;
+	
 }
 
 .help-column {
