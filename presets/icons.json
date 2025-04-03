@@ -30,5 +30,16 @@
             "additional_sources": ["Hand Drawn Icons", "Doodle Icons", "DrawKit"],
             "icons": ["✍️", "🎨", "🔥"]
         }
+    ],
+	"extraterrestrial": [
+        {
+            "type": "futuristic",
+            "source": "Phosphor Icons",
+            "additional_sources": ["Hero Icons", "Radix Icons", "Universe Icons"],
+            "icons": ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
+			
+        }
     ]
+	
+	
 }

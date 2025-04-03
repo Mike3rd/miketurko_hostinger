@@ -91,16 +91,34 @@ const DEFAULT_PRESETS = {
             additional_sources: ["Font Awesome", "Ionicons", "Feather Icons"],
             icons: ["fas fa-building", "fas fa-chart-line", "fas fa-users"]
         }
+    ],
+    extraterrestrial: [ // Add this entry
+        {
+            type: "futuristic",
+            source: "Phosphor Icons",
+            additional_sources: ["Hero Icons", "Radix Icons", "Universe Icons"],
+            icons: ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
+        }
     ]
-
-}
-   
+  }
 };
 
 
 let presets = {...DEFAULT_PRESETS};
 
-const GFONTS_API_KEY = ''; 
+//const GFONTS_API_KEY = 'AIzaSyCZXwIUwMq07UdWclEKu_5uS282ZfV6giQ'; 
+
+async function getGoogleFonts(style) {
+    try {
+        const response = await fetch(`/api/fonts.php?style=${encodeURIComponent(style)}`);
+        if(!response.ok) throw new Error('Font fetch failed');
+        const data = await response.json();
+        return data.items.map(f => f.family);
+    } catch(error) {
+        console.error('Fonts API error:', error);
+        return ['Arial', 'Helvetica']; // Fallback fonts
+    }
+}
 
 async function loadPresets() {
   try {
@@ -166,30 +184,56 @@ function isDarkColor(hexColor) {
 
 
 function generateIcons(style) {
-  // Return the full icon config object
-  if (presets.icons?.[style]?.length > 0) {
-    return presets.icons[style][0];
-  }
-  return DEFAULT_PRESETS.icons[style]?.[0] || DEFAULT_PRESETS.icons.corporate[0];
+    const defaultConfig = {
+        type: "generic",
+        source: "System Icons",
+        additional_sources: [],
+        icons: []
+    };
+
+    try {
+        const preset = presets.icons[style]?.[0] || DEFAULT_PRESETS.icons[style]?.[0];
+        return {
+            ...defaultConfig,
+            ...preset,
+            additional_sources: preset?.additional_sources || []
+        };
+    } catch {
+        return defaultConfig;
+    }
 }
 
 function updateIconSection(style) {
-    const iconConfig = generateIcons(style);
+    const config = generateIcons(style);
     const section = document.querySelector('.icon-section');
     
-    // Update content
-    document.getElementById('icon-style-type').textContent = iconConfig.type;
-    document.getElementById('icon-source').textContent = iconConfig.source;
-    document.getElementById('icon-other-sources').textContent = iconConfig.additional_sources.join(', ');
+    // Safe element references
+    const styleElement = document.getElementById('icon-style-type');
+    const sourceElement = document.getElementById('icon-source');
+    const sourcesElement = document.getElementById('icon-other-sources');
+    const previewElement = document.getElementById('icon-preview');
+
+    // Update content with null checks
+    if (styleElement) styleElement.textContent = config.type || 'Not Specified';
+    if (sourceElement) sourceElement.textContent = config.source || 'Default Source';
     
-    // Update icons
-    const preview = document.getElementById('icon-preview');
-    preview.innerHTML = iconConfig.icons.map(icon => 
-        icon.startsWith('fas ') ? 
-        `<i class="${icon}"></i>` : 
-        `<span>${icon}</span>`
-    ).join('');
-    
+    // Safe array join
+    if (sourcesElement) {
+        sourcesElement.textContent = Array.isArray(config.additional_sources) 
+            ? config.additional_sources.join(', ')
+            : 'No additional sources available';
+    }
+
+    // Safe icon display
+    if (previewElement) {
+        previewElement.innerHTML = (config.icons || []).map(icon => 
+            icon.startsWith('fas ') 
+                ? `<i class="${icon}"></i>` 
+                : `<span>${icon}</span>`
+        ).join('');
+    }
+
+    // Show section if hidden
     section.classList.remove('hidden');
 }
 
@@ -200,7 +244,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     
   function displayResults(colors, fonts, iconConfig, backgroundType) {
   console.log('Displaying results with:', { colors, fonts, iconConfig, backgroundType });
-  
+   if (!iconConfig?.icons) {
+        console.warn('No icon configuration available');
+        iconConfig = { icons: [] }; // Fallback empty icons
+    }
   // Set CSS variables for easy theming
   document.documentElement.style.setProperty('--primary-color', colors.primary);
   document.documentElement.style.setProperty('--secondary-color', colors.secondary);
@@ -249,7 +296,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('website-preview').innerHTML = generateWebsitePreview(colors, fonts, iconConfig);
   document.getElementById('print-preview').innerHTML = generatePrintPreview(colors, fonts, iconConfig);
   
-  updateIconSection(style);
+   try {
+    updateIconSection(style);
+  } catch (error) {
+    console.error('Icon section error:', error);
+    document.querySelector('.icon-section').classList.add('hidden');
+  }
   
   // Set up preview mode switcher
   setupPreviewModeSwitcher();
@@ -473,7 +525,7 @@ function calculateContrastRatio(color1, color2) {
 	let currentState = {
         colors: null,
         fonts: null,
-        icons: null,
+        iconConfig: null,
         style: null,
         background: null
     };
@@ -581,9 +633,17 @@ function generateFonts(style) {
         currentState.fonts = generateFonts(currentState.style);
         loadGoogleFont(currentState.fonts.main);
         loadGoogleFont(currentState.fonts.sub);
-        displayResults(currentState.colors, currentState.fonts, currentState.icons, currentState.background);
+        
+        // Pass iconConfig from currentState
+        displayResults(
+            currentState.colors, 
+            currentState.fonts, 
+            currentState.iconConfig, // Changed from currentState.icons
+            currentState.background
+        );
     } catch (error) {
         console.error("Font error:", error);
+        alert("Error regenerating fonts. Please try again.");
     }
 });
 
@@ -619,21 +679,41 @@ function generateFonts(style) {
     }
 	
 	// Font weight utilities
-    async function getFontWeights(fontName) {
-        try {
-            const response = await fetch(`https://www.googleapis.com/webfonts/v1/webfonts?key=${GFONTS_API_KEY}`);
-            const data = await response.json();
-            const font = data.items.find(f => f.family === fontName);
-            return font ? font.variants : ['400'];
-        } catch {
-            return ['400'];
-        }
-    }
 
-    function recommendWeights(type, weights) {
-        const preferred = type === 'personality' ? ['700', '800', '600'] : ['400', '500'];
-        return weights.find(w => preferred.includes(w)) || weights[0];
+	async function getFontWeights(fontName) {
+    try {
+        const response = await fetch(`/api/font-weights.php?font=${encodeURIComponent(fontName)}`);
+        return await response.json();
+    } catch {
+        return ['400']; // Fallback
     }
+}
+
+    function recommendWeights(fontType, weights) {
+    // Convert all weights to numeric values
+    const numericWeights = weights.map(w => {
+        if(w === 'regular') return '400';
+        if(w === 'bold') return '700';
+        return w.replace(/\D/g,'');
+    }).filter(w => w.length > 0).map(Number);
+
+    // Preferred weights based on font role
+    const preferredWeights = {
+        personality: [700, 800, 900, 600], // Bold weights first
+        neutral: [400, 300, 500, 600]      // Medium/regular first
+    };
+
+    // Find first matching preferred weight
+    const preferred = preferredWeights[fontType].find(p => 
+        numericWeights.includes(p)
+    );
+
+    // Fallback logic
+    return preferred || 
+           numericWeights.find(w => w >= 400) || // Closest to regular
+           numericWeights[0] || 
+           400;
+}
     
 	function loadGoogleFont(fontName) {
     const link = document.createElement('link');
@@ -645,6 +725,7 @@ function generateFonts(style) {
  
 
 function generateWebsitePreview(colors, fonts, iconConfig) {
+	 const icons = iconConfig?.icons || [];
   return `
     <div class="website-preview" style="color: ${colors.body_text}">
       <div class="header-container">
@@ -682,13 +763,13 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
       <a href="#" class="button" style="background-color: ${colors.accent}; color: ${colors.neutral}">Explore Our Brand Guidelines</a>
 
       <div class="icon-row">
-        ${iconConfig.icons.map(icon => // Use iconConfig.icons
-          icon.startsWith('fas ') 
-            ? `<i class="${icon}" style="color: ${colors.primary}; font-size: 28px;"></i>`
-            : `<span class="icon" style="color: ${colors.primary}">${icon}</span>`
-        ).join(' ')}
-      </div>
-    </div>
+                ${icons.map(icon => 
+                    icon.startsWith('fas ') 
+                        ? `<i class="${icon}" style="color: ${colors.primary};"></i>`
+                        : `<span class="icon">${icon}</span>`
+                ).join(' ')}
+            </div>
+        </div>
   `;
 }
 
