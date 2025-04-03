@@ -1,32 +1,24 @@
 <?php
-header('Access-Control-Allow-Origin: https://miketurko.com');
 header('Content-Type: application/json');
 
-// Temporary error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 $font = isset($_GET['font']) ? urldecode($_GET['font']) : '';
-$api_key = 'YOUR_API_KEY'; // Replace with actual key
+$api_key = 'AIzaSyARRFGcO7LK9TqPA-wvLw2kEzRBooMMMVU'; // Replace with valid key
 
-// Convert spaces to +
-$api_font_name = str_replace(' ', '+', $font);
-
-// Build API URL
-$url = "https://www.googleapis.com/webfonts/v1/webfonts?key=$api_key&family=$api_font_name";
+// Clean font name
+$clean_font = str_replace(' ', '+', trim($font));
+$url = "https://www.googleapis.com/webfonts/v1/webfonts?key=$api_key&family=$clean_font";
 
 try {
     $response = file_get_contents($url);
     
-    if($response === FALSE) {
-        throw new Exception('Google Fonts API request failed');
+    if($response === false) {
+        throw new Exception('API request failed');
     }
     
     $data = json_decode($response, true);
     
     if(empty($data['items'])) {
-        echo json_encode(['400', '500', '700']); // Fallback weights
+        echo json_encode(['400']); // Fallback
         exit;
     }
     
@@ -35,9 +27,6 @@ try {
     
 } catch(Exception $e) {
     http_response_code(500);
-    echo json_encode(['error' => $e->getMessage(), 'weights' => ['400', '500', '700']]);
+    echo json_encode(['error' => $e->getMessage()]);
 }
-
-// Log the request
-file_put_contents('font_weights.log', date('Y-m-d H:i:s')." - $font\n", FILE_APPEND);
 ?>
