@@ -6,33 +6,32 @@
         {"main": "Alegreya", "sub": "Roboto", "main_category": "serif", "sub_category": "sans-serif"},
         {"main": "EB Garamond", "sub": "Lato", "main_category": "serif", "sub_category": "sans-serif"}
     ],
-	"modern": [
-        {"main": "Fredoka One", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Bungee", "sub": "Work Sans", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Luckiest Guy", "sub": "Comic Neue", "main_category": "display", "sub_category": "handwriting"},
-        {"main": "Chewy", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Modak", "sub": "Varela Round", "main_category": "display", "sub_category": "sans-serif"}
+    "modern": [
+        {"main": "Poppins", "sub": "Space Grotesk", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Oswald", "sub": "Roboto Flex", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Archivo Black", "sub": "Inter", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Montserrat", "sub": "Open Sans", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Space Mono", "sub": "Lato", "main_category": "monospace", "sub_category": "sans-serif"}
     ],
     "fun": [
-        {"main": "Fredoka One", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Bungee", "sub": "Work Sans", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Luckiest Guy", "sub": "Comic Neue", "main_category": "display", "sub_category": "handwriting"},
-        {"main": "Chewy", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Modak", "sub": "Varela Round", "main_category": "display", "sub_category": "sans-serif"}
+        {"main": "Bubblegum Sans", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Comic Neue", "sub": "Patrick Hand", "main_category": "handwriting", "sub_category": "handwriting"},
+        {"main": "Cherry Cream Soda", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Luckiest Guy", "sub": "Fredoka", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Baloo 2", "sub": "M PLUS Rounded 1c", "main_category": "display", "sub_category": "sans-serif"}
     ],
-	"wild": [
-        {"main": "Fredoka One", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Bungee", "sub": "Work Sans", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Luckiest Guy", "sub": "Comic Neue", "main_category": "display", "sub_category": "handwriting"},
-        {"main": "Chewy", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Modak", "sub": "Varela Round", "main_category": "display", "sub_category": "sans-serif"}
+    "wild": [
+        {"main": "Bungee Shade", "sub": "Rajdhani", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Anton", "sub": "Urbanist", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Black Ops One", "sub": "Kanit", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Londrina Shadow", "sub": "Rubik", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Ultra", "sub": "Fira Sans", "main_category": "serif", "sub_category": "sans-serif"}
     ],
-	"extraterrestrial": [
-        {"main": "Fredoka One", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Bungee", "sub": "Work Sans", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Luckiest Guy", "sub": "Comic Neue", "main_category": "display", "sub_category": "handwriting"},
-        {"main": "Chewy", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Modak", "sub": "Varela Round", "main_category": "display", "sub_category": "sans-serif"}
+    "extraterrestrial": [
+        {"main": "Orbitron", "sub": "Exo 2", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Michroma", "sub": "Titillium Web", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Audiowide", "sub": "Rajdhani", "main_category": "display", "sub_category": "sans-serif"},
+        {"main": "Nasalization", "sub": "Space Mono", "main_category": "display", "sub_category": "monospace"},
+        {"main": "Syne Mono", "sub": "Spartan", "main_category": "monospace", "sub_category": "sans-serif"}
     ]
-
 }

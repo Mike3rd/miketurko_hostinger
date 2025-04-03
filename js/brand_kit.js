@@ -309,14 +309,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Show results section
   document.getElementById('results').classList.remove('hidden');
   
-      getFontWeights(fonts.main).then(weights => {
-        const rec = recommendWeights('personality', weights);
-        document.querySelector('.personality-font-weight').textContent = rec;
-    });
-    getFontWeights(fonts.sub).then(weights => {
-        const rec = recommendWeights('neutral', weights);
-        document.querySelector('.body-font-weight').textContent = rec;
-    });
+    getFontWeights(fonts.main).then(weights => {
+    const rec = recommendWeights('personality', weights);
+    console.log('Main font weights:', weights, 'Selected:', rec); // Debug log
+    document.querySelector('.personality-font-weight').textContent = rec;
+});
+
+getFontWeights(fonts.sub).then(weights => {
+    const rec = recommendWeights('neutral', weights);
+    console.log('Sub font weights:', weights, 'Selected:', rec); // Debug log
+    document.querySelector('.body-font-weight').textContent = rec;
+});
   
   
 }
