@@ -592,7 +592,7 @@ text-shadow:none
 
 /* hide on home page*/
 .posts-list #socialshare_tko {
-	display: none
+	/*display: none*/
 }
 
 .share-container {
