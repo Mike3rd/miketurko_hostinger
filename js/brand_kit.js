@@ -395,7 +395,7 @@ function displayColorSwatches(colors, backgroundType) {
 
     if (contrast >= required) {
         message.textContent = swatchLabel === "Neutral" 
-            ? "✅ Sufficient Contrast" 
+            ? "✅ Good Contrast" 
             : "✅ Good Contrast";
         message.classList.add('contrast-good');
     } else {
