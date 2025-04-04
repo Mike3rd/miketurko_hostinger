@@ -715,7 +715,8 @@ function generateFonts(style) {
     return preferred || 
            numericWeights.find(w => w >= 400) || // Closest to regular
            numericWeights[0] || 
-           400;
+           400;		   
+		   
 }
     
 	function loadGoogleFont(fontName) {
