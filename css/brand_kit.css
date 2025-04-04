@@ -198,6 +198,16 @@ h1, h2, h3 {
   
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  #preview-box,
+#website-preview,
+#print-preview{
+    padding:0px;
+	margin-top:.9rem
+  }
+}
+
 /* Change print preview button style */
 .preview-mode-btn[data-mode="print"] {
     background-color: #ccc; /* Darker gray */
@@ -616,7 +626,9 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 @media (max-width: 768px) {
   .contrast-columns {
-    grid-template-columns: 1fr;
+    
+	grid-template-columns: repeat(2, minmax(0, 1fr)); 
+	
   }
 }
 
@@ -689,6 +701,8 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 .font-detail-item p{
     margin:0px;
 	font-family: var(--ui-text-font);
+	font-size: 1.3rem;
+	
 }
 
 
@@ -711,13 +725,14 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 .font-title {
     margin: 0 0 0.5rem;
-    font-size: 1.1em;
+   
 }
 
 .personality-font-title {
     /* Fallback values */
     font-family: var(--header-font);
     font-weight: 700;
+	 font-size: 2rem;
 }
 
 .body-font-title {
@@ -750,6 +765,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     .font-preview-container {
         grid-template-columns: 1fr;
         gap: 1rem;
+		
     }
     
     .font-example {
@@ -764,19 +780,22 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     
     .personality-font-example {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
     
     .body-font-example {
-        font-size: 0.9rem;
+        font-size: 1.5rem;
     }
+	
+	
+
+	.body-font-title {
+	font-size: 1.5rem;	
+	}
     
-    .font-title {
-        font-size: 1rem;
-    }
     
     .font-detail-item p {
-        font-size: 0.9rem;
+        font-size: 1.2rem;
     }
     
     .btn-secondary {
