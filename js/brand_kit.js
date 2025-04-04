@@ -782,7 +782,7 @@ function generatePrintPreview(colors, fonts, iconConfig) { // Changed parameter 
     <div class="print-preview">
       <h1 style="font-family: ${fonts.main}; color: ${colors.primary}">Brand Flyer</h1>
       <p>This is a sample print document preview using your brand kit. The colors, fonts, and icons are dynamically applied to showcase how your brand might look in a printed format.</p>
-      <p>Here's a <span class="highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
+      <p>Here's a <span class="bk_highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
       <p>
         ${iconConfig.icons.map(icon => 
           `<span class="icon" style="color: ${colors.primary}">${

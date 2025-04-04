@@ -23,7 +23,7 @@ body {
   padding: 20px;
 }
 
-*/
+
 
 header {
   text-align: center;
@@ -36,7 +36,7 @@ main {
     padding: 20px;
     box-sizing: border-box;
     overflow-x: hidden; /* Prevents horizontal scroll */
-}
+}*/
 
 /* global*/ 
 .hidden {
@@ -327,7 +327,7 @@ h1, h2, h3 {
   margin-bottom: 10px;
 }
 
-.highlight {
+.bk_highlight {
   background-color: var(--accent-color);
   color: var(--neutral-color);
   padding: 5px 10px;
