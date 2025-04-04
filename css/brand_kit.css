@@ -328,7 +328,7 @@ h1, h2, h3 {
   background-color: var(--neutral-color);
   color: var(--secondary-color);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 0px;
   border: 2px solid var(--primary-color);
 }
 

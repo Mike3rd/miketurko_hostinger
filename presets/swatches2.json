@@ -1,0 +1,483 @@
+{
+    "corporate": {
+        "light": [
+            {
+                "name": "Executive Elegance",
+                "primary": "#003B5C",
+                "primary_name": "Deep Navy Blue",
+                "secondary": "#A7BCC7",
+                "accent": "#FF6F61",
+                "neutral": "#F4F4F4",
+                "body_text": "#333333",
+                "background": "#F9F9F9"
+            },
+            {
+                "name": "Professional Precision",
+                "primary": "#4682B4",
+                "secondary": "#D3D3D3",
+                "accent": "#FF7F50",
+                "neutral": "#F5F5DC",
+                "body_text": "#2F4F4F",
+                "background": "#FFFFFF"
+            },
+            {
+                "name": "Executive Cool",
+                "primary": "#003366",
+                "secondary": "#708090",
+                "accent": "#DAA520",
+                "neutral": "#FFF5E1",
+                "body_text": "#000000",
+                "background": "#E1E1E1"
+            },
+            {
+                "name": "Business Classic",
+                "primary": "#333333",
+                "secondary": "#A6C8FF",
+                "accent": "#9E2A2F",
+                "neutral": "#F1F1F1",
+                "body_text": "#444444",
+                "background": "#F9F9F9"
+            },
+            {
+                "name": "Corporate Confidence",
+                "primary": "#008080",
+                "secondary": "#FFE4E1",
+                "accent": "#FF8C00",
+                "neutral": "#DCDCDC",
+                "body_text": "#333333",
+                "background": "#FAFAFA"
+            }
+        ],
+        "dark": [
+            {
+                "name": "Corporate Nightfall",
+                "primary": "#003B5C",
+                "secondary": "#BCC6D1",
+                "accent": "#D27F64",
+                "neutral": "#2F3A42",
+                "body_text": "#F4F4F4",
+                "background": "#2A2A2A"
+            },
+            {
+                "name": "Corporate Twilight",
+                "primary": "#aad2d2",
+                "secondary": "#9AC0D8",
+                "accent": "#FF6A13",
+                "neutral": "#2A2A2A",
+                "body_text": "#F4F4F4",
+                "background": "#333333"
+            },
+            {
+                "name": "Subtle Sophistication",
+                "primary": "#4169E1",
+                "secondary": "#B0C4DE",
+                "accent": "#FFDA03",
+                "neutral": "#333333",
+                "body_text": "#F8F8F8",
+                "background": "#212121"
+            },
+            {
+                "name": "Office Nightfall",
+                "primary": "#000080",
+                "secondary": "#B6B6B6",
+                "accent": "#FF8C69",
+                "neutral": "#2B2B2B",
+                "body_text": "#FFFFFF",
+                "background": "#000000"
+            },
+            {
+                "name": "Formal Focus",
+                "primary": "#36454F",
+                "secondary": "#D5A6BD",
+                "accent": "#B87333",
+                "neutral": "#2D2D2D",
+                "body_text": "#FAFAFA",
+                "background": "#101010"
+            }
+        ]
+    },
+    "modern": {
+        "light": [
+            {
+                "name": "Sleek Minimalism",
+                "primary": "#2C7D5D",
+                "secondary": "#708090",
+                "accent": "#D75B00",
+                "neutral": "#F8F8F8",
+                "body_text": "#3E3E3E",
+                "background": "#EFEFEF"
+            },
+            {
+                "name": "Contemporary Chic",
+                "primary": "#36454F",
+                "secondary": "#87CEEB",
+                "accent": "#B2FF59",
+                "neutral": "#F8F8F8",
+                "body_text": "#333333",
+                "background": "#F1F1F1"
+            },
+            {
+                "name": "Urban Vibe",
+                "primary": "#2E8B57",
+                "secondary": "#C0C0C0",
+                "accent": "#FF6347",
+                "neutral": "#FFFFF0",
+                "body_text": "#2A2A2A",
+                "background": "#FFFFFF"
+            },
+            {
+                "name": "Sleek Focus",
+                "primary": "#2F4F4F",
+                "secondary": "#A7BCC7",
+                "accent": "#FF4081",
+                "neutral": "#F5F5F5",
+                "body_text": "#000000",
+                "background": "#EFEFEF"
+            },
+            {
+                "name": "Clean Cut",
+                "primary": "#6A5ACD",
+                "secondary": "#E0FFFF",
+                "accent": "#FF1493",
+                "neutral": "#D3D3D3",
+                "body_text": "#333333",
+                "background": "#FFFFFF"
+            }
+        ],
+        "dark": [
+            {
+                "name": "Bold Statement",
+                "primary": "#006D5B",
+                "secondary": "#B1B1B1",
+                "accent": "#F1C40F",
+                "neutral": "#212121",
+                "body_text": "#F1F1F1",
+                "background": "#333333"
+            },
+            {
+                "name": "Bold Minimalism",
+                "primary": "#708090",
+                "secondary": "#FFA07A",
+                "accent": "#00FF00",
+                "neutral": "#212121",
+                "body_text": "#FFFFFF",
+                "background": "#333333"
+            },
+            {
+                "name": "Digital Pulse",
+                "primary": "#008B8B",
+                "secondary": "#B0B0B0",
+                "accent": "#FF5733",
+                "neutral": "#101010",
+                "body_text": "#FFFFFF",
+                "background": "#000000"
+            },
+            {
+                "name": "Urban Motion",
+                "primary": "#383838",
+                "secondary": "#708090",
+                "accent": "#FFD700",
+                "neutral": "#2C2C2C",
+                "body_text": "#D3D3D3",
+                "background": "#3E3E3E"
+            },
+            {
+                "name": "Polished Tech",
+                "primary": "#003366",
+                "secondary": "#B2BEB5",
+                "accent": "#32CD32",
+                "neutral": "#1C1C1C",
+                "body_text": "#F4F4F4",
+                "background": "#121212"
+            }
+        ]
+    },
+    "fun": {
+        "light": [
+            {
+                "name": "Playful Pops",
+                "primary": "#00B4D8",
+                "secondary": "#F0566B",
+                "accent": "#FFDD00",
+                "neutral": "#FFF8E1",
+                "body_text": "#2E2E2E",
+                "background": "#E6E6FA"
+            },
+            {
+                "name": "Playful Serenity",
+                "primary": "#77DD77",
+                "secondary": "#FF6F61",
+                "accent": "#98FF98",
+                "neutral": "#F9F9F9",
+                "body_text": "#333333",
+                "background": "#FFFFFF"
+            },
+            {
+                "name": "Happy Vibes",
+                "primary": "#FF8C00",
+                "secondary": "#00FFFF",
+                "accent": "#FFF700",
+                "neutral": "#FAF0E6",
+                "body_text": "#2A2A2A",
+                "background": "#F8F8F8"
+            },
+            {
+                "name": "Sunny Escape",
+                "primary": "#FFDA03",
+                "secondary": "#87CEEB",
+                "accent": "#FF4C4C",
+                "neutral": "#FFFFFF",
+                "body_text": "#333333",
+                "background": "#F4F4F4"
+            },
+            {
+                "name": "Radiant Dreams",
+                "primary": "#87CEFA",
+                "secondary": "#FFA500",
+                "accent": "#00FF00",
+                "neutral": "#F0E68C",
+                "body_text": "#333333",
+                "background": "#F8F8F8"
+            }
+        ],
+        "dark": [
+            {
+                "name": "Fun After Dark",
+                "primary": "#1E90FF",
+                "secondary": "#D3006D",
+                "accent": "#FFEB3B",
+                "neutral": "#2A2A2A",
+                "body_text": "#FFFFFF",
+                "background": "#121212"
+            },
+            {
+                "name": "Need New Color",
+                "primary": "#FF00FF",
+                "secondary": "#00BFFF",
+                "accent": "#00FF7F",
+                "neutral": "#2F4F4F",
+                "body_text": "#FFFFFF",
+                "background": "#101010"
+            },
+            {
+                "name": "Playful Pops",
+                "primary": "#00B4D8",
+                "secondary": "#F0566B",
+                "accent": "#FFDD00",
+                "neutral": "#FFF8E1",
+                "body_text": "#2E2E2E",
+                "background": "#E6E6FA"
+            },
+            {
+                "name": "Neon Night",
+                "primary": "#FF00FF",
+                "secondary": "#00BFFF",
+                "accent": "#00FF7F",
+                "neutral": "#2F4F4F",
+                "body_text": "#FFFFFF",
+                "background": "#101010"
+            },
+            {
+                "name": "Electric Aura",
+                "primary": "#1E90FF",
+                "secondary": "#FF4500",
+                "accent": "#FFFF00",
+                "neutral": "#333333",
+                "body_text": "#F4F4F4",
+                "background": "#222222"
+            }
+        ]
+    },
+    "wild": {
+        "light": [
+            {
+                "name": "Jungle Beat",
+                "primary": "#2E8B57",
+                "secondary": "#FF4500",
+                "accent": "#9B4F96",
+                "neutral": "#F5F5DC",
+                "body_text": "#3C3C3C",
+                "background": "#FFFFF0"
+            },
+            {
+                "name": "Tropical Breeze",
+                "primary": "#006400",
+                "secondary": "#E25822",
+                "accent": "#DA70D6",
+                "neutral": "#FFFFF0",
+                "body_text": "#2A2A2A",
+                "background": "#F2F2F2"
+            },
+            {
+                "name": "Wild Harmony",
+                "primary": "#228B22",
+                "secondary": "#FF6F61",
+                "accent": "#6A0DAD",
+                "neutral": "#FAF0E6",
+                "body_text": "#000000",
+                "background": "#FFFFFF"
+            },
+            {
+                "name": "Savage Spirit",
+                "primary": "#7CFC00",
+                "secondary": "#FF7F50",
+                "accent": "#9B30FF",
+                "neutral": "#F0FFF0",
+                "body_text": "#2F4F4F",
+                "background": "#FFF5EE"
+            },
+            {
+                "name": "Savannah Sunset",
+                "primary": "#B87333",
+                "secondary": "#F5DEB3",
+                "accent": "#F0E68C",
+                "neutral": "#F9F9F9",
+                "body_text": "#2F4F4F",
+                "background": "#FFFFFF"
+            }
+        ],
+        "dark": [
+            {
+                "name": "Midnight Safari",
+                "primary": "#2F4F4F",
+                "secondary": "#D2691E",
+                "accent": "#FF6347",
+                "neutral": "#2A2A2A",
+                "body_text": "#FFFFFF",
+                "background": "#000000"
+            },
+            {
+                "name": "Rainforest Rush",
+                "primary": "#228B22",
+                "secondary": "#FFD700",
+                "accent": "#DDA0DD",
+                "neutral": "#1A1A1A",
+                "body_text": "#F0F0F0",
+                "background": "#111111"
+            },
+            {
+                "name": "Mystic Jungle",
+                "primary": "#8A2BE2",
+                "secondary": "#FF7F50",
+                "accent": "#FF4500",
+                "neutral": "#2F4F4F",
+                "body_text": "#FFFFFF",
+                "background": "#101010"
+            },
+            {
+                "name": "Vibrant Wilds",
+                "primary": "#32CD32",
+                "secondary": "#8B0000",
+                "accent": "#FFD700",
+                "neutral": "#212121",
+                "body_text": "#F5F5F5",
+                "background": "#181818"
+            },
+            {
+                "name": "Tropical Twilight",
+                "primary": "#7FFF00",
+                "secondary": "#C71585",
+                "accent": "#FFD700",
+                "neutral": "#2F4F4F",
+                "body_text": "#F0F0F0",
+                "background": "#101010"
+            }
+        ]
+    },
+    "extraterrestrial": {
+        "light": [
+            {
+                "name": "Cosmic Pulse",
+                "primary": "#1E90FF",
+                "secondary": "#00FF7F",
+                "accent": "#FFFF00",
+                "neutral": "#D3D3D3",
+                "body_text": "#333333",
+                "background": "#FAFAFA"
+            },
+            {
+                "name": "Nebula Vision",
+                "primary": "#6A0DAD",
+                "secondary": "#1D4E89",
+                "accent": "#FFD700",
+                "neutral": "#DCDCDC",
+                "body_text": "#333333",
+                "background": "#F9F9F9"
+            },
+            {
+                "name": "Astro Glow",
+                "primary": "#6A1D8F",
+                "secondary": "#00FF80",
+                "accent": "#FF1493",
+                "neutral": "#FF1493",
+                "body_text": "#333333",
+                "background": "#F4F4F4"
+            },
+            {
+                "name": "Stardust Dreams",
+                "primary": "#FF69B4",
+                "secondary": "#00BFFF",
+                "accent": "#FFFF00",
+                "neutral": "#D1D1D1",
+                "body_text": "#333333",
+                "background": "#F9F9F9"
+            },
+            {
+                "name": "Galactic Oasis",
+                "primary": "#6A1D8F",
+                "secondary": "#00FF80",
+                "accent": "#00BFFF",
+                "neutral": "#D6D6D6",
+                "body_text": "#333333",
+                "background": "#F4F4F4"
+            }
+        ],
+        "dark": [
+            {
+                "name": "Cosmic Darkness",
+                "primary": "#4B0082",
+                "secondary": "#7CFC00",
+                "accent": "#00BFFF",
+                "neutral": "#101010",
+                "body_text": "#FFFFFF",
+                "background": "#000000"
+            },
+            {
+                "name": "Intergalactic Vision",
+                "primary": "#003366",
+                "secondary": "#9B4F96",
+                "accent": "#FF7F50",
+                "neutral": "#2F2F2F",
+                "body_text": "#FFFFFF",
+                "background": "#101010"
+            },
+            {
+                "name": "Stellar Glow",
+                "primary": "#004F4F",
+                "secondary": "#FFFF00",
+                "accent": "#00FF00",
+                "neutral": "#0A0A0A",
+                "body_text": "#FFFFFF",
+                "background": "#000000"
+            },
+            {
+                "name": "Space Odyssey",
+                "primary": "#6A1D8F",
+                "secondary": "#00FFFF",
+                "accent": "#00FF80",
+                "neutral": "#2F4F4F",
+                "body_text": "#FFFFFF",
+                "background": "#101010"
+            },
+            {
+                "name": "Nebula Night",
+                "primary": "#4B0082",
+                "secondary": "#1D4E89",
+                "accent": "#7CFC00",
+                "neutral": "#0A0A0A",
+                "body_text": "#F1F1F1",
+                "background": "#101010"
+            }
+        ]
+    }
+}

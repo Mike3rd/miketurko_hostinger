@@ -351,7 +351,7 @@ function displayColorSwatches(colors, backgroundType) {
             value: colors.neutral, 
             usage: "Backgrounds", 
             // Dynamic contrast target based on background type
-            contrastTarget: backgroundType === 'dark' ? 4.5 : 3 
+            contrastTarget: 3 
         },
         { label: "Body Text", value: colors.body_text, usage: "Text", contrastTarget: 4.5 },
         { label: "Background", value: colors.background, usage: "Base", contrastTarget: 1 }
@@ -488,24 +488,37 @@ function setupPreviewModeSwitcher() {
 	
 	
 function calculateContrastRatio(color1, color2) {
-    // Convert hex to RGB
-    const r1 = parseInt(color1.substr(1, 2), 16) / 255;
-    const g1 = parseInt(color1.substr(3, 2), 16) / 255;
-    const b1 = parseInt(color1.substr(5, 2), 16) / 255;
-    
-    const r2 = parseInt(color2.substr(1, 2), 16) / 255;
-    const g2 = parseInt(color2.substr(3, 2), 16) / 255;
-    const b2 = parseInt(color2.substr(5, 2), 16) / 255;
-    
+    // Convert hex to RGB and normalize to [0,1]
+    const parseChannel = (hex, start) => parseInt(hex.substr(start, 2), 16) / 255;
+
+    const r1 = parseChannel(color1, 1);
+    const g1 = parseChannel(color1, 3);
+    const b1 = parseChannel(color1, 5);
+
+    const r2 = parseChannel(color2, 1);
+    const g2 = parseChannel(color2, 3);
+    const b2 = parseChannel(color2, 5);
+
+    // Convert sRGB to linear RGB
+    const toLinear = (c) => c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+
+    const lr1 = toLinear(r1);
+    const lg1 = toLinear(g1);
+    const lb1 = toLinear(b1);
+
+    const lr2 = toLinear(r2);
+    const lg2 = toLinear(g2);
+    const lb2 = toLinear(b2);
+
     // Calculate relative luminance
-    const luminance1 = 0.2126 * r1 + 0.7152 * g1 + 0.0722 * b1;
-    const luminance2 = 0.2126 * r2 + 0.7152 * g2 + 0.0722 * b2;
-    
-    // Calculate contrast ratio
-    const lighter = Math.max(luminance1, luminance2);
-    const darker = Math.min(luminance1, luminance2);
-    return (lighter + 0.05) / (darker + 0.05);
-} 	
+    const luminance1 = 0.2126 * lr1 + 0.7152 * lg1 + 0.0722 * lb1;
+    const luminance2 = 0.2126 * lr2 + 0.7152 * lg2 + 0.0722 * lb2;
+
+    // Ensure L1 >= L2
+    const L1 = Math.max(luminance1, luminance2);
+    const L2 = Math.min(luminance1, luminance2);
+    return (L1 + 0.05) / (L2 + 0.05);
+}	
 	
 	
 	// State Management
@@ -781,6 +794,9 @@ function generatePrintPreview(colors, fonts, iconConfig) { // Changed parameter 
   return `
     <div class="print-preview">
       <h1 style="font-family: ${fonts.main}; color: ${colors.primary}">Brand Flyer</h1>
+	  <div class="image-placeholder" style="border-color: ${colors.neutral}; color: ${colors.neutral}">
+          Your Image Here
+        </div>
       <p>This is a sample print document preview using your brand kit. The colors, fonts, and icons are dynamically applied to showcase how your brand might look in a printed format.</p>
       <p>Here's a <span class="bk_highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
       <p>
