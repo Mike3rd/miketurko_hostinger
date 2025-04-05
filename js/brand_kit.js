@@ -351,7 +351,8 @@ function displayColorSwatches(colors, backgroundType) {
             value: colors.neutral, 
             usage: "Backgrounds", 
             // Dynamic contrast target based on background type
-            contrastTarget: 3 
+            //contrastTarget: 3 
+			contrastTarget: backgroundType === 'light' ? 4.5 : 3
         },
         { label: "Body Text", value: colors.body_text, usage: "Text", contrastTarget: 4.5 },
         { label: "Background", value: colors.background, usage: "Base", contrastTarget: 1 }
@@ -390,7 +391,7 @@ function displayColorSwatches(colors, backgroundType) {
     const message = item.querySelector('.contrast-status-message');
     
     // Get the swatch label from parent element
-    const swatchLabel = item.closest('.swatch-item')
+ /*const swatchLabel = item.closest('.swatch-item')
                           .querySelector('.swatch-label').textContent.trim();
 
     if (contrast >= required) {
@@ -403,7 +404,14 @@ function displayColorSwatches(colors, backgroundType) {
             ? "⚠️ Low Contrast for Background"
             : "⚠️ Low Contrast";
         message.classList.add('contrast-warning');
-    }
+    }*/
+	
+	  // Get the swatch label from parent element
+	if (contrast >= required) {
+    message.textContent = `✅ ${contrast >= required * 1.5 ? "Excellent" : "Good"} Contrast`;
+    message.classList.add('contrast-good');
+}
+	
 });
 }
 
@@ -662,6 +670,122 @@ function generateFonts(style) {
         alert("Error regenerating fonts. Please try again.");
     }
 });
+
+//Download PDF
+
+document.getElementById('download-pdf').addEventListener('click', generatePDF);
+
+function generatePDF() {
+    if (!currentState.colors || !currentState.fonts) {
+        alert('Please generate a brand kit first!');
+        return;
+    }
+
+    const { colors, fonts, iconConfig, style } = currentState;
+    const doc = new jspdf.jsPDF();
+    
+    // PDF Settings
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 15;
+    let yPos = margin;
+    
+    // Add Style Name
+    doc.setFontSize(22);
+    doc.setTextColor(40);
+    doc.text(`Brand Kit - ${style.toUpperCase()} Style`, pageWidth/2, yPos, { align: 'center' });
+    yPos += 15;
+
+    // Add Color Swatches
+    doc.setFontSize(16);
+    doc.text('Color Palette', margin, yPos);
+    yPos += 10;
+    
+    const swatchSize = 20;
+    const swatchSpacing = 25;
+    const colorsToShow = [
+        { label: 'Primary', color: colors.primary },
+        { label: 'Secondary', color: colors.secondary },
+        { label: 'Accent', color: colors.accent },
+        { label: 'Neutral', color: colors.neutral },
+        { label: 'Text', color: colors.body_text },
+        { label: 'Background', color: colors.background }
+    ];
+
+    colorsToShow.forEach((swatch, index) => {
+        const xPos = margin + (index % 3) * 60;
+        if (index % 3 === 0 && index !== 0) yPos += swatchSpacing;
+        
+        // Draw color square
+        doc.setFillColor(swatch.color);
+        doc.rect(xPos, yPos, swatchSize, swatchSize, 'F');
+        
+        // Add text
+        doc.setFontSize(10);
+        doc.setTextColor(40);
+        doc.text(swatch.label, xPos, yPos + swatchSize + 5);
+        doc.text(swatch.color, xPos, yPos + swatchSize + 10);
+    });
+    
+    yPos += swatchSpacing * 2;
+
+    // Add Font Section
+    doc.setFontSize(16);
+    doc.text('Typography', margin, yPos);
+    yPos += 10;
+    
+    doc.setFontSize(12);
+    doc.text(`Main Font: ${fonts.main} (${fonts.main_category})`, margin, yPos);
+    yPos += 8;
+    doc.text(`Secondary Font: ${fonts.sub} (${fonts.sub_category})`, margin, yPos);
+    yPos += 15;
+
+    // Add Font Samples
+    const originalFont = doc.getFont().fontName;
+    const sampleText = 'Branding Sample Text 123';
+    
+    try {
+        doc.setFont(fonts.main);
+        doc.text(sampleText, margin, yPos);
+        yPos += 10;
+    } catch {
+        doc.setFont(originalFont);
+        doc.text(`(Font ${fonts.main} not available in PDF)`, margin, yPos);
+        yPos += 10;
+    }
+    
+    try {
+        doc.setFont(fonts.sub);
+        doc.text(sampleText, margin, yPos);
+        yPos += 15;
+    } catch {
+        doc.setFont(originalFont);
+        doc.text(`(Font ${fonts.sub} not available in PDF)`, margin, yPos);
+        yPos += 15;
+    }
+
+    // Add Icons Section
+    doc.setFont(originalFont);
+    doc.setFontSize(16);
+    doc.text('Icon Set', margin, yPos);
+    yPos += 10;
+    
+    doc.setFontSize(12);
+    doc.text(`Icon Style: ${iconConfig.type}`, margin, yPos);
+    yPos += 8;
+    doc.text(`Main Source: ${iconConfig.source}`, margin, yPos);
+    yPos += 8;
+    doc.text(`Additional Sources: ${iconConfig.additional_sources.join(', ')}`, margin, yPos);
+    yPos += 10;
+    
+    doc.text('Sample Icons:', margin, yPos);
+    yPos += 8;
+    
+    const iconList = iconConfig.icons.join(', ')
+    doc.text(iconList, margin, yPos, { maxWidth: pageWidth - margin * 2 });
+
+    // Save PDF
+    doc.save(`brandkit-${style}-${new Date().toISOString().slice(0,10)}.pdf`);
+}
 
 // HELPER FUNCTIONS
     function trackSwatchUsage(style, backgroundType, swatchName) {
