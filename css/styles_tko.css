@@ -538,6 +538,47 @@ text-shadow:none
             background-color: #f0f0f0;
             border-radius: 4px;
         }
+		
+/* FYT BUTTON */
+
+
+#fyt_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:5px
+}
+
+#fyt{
+  background-color:white;
+    padding:10px;
+  border-radius:5px;
+}
+
+
+
+ a.button_fyt:link,  a.button_fyt:visited {
+  background-color: var(--secondary);
+  color: var(--color-white);
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width:265px;
+  border-radius:5px;
+  font-family:  var(--checkout-text-font-family);
+  font-weight: 500;
+  font-size: 15px
+}
+
+a.button_fyt:hover, a.button_fyt:active {
+  background-color: var(--secondary-bg);
+  color: var(--color-white)!important;
+}		
+		
+		
+		
+		
 /*END FIND YOUR TIME*/
 
 

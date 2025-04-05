@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelector('.body-font-example').style.fontFamily = `'${fonts.sub}'`;
     document.querySelector('.personality-font-name').textContent = fonts.main;
     document.querySelector('.body-font-name').textContent = fonts.sub;
-	document.querySelectorAll('.preview-header, .preview-mode-selector, .download-section')
+	document.querySelectorAll('.preview-header, .preview-mode-selector, #download-pdf')
         .forEach(el => el.classList.remove('hidden'));
   
   const previewSections = document.querySelectorAll('.preview-box, .website-preview, .print-preview');
@@ -672,7 +672,6 @@ function generateFonts(style) {
 });
 
 //Download PDF
-
 document.getElementById('download-pdf').addEventListener('click', generatePDF);
 
 function generatePDF() {
@@ -712,21 +711,24 @@ function generatePDF() {
     ];
 
     colorsToShow.forEach((swatch, index) => {
-        const xPos = margin + (index % 3) * 60;
-        if (index % 3 === 0 && index !== 0) yPos += swatchSpacing;
-        
-        // Draw color square
-        doc.setFillColor(swatch.color);
-        doc.rect(xPos, yPos, swatchSize, swatchSize, 'F');
-        
-        // Add text
-        doc.setFontSize(10);
-        doc.setTextColor(40);
-        doc.text(swatch.label, xPos, yPos + swatchSize + 5);
-        doc.text(swatch.color, xPos, yPos + swatchSize + 10);
-    });
+    const xPos = margin + (index % 3) * 60;
+    // Modified spacing code 👇
+    if (index % 3 === 0 && index !== 0) {
+        yPos += swatchSpacing + 10;
+    }
     
-    yPos += swatchSpacing * 2;
+    // Draw color square
+    doc.setFillColor(swatch.color);
+    doc.rect(xPos, yPos, swatchSize, swatchSize, 'F');
+    
+    // Add text
+    doc.setFontSize(10);
+    doc.setTextColor(40);
+    doc.text(swatch.label, xPos, yPos + swatchSize + 5);
+    doc.text(swatch.color, xPos, yPos + swatchSize + 10);
+});
+
+yPos += swatchSpacing * 2; //You can also adjust this multiplier
 
     // Add Font Section
     doc.setFontSize(16);

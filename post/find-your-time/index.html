@@ -65,7 +65,7 @@
   "headline": "Triathlon Time Calculator: Predict Your Race Finish",
   "description" : "Unlock Your Triathlon Potential Precision Race Time Calculator\nReady to take your triathlon training to the next level? Whether you’re a seasoned Ironman veteran or a first-time Sprint competitor, my calculator helps you predict your finish time with accuracy—tailored to your pace and race distance.\n",
   "inLanguage" : "en",
-  "wordCount":  263 ,
+  "wordCount":  216 ,
   "datePublished" : "2025-02-06T20:02:08-05:00",
   "dateModified" : "2025-02-06T20:02:08-05:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -612,6 +612,15 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         <h3 id="unlock-your-triathlon-potential">Unlock Your Triathlon Potential</h3>
 <p><em>Precision Race Time Calculator</em></p>
 <p>Ready to take your triathlon training to the next level? Whether you’re a seasoned Ironman veteran or a first-time Sprint competitor, my calculator helps you predict your finish time with accuracy—tailored to <strong>your</strong> pace and race distance.</p>
+	
+
+<div id="fyt_wrap">
+            <div id="fyt">
+                <a href="../../page/tri_time_calculator" class="button_fyt"><i class="fa fa-hand-pointer " style="color:#ffffff"></i> Go to Calculator</a>
+            </div>
+        </div>
+
+
 <h2 id="why-this-calculator">Why This Calculator?</h2>
 <ul>
 <li>
@@ -669,204 +678,15 @@ See how pace adjustments impact total time in real-time</p>
 ✅ <strong>Race Strategy</strong><br>
 ✅ <strong>Progress Tracking</strong></p>
 <p>Data-driven racing starts here. 🏊‍♂️🚴♀️🏃</p>
-<hr>
-	
+<h2 id="hahahugoshortcode5s2hbhb">	
 
-    <div class="container2">
-        <h2>Triathlon Time Calculator</h2>
-        
-        <div class="input-group2">
-            <label for="raceType">Select Race Type:</label>
-            <select id="raceType">
-                <option value="sprint">Sprint Triathlon</option>
-                <option value="olympic" selected>Olympic Triathlon</option>
-                <option value="70.3">70.3 Ironman</option>
-                <option value="ironman">Ironman</option>
-            </select>
-        </div>
-<!-- Swim Input -->
-        <div class="input-group">
-            <label for="swim">Swim Pace (per 100 yards):</label>
-            <input type="text" id="swim" placeholder="mm:ss" value="2:00">
-            <div class="time-format-example">Example: 2:30 = 2 minutes 30 seconds/100y</div>
-            <div class="event-time">
-                <span id="swimDistance">1640</span> yd Swim Time: 
-                <span id="swimTime">0:00:00</span>
-                <span class="error-message" id="swimError"></span>
+<div id="fyt_wrap">
+            <div id="fyt">
+                <a href="../../page/tri_time_calculator" class="button_fyt"><i class="fa fa-hand-pointer " style="color:#ffffff"></i> Go to Calculator</a>
             </div>
         </div>
 
-        <!-- T1 Input -->
-        <div class="input-group2">
-            <label for="t1">T1 Transition Time:</label>
-            <input type="text" id="t1" placeholder="mm:ss" value="2:00">
-            <span class="error-message" id="t1Error"></span>
-        </div>
-
-        <!-- Bike Input -->
-        <div class="input-group2">
-            <label for="bike">Bike Speed (mph):</label>
-            <input type="number" id="bike" step="0.1" value="20.0">
-            <div class="event-time">
-                <span id="bikeDistance">24.8</span> mi Bike Time: 
-                <span id="bikeTime">0:00:00</span>
-                <span class="error-message" id="bikeError"></span>
-            </div>
-        </div>
-
-        <!-- T2 Input -->
-        <div class="input-group2">
-            <label for="t2">T2 Transition Time:</label>
-            <input type="text" id="t2" placeholder="mm:ss" value="1:00">
-            <span class="error-message" id="t2Error"></span>
-        </div>
-
-        <!-- Run Input -->
-        <div class="input-group2">
-            <label for="run">Run Pace (per mile):</label>
-            <input type="text" id="run" placeholder="mm:ss" value="8:00">
-            <div class="event-time">
-                <span id="runDistance">6.2</span> mi Run Time: 
-                <span id="runTime">0:00:00</span>
-                <span class="error-message" id="runError"></span>
-            </div>
-        </div>
-
-        <div id="result"></div>
-    </div>
-
-    <script>
-	
-function parseTimeToMinutes(timeString, fieldName) {
-        if (!timeString) return { value: 0, error: '' };
-        
-        // Decimal format detection
-        if (timeString.includes('.')) {
-            return { 
-                value: null, 
-                error: `Use mm:ss format instead of decimal for ${fieldName}`
-            };
-        }
-
-        const parts = timeString.split(':');
-        if (parts.length < 1 || parts.length > 2 || 
-            isNaN(parts[0]) || (parts[1] && isNaN(parts[1]))) {
-            return { 
-                value: null, 
-                error: `Invalid ${fieldName} format (use mm:ss)`
-            };
-        }
-        
-        const minutes = parseInt(parts[0], 10);
-        const seconds = parts[1] ? parseInt(parts[1], 10) : 0;
-        
-        if (seconds >= 60) {
-            return { 
-                value: null, 
-                error: `Seconds cannot exceed 59 for ${fieldName}`
-            };
-        }
-        
-        return { 
-            value: minutes + (seconds / 60), 
-            error: '' 
-        };
-    }
-
-    const raceDistances = {
-        sprint: { swim: 820, bike: 12.4, run: 3.1 },
-        olympic: { swim: 1640, bike: 24.8, run: 6.2 },
-        '70.3': { swim: 2112, bike: 56, run: 13.1 },
-        ironman: { swim: 4224, bike: 112, run: 26.2 }
-    };
-
-    function formatTime(minutes) {
-        const hours = Math.floor(minutes / 60);
-        const mins = Math.floor(minutes % 60);
-        const secs = Math.round((minutes * 60) % 60);
-        return `${hours}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    function calculateTime() {
-        // Clear previous errors
-        document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-        document.querySelectorAll('.invalid-time').forEach(el => el.classList.remove('invalid-time'));
-
-        // Parse all inputs with enhanced error handling
-        const fields = {
-            swim: parseTimeToMinutes(document.getElementById('swim').value, 'swim pace'),
-            t1: parseTimeToMinutes(document.getElementById('t1').value, 'T1'),
-            bike: {
-                value: parseFloat(document.getElementById('bike').value),
-                error: isNaN(parseFloat(document.getElementById('bike').value)) ? 
-                       'Invalid bike speed' : ''
-            },
-            t2: parseTimeToMinutes(document.getElementById('t2').value, 'T2'),
-            run: parseTimeToMinutes(document.getElementById('run').value, 'run pace')
-        };
-
-        // Set individual error messages and collect total errors
-        let totalError = '';
-        Object.entries(fields).forEach(([key, data]) => {
-            const errorEl = document.getElementById(`${key}Error`);
-            const timeEl = document.getElementById(`${key}Time`);
-            
-            if (data.error) {
-                errorEl.textContent = data.error;
-                totalError += `• ${data.error}\n`;
-                if (timeEl) timeEl.classList.add('invalid-time');
-            } else {
-                errorEl.textContent = '';
-                if (timeEl) timeEl.classList.remove('invalid-time');
-            }
-        });
-
-        // Handle bike speed error separately
-        if (fields.bike.error) {
-            document.getElementById('bikeError').textContent = fields.bike.error;
-            totalError += `• ${fields.bike.error}\n`;
-        }
-
-        if (totalError) {
-            document.getElementById('result').textContent = `Errors:\n${totalError}`;
-            return;
-        }
-
-        // Get race distances
-        const raceType = document.getElementById('raceType').value;
-        const distances = raceDistances[raceType];
-        
-        // Update displayed distances
-        document.getElementById('swimDistance').textContent = distances.swim;
-        document.getElementById('bikeDistance').textContent = distances.bike;
-        document.getElementById('runDistance').textContent = distances.run;
-
-        // Calculate individual times
-        const swimTime = (fields.swim.value * distances.swim) / 100;
-        const bikeTime = (distances.bike / fields.bike.value) * 60;
-        const runTime = fields.run.value * distances.run;
-
-        // Display times
-        document.getElementById('swimTime').textContent = formatTime(swimTime);
-        document.getElementById('bikeTime').textContent = formatTime(bikeTime);
-        document.getElementById('runTime').textContent = formatTime(runTime);
-
-        // Calculate total time
-        const totalMinutes = swimTime + fields.t1.value + bikeTime + fields.t2.value + runTime;
-        document.getElementById('result').textContent = 
-            `Total Time (${document.getElementById('raceType').selectedOptions[0].text}): ${formatTime(totalMinutes)}`;
-    }
-
-    // Add event listeners
-    document.querySelectorAll('input, select').forEach(element => {
-        element.addEventListener('input', calculateTime);
-    });
-
-    // Initial calculation
-    calculateTime();
-    </script>
-
-
+</h2>
 
 
 <div class="tipjar_row">
