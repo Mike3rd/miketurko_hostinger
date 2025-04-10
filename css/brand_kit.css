@@ -43,6 +43,17 @@ main {
   display: none;
 }
 
+/* CSS for gradient (scoped to container) */
+#brand_kit_wrap{
+  background: linear-gradient(
+    135deg, 
+    var(--background-color), 
+    var(--secondary-color)
+  );
+  width:100%;
+  height:100%
+
+}
 
 
 /*
@@ -82,8 +93,8 @@ h1, h2, h3 {
 
 /* Buttons */
 .btn-primary {
-  background-color: var(--primary-color);
-  color: white;
+  background-color:#2B579A;
+  color: #fff;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -93,12 +104,14 @@ h1, h2, h3 {
 }
 
 .btn-primary:hover {
-  background-color: #1a3d7a;
+  background-color: gray;
 }
 
 .btn-secondary {
-  background-color: var(--neutral-color);
-  color: var(--primary-color);
+  /*background-color:#E0E1E6;*/
+  background-color:var(--background-color);
+  
+  color: var(--body-text-color);
   padding: 10px 20px;
   border: 1px solid var(--primary-color);
   border-radius: 4px;
@@ -106,15 +119,32 @@ h1, h2, h3 {
   font-size: 16px;
   margin-top: 20px;
   transition: all 0.3s ease;
+  font-family: var(--ui-text-font);
 }
 
+.btn-secondary {
+    
+   
+    padding: 8px 16px;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+
 .btn-secondary:hover {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--neutral-color);
+  color: var(--background-color);
 }
 
 
 /* Color Swatches */
+
+.color-palette-section h2 {
+	color: var(--primary-color);
+	
+}
+
+
 .color-swatches {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -381,7 +411,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 .help-card h3 {
     margin-top: 0;
-    color: var(--primary-color);
+    color: #2B579A;
 }
 
 .help-card ol {
@@ -548,9 +578,16 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 .current-swatch-name {
     font-weight: 400;
-    color: var(--ui-text-color);
+    color: var(--secondary-color);
 	font-family: var(--ui-text-font)
 }
+
+.swatch-name {
+   
+    color: var(--accent-color);
+	
+}
+
 
 .swatch-contrast-status {
     font-size: 1.3rem;
@@ -634,14 +671,6 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 
 /*reset swatches*/
-.btn-secondary {
-    background: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 8px 16px;
-    margin-left: 10px;
-    transition: all 0.3s ease;
-}
 
 .reset-notification {
     position: fixed;
@@ -838,6 +867,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     padding: 1.5rem;
     margin: 2rem 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	font-family: var(--ui-text-font)
 }
 
 .icon-columns {
@@ -845,6 +875,11 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 1rem;
+}
+
+.icon-col1 p{
+	margin: 5px;
+	
 }
 
 .icon-col2 {
@@ -898,3 +933,40 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 }
 	
+/*  LOAD ICONS  */
+
+.icon-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+	
+.custom-icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 0px;
+  vertical-align: middle;
+    /* Force SVG color to match primary */
+    color: inherit !important;
+    
+}
+
+/* SVG image styling */
+.custom-icon-svg {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+.custom-icon-svg:hover {
+    transform: scale(1.2);
+}
+
+
+
+

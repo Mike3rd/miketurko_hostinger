@@ -18,8 +18,8 @@
 				
 				{
                     "type": "local-svg", 
-                    "name": "email",
-                    "path": "/img/icons/corporate/email.svg"
+                    "name": "arrow",
+                    "path": "/img/icons/corporate/arrow.svg"
                 },
 				{
 					"type": "local-svg", 
@@ -31,80 +31,28 @@
 			]
         }
     ],
-	
-	"fun": [
+    "fun": [
         {
             "type": "emoji",
             "source": "Emoji Library",
             "additional_sources": ["Flaticon", "Iconfinder", "Icons8"],
-            "icons": ["🎈", "🎨", "🎉",
-				{
-					"type": "font-awesome",
-					"class": "fas fa-feather"
-				}
-				
-			]
+            "icons": ["🎈", "🎨", "🎉"]
         }
-    ],		
-	
+    ],
     "modern": [
         {
             "type": "thin line",
             "source": "Feather Icons",
             "additional_sources": ["Line Awesome", "Eva Icons", "Remix Icon"],
-            "icons": [
-				{
-					"type": "local-svg",
-					"class": "music",
-					"path": "/img/icons/modern/music.svg"
-				}, 
-				{
-					"type": "local-svg",
-					"class": "activity",
-					"path": "/img/icons/modern/activity.svg"
-				},
-				{
-					"type": "local-svg",
-					"class": "cloud-lightning",
-					"path": "/img/icons/modern/cloud-lightning.svg"
-				},
-				{
-					"type": "local-svg",
-					"class": "archive",
-					"path": "/img/icons/modern/archive.svg"
-				}
-				
-			]
+            "icons": ["fas fa-feather", "fas fa-pen", "fas fa-ruler"]
         }
     ],
     "wild": [
         {
-            "type": "Hand-Drawn",
-            "source": "Iconfinder",
-            "additional_sources": ["The Noun Project", "Doodle Icons", "DrawKit"],
-            "icons": [
-				{
-					"type": "local-svg",
-					"class": "mug",
-					"path": "/img/icons/wild/mug.svg"
-				},
-				{
-					"type": "local-svg",
-					"class": "martini",
-					"path": "/img/icons/wild/martini.svg"
-				},
-				{
-					"type": "local-svg",
-					"class": "email2",
-					"path": "/img/icons/wild/email2.svg"
-				},
-				{
-					"type": "local-svg",
-					"class": "money",
-					"path": "/img/icons/wild/money.svg"
-				}
-		
-			]
+            "type": "hand-drawn",
+            "source": "The Noun Project",
+            "additional_sources": ["Hand Drawn Icons", "Doodle Icons", "DrawKit"],
+            "icons": ["✍️", "🎨", "🔥"]
         }
     ],
 	"extraterrestrial": [

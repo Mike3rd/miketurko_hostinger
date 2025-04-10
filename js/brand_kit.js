@@ -203,15 +203,16 @@ function generateIcons(style) {
     }
 }
 
-function updateIconSection(style) {
+function updateIconSection(style, colors) {
     const config = generateIcons(style);
     const section = document.querySelector('.icon-section');
-    
+    const previewElement = document.getElementById('icon-preview');
+	
     // Safe element references
     const styleElement = document.getElementById('icon-style-type');
     const sourceElement = document.getElementById('icon-source');
     const sourcesElement = document.getElementById('icon-other-sources');
-    const previewElement = document.getElementById('icon-preview');
+    
 
     // Update content with null checks
     if (styleElement) styleElement.textContent = config.type || 'Not Specified';
@@ -225,17 +226,59 @@ function updateIconSection(style) {
     }
 
     // Safe icon display
-    if (previewElement) {
-        previewElement.innerHTML = (config.icons || []).map(icon => 
-            icon.startsWith('fas ') 
-                ? `<i class="${icon}"></i>` 
-                : `<span>${icon}</span>`
-        ).join('');
-    }
+   if (previewElement) {
+    previewElement.innerHTML = (config.icons || []).map(icon => {
+        // Handle object-based icons
+        if (typeof icon === 'object') {
+            if (icon.type === 'font-awesome') {
+                return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+            }
+            if (icon.type === 'local-svg') {
+                // Changed to img element and removed #arrow reference
+                return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+            }
+            return `<span>${JSON.stringify(icon)}</span>`;
+        }
+        // Handle legacy string icons
+        if (typeof icon === 'string') {
+            return icon.startsWith('fas ') 
+                ? `<i class="${icon}" style="color: ${colors.primary}"></i>` 
+                : `<span>${icon}</span>`;
+        }
+        return '';
+    }).join('');
+
+    // Add color replacement code HERE
+    document.querySelectorAll('.custom-icon-svg').forEach(img => {
+        fetch(img.src)
+            .then(r => {
+                if (!r.ok) throw new Error('Failed to fetch SVG');
+                return r.text();
+            })
+            .then(svg => {
+                // Replace all fill and stroke colors with primary color
+                const coloredSVG = svg
+                    .replace(/(fill|stroke)="#[0-9a-f]{6}"/gi, `$1="${colors.primary}"`)
+                    .replace(/(fill|stroke)="currentColor"/gi, `$1="${colors.primary}"`);
+                
+                // Convert to base64 data URL
+                const base64SVG = btoa(unescape(encodeURIComponent(coloredSVG)));
+                img.src = `data:image/svg+xml;base64,${base64SVG}`;
+            })
+            .catch(error => {
+                console.error('Error processing SVG:', error);
+                // Keep original SVG as fallback
+            });
+    });
+
+    previewElement.style.color = colors.primary;
+}
 
     // Show section if hidden
     section.classList.remove('hidden');
 }
+
+
 
 
 
@@ -290,14 +333,17 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Add contrast checks
   displayContrastChecks(colors);
   
-    
+// Generate previews - MODIFIED VERSION
+const websitePreviewElement = document.getElementById('website-preview');
+websitePreviewElement.innerHTML = generateWebsitePreview(colors, fonts, iconConfig);
+processPreviewIcons(websitePreviewElement, colors); // Add this
 
-  // Generate previews
-  document.getElementById('website-preview').innerHTML = generateWebsitePreview(colors, fonts, iconConfig);
-  document.getElementById('print-preview').innerHTML = generatePrintPreview(colors, fonts, iconConfig);
+const printPreviewElement = document.getElementById('print-preview');
+printPreviewElement.innerHTML = generatePrintPreview(colors, fonts, iconConfig);
+processPreviewIcons(printPreviewElement, colors); // Add this
   
    try {
-    updateIconSection(style);
+    updateIconSection(style, colors);
   } catch (error) {
     console.error('Icon section error:', error);
     document.querySelector('.icon-section').classList.add('hidden');
@@ -359,7 +405,7 @@ function displayColorSwatches(colors, backgroundType) {
     ];
     
     // Display current swatch name
-    document.querySelector('.current-swatch-name').textContent = `Current Swatch: ${colors.name}`;
+    document.querySelector('.current-swatch-name').innerHTML = `Current Swatch: <span class="swatch-name">${colors.name}</span>`;
 
     swatches.forEach(swatch => {
         const swatchItem = document.createElement('div');
@@ -865,6 +911,97 @@ yPos += swatchSpacing * 2; //You can also adjust this multiplier
     document.head.appendChild(link);
 }
 
+/* LOAD ICONS-------*/
+// Configuration
+const ICON_CONFIG = {
+    localIconPath: '/icons/' // Base path for all icons
+};
+
+// Main icon loading function
+async function loadIcons(style) {
+    try {
+        const response = await fetch('/presets/icons.json');
+        const iconsData = await response.json();
+        const styleIcons = iconsData[style]?.[0]?.icons || [];
+        
+        // Validate icon structure
+        return styleIcons.map(icon => {
+            if (typeof icon === 'string') {
+                // Convert legacy string format to object format
+                return {
+                    type: 'font-awesome',
+                    class: icon
+                };
+            }
+            return icon;
+        });
+        
+    } catch (error) {
+        console.error('Error loading icons:', error);
+        return [];
+    }
+}
+
+// SVG loader
+async function loadSVG(iconPath) {
+    try {
+        const response = await fetch(iconPath);
+        const svgText = await response.text();
+        const parser = new DOMParser();
+        return parser.parseFromString(svgText, "image/svg+xml").documentElement;
+    } catch (error) {
+        console.error('Error loading SVG:', error);
+        return null;
+    }
+}
+
+// Icon display handler
+async function displayIcons(style) {
+    const preview = document.getElementById('icon-preview');
+    preview.innerHTML = ''; // Clear existing
+    
+    const icons = await loadIcons(style);
+    
+    icons.forEach(async (icon) => {
+        const container = document.createElement('div');
+        container.className = 'icon-container';
+        
+        try {
+            if (typeof icon === 'object') {
+                // Handle Font Awesome object icons
+                if (icon.type === 'font-awesome') {
+                    const i = document.createElement('i');
+                    i.className = icon.class;
+                    container.appendChild(i);
+                }
+                // Handle local SVG icons
+                else if (icon.type === 'local-svg') {
+                    const fullPath = ICON_CONFIG.localIconPath + icon.path.split('/').pop();
+                    const svg = await loadSVG(fullPath);
+                    if (svg) container.appendChild(svg);
+                }
+				
+            }
+            // Handle legacy string icons
+            else if (typeof icon === 'string') {
+                if (icon.startsWith('fas ')) {
+                    const i = document.createElement('i');
+                    i.className = icon;
+                    container.appendChild(i);
+                } else {
+                    container.textContent = icon;
+                }
+            }
+			          
+            preview.appendChild(container);
+        } catch (error) {
+            console.error('Error rendering icon:', error);
+        }
+    });
+}
+
+/*END LOAD ICONS----*/
+
  
 
 function generateWebsitePreview(colors, fonts, iconConfig) {
@@ -905,18 +1042,49 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
 
       <a href="#" class="button" style="background-color: ${colors.accent}; color: ${colors.neutral}">Explore Our Brand Guidelines</a>
 
-      <div class="icon-row">
-                ${icons.map(icon => 
-                    icon.startsWith('fas ') 
-                        ? `<i class="${icon}" style="color: ${colors.primary};"></i>`
-                        : `<span class="icon">${icon}</span>`
-                ).join(' ')}
-            </div>
-        </div>
+      <div class="icon-row" style="color: ${colors.primary} !important">
+        ${icons.map(icon => {
+            if (typeof icon === 'object') {
+                if (icon.type === 'font-awesome') {
+                    return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+                }
+                if (icon.type === 'local-svg') {
+                    // Changed to img element and removed #arrow reference
+                    return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+                }
+            }
+            if (typeof icon === 'string') {
+                return icon.startsWith('fas ') 
+                    ? `<i class="${icon}" style="color: ${colors.primary}"></i>`
+                    : `<span class="icon">${icon}</span>`;
+            }
+            return '';
+        }).join(' ')}
+      </div>
+    </div>
   `;
 }
 
-function generatePrintPreview(colors, fonts, iconConfig) { // Changed parameter name
+function processPreviewIcons(previewContainer, colors) {
+    previewContainer.querySelectorAll('.custom-icon-svg').forEach(img => {
+        fetch(img.src)
+            .then(r => r.text())
+            .then(svg => {
+                const coloredSVG = svg
+                    .replace(/(fill|stroke)="#[0-9a-f]{6}"/gi, `$1="${colors.primary}"`)
+                    .replace(/(fill|stroke)="currentColor"/gi, `$1="${colors.primary}"`);
+                const base64SVG = btoa(unescape(encodeURIComponent(coloredSVG)));
+                img.src = `data:image/svg+xml;base64,${base64SVG}`;
+            })
+            .catch(error => {
+                console.error('Preview SVG error:', error);
+            });
+    });
+}
+
+
+
+function generatePrintPreview(colors, fonts, iconConfig) {
   return `
     <div class="print-preview">
       <h1 style="font-family: ${fonts.main}; color: ${colors.primary}">Brand Flyer</h1>
@@ -926,11 +1094,22 @@ function generatePrintPreview(colors, fonts, iconConfig) { // Changed parameter 
       <p>This is a sample print document preview using your brand kit. The colors, fonts, and icons are dynamically applied to showcase how your brand might look in a printed format.</p>
       <p>Here's a <span class="bk_highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
       <p>
-        ${iconConfig.icons.map(icon => 
-          `<span class="icon" style="color: ${colors.primary}">${
-            icon.startsWith('fas ') ? `<i class="${icon}"></i>` : icon
-          }</span>`
-        ).join(' ')}
+        ${iconConfig.icons.map(icon => {
+          if (typeof icon === 'object') {
+            if (icon.type === 'font-awesome') {
+              return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+            }
+            if (icon.type === 'local-svg') {
+              return `<img src="${icon.path}" class="custom-icon" alt="${icon.name}">`;
+            }
+          }
+          if (typeof icon === 'string') {
+            return icon.startsWith('fas ') 
+              ? `<i class="${icon}" style="color: ${colors.primary}"></i>`
+              : icon;
+          }
+          return '';
+        }).join(' ')}
       </p>
     </div>
   `;
