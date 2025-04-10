@@ -43,16 +43,8 @@ main {
   display: none;
 }
 
-/* CSS for gradient (scoped to container) */
-#brand_kit_wrap{
-  background: linear-gradient(
-    135deg, 
-    var(--background-color), 
-    var(--secondary-color)
-  );
-  width:100%;
-  height:100%
-
+.color-palette-section h2, .accessibility-section h2, .font-section h2, .icon-section h2, .preview-container h2{
+    color:var(--primary-color)
 }
 
 
@@ -139,10 +131,6 @@ h1, h2, h3 {
 
 /* Color Swatches */
 
-.color-palette-section h2 {
-	color: var(--primary-color);
-	
-}
 
 
 .color-swatches {
@@ -478,8 +466,6 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	
 }
 
-
-
 .contrast-check {
     background: white;
     padding: 12px;
@@ -703,6 +689,8 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+
+
 .font-preview-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -846,10 +834,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     border: 1px solid #eee;
 }
 
-.color-palette-section h2 {
-    margin-bottom: 0.5rem;
-    padding-left: 10px;
-}
+
 
 /* Mobile adjustment */
 @media (max-width: 768px) {
