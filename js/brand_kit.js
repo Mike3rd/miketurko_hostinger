@@ -405,7 +405,7 @@ function displayColorSwatches(colors, backgroundType) {
     ];
     
     // Display current swatch name
-    document.querySelector('.current-swatch-name').innerHTML = `Current Swatch: <span class="swatch-name">${colors.name}</span>`;
+    document.querySelector('.current-swatch-name').innerHTML = `Current Palette: <span class="swatch-name">${colors.name}</span>`;
 
     swatches.forEach(swatch => {
         const swatchItem = document.createElement('div');
