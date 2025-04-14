@@ -1,0 +1,14 @@
+{
+  "mode": {
+    "symbol": {
+      "dest": "assets/icons/sprite",
+      "sprite": "icons-sprite.svg",
+      "example": false
+    }
+  },
+  "shape": {
+    "id": {
+      "generator": "%s-%s"
+    }
+  }
+}

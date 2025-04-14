@@ -106,7 +106,7 @@ const DEFAULT_PRESETS = {
 
 let presets = {...DEFAULT_PRESETS};
 
-//const GFONTS_API_KEY = 'AIzaSyCZXwIUwMq07UdWclEKu_5uS282ZfV6giQ'; 
+
 
 async function getGoogleFonts(style) {
     try {
@@ -202,6 +202,9 @@ function generateIcons(style) {
         return defaultConfig;
     }
 }
+
+
+
 
 function updateIconSection(style, colors) {
     const config = generateIcons(style);

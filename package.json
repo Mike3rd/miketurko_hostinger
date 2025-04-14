@@ -1,0 +1,15 @@
+{
+  "name": "brand-kit-generator",
+  "version": "1.0.0",
+  "description": "Brand kit generator with dynamic icons",
+  "main": "index.js",
+  "scripts": {
+    "generate-icons": "svg-sprite --config svg-sprite.config.json assets/icons/**/*.svg"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "svg-sprite": "^2.0.4"
+  }
+}
+

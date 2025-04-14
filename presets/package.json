@@ -1,0 +1,3 @@
+"scripts": {
+  "generate-icons": "svg-sprite --config svg-sprite.config.json assets/icons/**/*.svg"
+}

@@ -65,7 +65,7 @@
   "headline": "Brand Kit Generator",
   "description" : " Select Style Corporate Modern Fun Wild Extraterrestrial Background Type Light Dark Generate Brand Kit How To Use This Tool Select a Style: Choose a style that matches your brand personality Choose Background: Pick light or dark background preference Generate: Create your brand kit with one click Customize: Regenerate specific elements as needed Your brand kit includes color palette, accessibility check, typography, icons, and preview examples.\n",
   "inLanguage" : "en",
-  "wordCount":  262 ,
+  "wordCount":  261 ,
   "datePublished" : "0001-01-01T00:00:00\u002b00:00",
   "dateModified" : "0001-01-01T00:00:00\u002b00:00",
   "image" : "https:\/\/miketurko.com\/img\/mturko_primary2_500x500.png",
@@ -144,6 +144,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="Easy HR Comms" />
 <link rel="manifest" href="../../img/site.webmanifest" />
+
 
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -360,7 +361,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
 
    <main>
-
     <div class="columns-container">
         <!-- Column 1 -->
         <div class="column controls-column">
@@ -404,12 +404,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
    <section id="results" class="hidden">
-    <!-- Mood Description -->
+    <div class="horizontal-break"></div>
+	
+	<!-- Mood Description -->
     <div class="mood-description"></div>
     
     <!-- Color Palette -->
     <div class="color-palette-section">
-        <h2>🎨 Professional Color Palette</h2>
+        <h2 class="brandkit-header">
+  <svg class="header-icon" data-icon-type="globe2">
+    <use href="../../assets/icons/sprite/icons-sprite.svg#corporate/palette"></use>
+  </svg>
+   Professional Color Palette
+</h2>
 		
 		 <div class="swatch-container">
 		<div class="current-swatch-header">
@@ -424,9 +431,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     
     <!-- Accessibility Check (new full-width section) -->
-    <div class="accessibility-section">
+    
+	
+	<div class="accessibility-section">
         <h2>🛡️ Accessibility Check</h2>
-        
+		
+		<div class="accessibility-container">
+		
         <div class="preview-box" style="background-color: var(--background-color)">
             <div class="preview-text" style="color: var(--primary-color);font-size: 29px; font-weight: bold">Primary Color (60%): Use for main headers, buttons, and key elements.</div>
             <div class="preview-text" style="color: var(--secondary-color);font-size: 23px; font-weight: normal; margin-top: 10px">Secondary Color (30%): Use for subheaders, secondary buttons, and less prominent elements.</div>
@@ -437,13 +448,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 		
 		<div class="contrast-checks"></div>
+		
+		</div> <!---end swatch container -white box-->
+		
     </div>
-	</section>
+	
 	
 	<!-- fonts-->
-	
+	<h2>🔤 Professional Font Pairing</h2>
 	<section class="font-section">
-    <h2>🔤 Professional Font Pairing</h2>
+    
+	
     <div class="font-controls">
         <button id="regenerate-fonts" class="btn-secondary">↻ Try New Fonts</button>
     </div>
@@ -470,8 +485,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 	<!-- icons-->
-<section class="icon-section hidden">
-    <h2>🖼️ Icon Style</h2>
+	<h2>🖼️ Icon Style</h2>
+<section class="icon-section">
+    
     <div class="icon-columns">
         <div class="icon-col1">
             <p><strong>Style:</strong> <span id="icon-style-type"></span></p>

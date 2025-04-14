@@ -5,48 +5,95 @@
   --secondary-color: #6B8CBE;
   --accent-color: #E81123;
   --neutral-color: #F2F2F2;
+  --white-color:#ffffff;
   --body-text-color: #333333;
   --background-color: #FFFFFF;
   --body-font: 'Open Sans', sans-serif;
   --header-font: 'Roboto', sans-serif;
-   --personality-font: 'Arial', serif;
-    --body-font: 'Helvetica', sans-serif;
-}
-/*
-body {
-  font-family: var(--body-font);
-  color: #333333;
-  background-color: #ffffff;
-  line-height: 1.6;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  --personality-font: 'Arial', serif;
+  --body-font: 'Helvetica', sans-serif;
 }
 
-
-
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Prevents horizontal scroll */
-}*/
 
 /* global*/ 
 .hidden {
   display: none;
 }
 
-.color-palette-section h2, .accessibility-section h2, .font-section h2, .icon-section h2, .preview-container h2{
-    color:var(--primary-color)
+
+
+#results h2 {
+    color: var(--text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
+/* dynamic page icons*/
+
+/* Temporary debug styles */
+.header-icon {
+ /*  border: 1px solid red; Verify element dimensions */
+  border-radius: 25%;
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  padding:1px;
+  opacity:1
+}
+
+.header-icon use {
+  fill: currentColor !important;
+  stroke: none;
+}
+
+
+.brandkit-header svg {
+  color: inherit;
+}
+
+/* Brand Kit Headers */
+.brandkit-header {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2rem 0 1rem;
+  font-size: 3rem;
+}
+
+.header-icon {
+  width: 1.2em;
+  height: 1.2em;
+  color: inherit;
+  flex-shrink: 0;
+  color: var(--white-color)!important;
+}
+
+/* Ensure SVG inherits color */
+.header-icon use {
+  fill: currentColor;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brandkit-header {
+    font-size: 3rem;
+  }
+  
+  .header-icon {
+    width: 2em;
+    height: 2em;
+  }
+  
+  .header-icon {
+ /*  border: 1px solid red; Verify element dimensions */
+  border-radius: 15%;
+
+}
+ 
+}
+
+/* end dynamic page icons*/
 
 /*
 h1, h2, h3 {
@@ -101,9 +148,9 @@ h1, h2, h3 {
 
 .btn-secondary {
   /*background-color:#E0E1E6;*/
-  background-color:var(--background-color);
+  background-color:var(--primary-color);
   
-  color: var(--body-text-color);
+  color: var(--white-color);
   padding: 10px 20px;
   border: 1px solid var(--primary-color);
   border-radius: 4px;
@@ -124,7 +171,8 @@ h1, h2, h3 {
 
 
 .btn-secondary:hover {
-  background-color: var(--neutral-color);
+  background-color: var(--primary-color);
+  opacity: .5;
   color: var(--background-color);
 }
 
@@ -366,14 +414,24 @@ h1, h2, h3 {
   font-size: 24px;
   margin-right: 10px;
   color: var(--primary-color);
+  
 }
 
 /* Two-column layout */
+
+.horizontal-break {
+width:100%;
+height:10px;
+background-color: #ccc;
+margin-bottom:25px;	
+border-radius: 0px;
+}
+
 .columns-container {
     display: flex;
     gap: 30px;
     margin-bottom: 30px;
-	font-family:var(--ui-text-font)
+	font-family:var(--ui-text-font);
 }
 
 .column {
@@ -459,7 +517,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 /* Accessibility Section */
 .accessibility-section {
-    background: #f8f9fa;
+    /*background: #f8f9fa;*/
     padding: 0px;
     border-radius: 8px;
     margin: 2rem 0;
@@ -834,6 +892,15 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     border: 1px solid #eee;
 }
 
+.accessibility-container {
+    background: white;
+    border-radius: 12px;
+    padding: 0 20px 20px 20px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
 
 
 /* Mobile adjustment */
@@ -842,6 +909,14 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         padding: 15px;
         margin: 0.5rem 0;
     }
+	
+	    .accessibility-container {
+        padding: 0 15px 15px 15px;
+        margin: 0.5rem 0;
+    }
+	
+	
+	
 }
 
 
@@ -888,7 +963,7 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 .icon-preview-label {
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--neutral-color);
+    color: var(--text);
 }
 
 /* Vertical alignment fix */
