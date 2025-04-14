@@ -86,7 +86,7 @@ const DEFAULT_PRESETS = {
   icons: {
     corporate: [
         {
-            type: "minimal outline",
+            type: "Minimal Outline",
             source: "Material Icons",
             additional_sources: ["Font Awesome", "Ionicons", "Feather Icons"],
             icons: ["fas fa-building", "fas fa-chart-line", "fas fa-users"]
@@ -94,7 +94,7 @@ const DEFAULT_PRESETS = {
     ],
     extraterrestrial: [ // Add this entry
         {
-            type: "futuristic",
+            type: "Futuristic",
             source: "Phosphor Icons",
             additional_sources: ["Hero Icons", "Radix Icons", "Universe Icons"],
             icons: ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
@@ -864,7 +864,7 @@ yPos += swatchSpacing * 2; //You can also adjust this multiplier
     function showResetNotification() {
         const notification = document.createElement('div');
         notification.className = 'reset-notification';
-        notification.textContent = 'All swatches shown - resetting list';
+        notification.textContent = 'All combos shown - resetting list';
         document.body.appendChild(notification);
         setTimeout(() => notification.remove(), 2000);
     }

@@ -1,7 +1,7 @@
 {
     "corporate": [
         {
-            "type": "minimal outline",
+            "type": "Minimal Outline",
             "source": "Radix",
             "additional_sources": ["Font Awesome", "Ionicons", "Feather Icons", "Material Icons"],
             "icons": [
@@ -34,7 +34,7 @@
 	
 	"fun": [
         {
-            "type": "emoji",
+            "type": "Emoji",
             "source": "Emoji Library",
             "additional_sources": ["Flaticon", "Iconfinder", "Icons8"],
             "icons": ["🎈", "🎨", "🎉",
@@ -49,7 +49,7 @@
 	
     "modern": [
         {
-            "type": "thin line",
+            "type": "Thin Line",
             "source": "Feather Icons",
             "additional_sources": ["Line Awesome", "Eva Icons", "Remix Icon"],
             "icons": [
@@ -109,7 +109,7 @@
     ],
 	"extraterrestrial": [
         {
-            "type": "futuristic",
+            "type": "Futuristic",
             "source": "Phosphor Icons",
             "additional_sources": ["Hero Icons", "Radix Icons", "Universe Icons"],
             "icons": ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
