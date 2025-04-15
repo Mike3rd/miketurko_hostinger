@@ -4,7 +4,7 @@
       {
         "name": "Executive Authority",
         "primary": "#003366",
-        "secondary": "#5F9EA0",
+        "secondary": "#365959",
         "accent": "#B22222",
         "neutral": "#444444",
         "body_text": "#2F4F4F",
@@ -13,7 +13,7 @@
       {
         "name": "Boardroom Bold",
         "primary": "#2E4053",
-        "secondary": "#7F8C8D",
+        "secondary": "#4D5556",
         "accent": "#C0392B",
         "neutral": "#333333",
         "body_text": "#2C3E50",
@@ -22,7 +22,7 @@
 	  {
 		"name": "Cream Legacy",
 		"primary": "#003366",
-		"secondary": "#708090",
+		"secondary": "#47515C",
 		"accent": "#D32F2F",
 		"neutral": "#444444",
 		"body_text": "#2F4F4F",
@@ -32,7 +32,7 @@
 		"name": "Skyline Professional",
 		"primary": "#1E3A5F",
 		"secondary": "#4c7e80",
-		"accent": "#CC7000",
+		"accent": "#7A4300",
 		"neutral": "#333333",
 		"body_text": "#2C3E50",
 		"background": "#FAFDFE"
@@ -40,9 +40,9 @@
       {
         "name": "Trusted Tradition",
         "primary": "#004D40",
-        "secondary": "#607D8B",
+        "secondary": "#435560",
         "accent": "#D32F2F",
-        "neutral": "#455A64",
+        "neutral": "#8F1E1E",
         "body_text": "#37474F",
         "background": "#F5F5F5"
       },
@@ -50,7 +50,7 @@
         "name": "Global Standard",
         "primary": "#0D47A1",
         "secondary": "#546E7A",
-        "accent": "#E53935",
+        "accent": "#9E1715",
         "neutral": "#37474F",
         "body_text": "#263238",
         "background": "#ECEFF1"
@@ -58,8 +58,8 @@
       {
         "name": "Strategic Clarity",
         "primary": "#1A237E",
-        "secondary": "#78909C",
-        "accent": "#D84315",
+        "secondary": "#43515B",
+        "accent": "#992F0F",
         "neutral": "#455A64",
         "body_text": "#37474F",
         "background": "#FFFFFF"
@@ -77,7 +77,7 @@
       },
       {
         "name": "Noir Network",
-        "primary": "#4A707B",
+        "primary": "#80A6B3",
         "secondary": "#B0BEC5",
         "accent": "#FF8A65",
         "neutral": "#CFD8DC",
@@ -86,9 +86,9 @@
       },
       {
         "name": "Executive Depth",
-        "primary": "#26A69A",
-        "secondary": "#90A4AE",
-        "accent": "#EE6C68",
+        "primary": "#40D4C5",
+        "secondary": "#A3B5BD",
+        "accent": "#F39995",
         "neutral": "#F5F5F5",
         "body_text": "#E0E0E0",
         "background": "#37474F"
@@ -96,7 +96,7 @@
       {
         "name": "Corporate Eclipse",
         "primary": "#00AD99",
-        "secondary": "#78909C",
+        "secondary": "#9EB0B7",
         "accent": "#FF7043",
         "neutral": "#B0BEC5",
         "body_text": "#FFFFFF",
@@ -106,7 +106,7 @@
         "name": "Steel Resolve",
         "primary": "#48BEFE",
         "secondary": "#BDBDBD",
-        "accent": "#FF5252",
+        "accent": "#FFD1D1",
         "neutral": "#ECEFF1",
         "body_text": "#FFFFFF",
         "background": "#37474F"
