@@ -35,12 +35,24 @@
 	"fun": [
         {
             "type": "Emoji",
-            "source": "Emoji Library",
-            "additional_sources": ["Flaticon", "Iconfinder", "Icons8"],
+            "source": "openmoji.org",
+            "additional_sources": ["Emoji Library", "Flaticon", "Iconfinder", "Icons8"],
             "icons": ["🎈", "🎨", "🎉",
 				{
 					"type": "font-awesome",
 					"class": "fas fa-feather"
+				},
+				{
+					"type": "local-svg-fixed", 
+                    "name": "laugh",
+                    "path": "/img/icons/fun/laugh.svg"
+					
+				},
+				{
+					"type": "local-svg-fixed", 
+                    "name": "heart",
+                    "path": "/img/icons/fun/heart.svg"
+					
 				}
 				
 			]

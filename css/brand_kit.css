@@ -1031,4 +1031,31 @@ box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
 
 
+.download-btn {
+	background-color: var(--primary-color);
+	font-family: var(--ui-text-font)
+}
+
+.download-btn:hover {
+	opacity: .5
+}
+@media (max-width: 768px) {
+.download-btn {
+	margin-top:10px;
+	width:100%
+		
+}
+
+/*pdf icons*/
+.temp-icon-capture {
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif !important;
+    background: white !important;
+    padding: 5px !important;
+}
+
+
+
+
+
+
 

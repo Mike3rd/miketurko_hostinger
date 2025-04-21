@@ -146,7 +146,7 @@
         "name": "Urban Edge",
         "primary": "#2C3E50",
         "secondary": "#7F8C8D",
-        "accent": "#E67E22",
+        "accent": "#8A480F",
         "neutral": "#34495E",
         "body_text": "#2C3E50",
         "background": "#F5F6FA"
@@ -154,8 +154,8 @@
       {
         "name": "Metro Pulse",
         "primary": "#37474F",
-        "secondary": "#90A4AE",
-        "accent": "#FF6F00",
+        "secondary": "#42525C",
+        "accent": "#803700",
         "neutral": "#455A64",
         "body_text": "#263238",
         "background": "#ECEFF1"
@@ -173,7 +173,7 @@
 		"name": "Misty Horizon",
 		"primary": "#36454F",   
 		"secondary": "#78909C",  
-		"accent": "#FF7043",   
+		"accent": "#992400",   
 		"neutral": "#37474F",
 		"body_text": "#263238",
 		"background": "#F0F4F8" 
@@ -181,8 +181,8 @@
 	  {
 		"name": "Urban Dawn",
 		"primary": "#6A5ACD",     
-		"secondary": "#A7BCC7",    
-		"accent": "#FF4081",    
+		"secondary": "#3E5560",    
+		"accent": "#990033",    
 		"neutral": "#333333",
 		"body_text": "#2A2A2A",
 		"background": "#F5F0FF"  

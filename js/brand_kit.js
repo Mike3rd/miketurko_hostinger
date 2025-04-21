@@ -208,77 +208,90 @@ function generateIcons(style) {
 
 function updateIconSection(style, colors) {
     const config = generateIcons(style);
-    const section = document.querySelector('.icon-section');
+	const section = document.querySelector('.icon-section');
     const previewElement = document.getElementById('icon-preview');
-	
-    // Safe element references
+	// Correct element references
     const styleElement = document.getElementById('icon-style-type');
     const sourceElement = document.getElementById('icon-source');
     const sourcesElement = document.getElementById('icon-other-sources');
-    
-
-    // Update content with null checks
-    if (styleElement) styleElement.textContent = config.type || 'Not Specified';
-    if (sourceElement) sourceElement.textContent = config.source || 'Default Source';
-    
-    // Safe array join
+	
+	if (styleElement) {
+        styleElement.textContent = config.type || 'Not Specified';
+    }
+    if (sourceElement) {
+        sourceElement.textContent = config.source || 'Default Source';
+    }
     if (sourcesElement) {
-        sourcesElement.textContent = Array.isArray(config.additional_sources) 
+        const sources = Array.isArray(config.additional_sources) 
             ? config.additional_sources.join(', ')
             : 'No additional sources available';
+        sourcesElement.textContent = sources;
     }
-
-    // Safe icon display
-   if (previewElement) {
-    previewElement.innerHTML = (config.icons || []).map(icon => {
-        // Handle object-based icons
-        if (typeof icon === 'object') {
-            if (icon.type === 'font-awesome') {
-                return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+    
+    if (previewElement) {
+        previewElement.innerHTML = (config.icons || []).map(icon => {
+            if (typeof icon === 'object') {
+                if (icon.type === 'font-awesome') {
+                    return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+                }
+                if (icon.type === 'local-svg') {
+                    return `<img src="${icon.path}" class="custom-icon-svg color-replace" alt="${icon.name}">`;
+                }
+                if (icon.type === 'local-svg-fixed') {
+                    return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+                }
+                return `<span>${JSON.stringify(icon)}</span>`;
             }
-            if (icon.type === 'local-svg') {
-                // Changed to img element and removed #arrow reference
-                return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+            if (typeof icon === 'string') {
+                return icon.startsWith('fas ') 
+                    ? `<i class="${icon}" style="color: ${colors.primary}"></i>` 
+                    : `<span>${icon}</span>`;
             }
-            return `<span>${JSON.stringify(icon)}</span>`;
-        }
-        // Handle legacy string icons
-        if (typeof icon === 'string') {
-            return icon.startsWith('fas ') 
-                ? `<i class="${icon}" style="color: ${colors.primary}"></i>` 
-                : `<span>${icon}</span>`;
-        }
-        return '';
-    }).join('');
+            return '';
+        }).join('');
 
-    // Add color replacement code HERE
-    document.querySelectorAll('.custom-icon-svg').forEach(img => {
+        // Only apply color replacement to icons with the color-replace class
+        document.querySelectorAll('.custom-icon-svg.color-replace').forEach(img => {
+            fetch(img.src)
+                .then(r => {
+                    if (!r.ok) throw new Error('Failed to fetch SVG');
+                    return r.text();
+                })
+                .then(svg => {
+                    const coloredSVG = svg
+                        .replace(/(fill|stroke)="#[0-9a-f]{6}"/gi, `$1="${colors.primary}"`)
+                        .replace(/(fill|stroke)="currentColor"/gi, `$1="${colors.primary}"`);
+                    
+                    const base64SVG = btoa(unescape(encodeURIComponent(coloredSVG)));
+                    img.src = `data:image/svg+xml;base64,${base64SVG}`;
+                })
+                .catch(error => {
+                    console.error('Error processing SVG:', error);
+                });
+        });
+
+        previewElement.style.color = colors.primary;
+    }
+    
+    // Show section if hidden
+    document.querySelector('.icon-section').classList.remove('hidden');
+}
+
+function processPreviewIcons(previewContainer, colors) {
+    previewContainer.querySelectorAll('.custom-icon-svg.color-replace').forEach(img => {
         fetch(img.src)
-            .then(r => {
-                if (!r.ok) throw new Error('Failed to fetch SVG');
-                return r.text();
-            })
+            .then(r => r.text())
             .then(svg => {
-                // Replace all fill and stroke colors with primary color
                 const coloredSVG = svg
                     .replace(/(fill|stroke)="#[0-9a-f]{6}"/gi, `$1="${colors.primary}"`)
                     .replace(/(fill|stroke)="currentColor"/gi, `$1="${colors.primary}"`);
-                
-                // Convert to base64 data URL
                 const base64SVG = btoa(unescape(encodeURIComponent(coloredSVG)));
                 img.src = `data:image/svg+xml;base64,${base64SVG}`;
             })
             .catch(error => {
-                console.error('Error processing SVG:', error);
-                // Keep original SVG as fallback
+                console.error('Preview SVG error:', error);
             });
     });
-
-    previewElement.style.color = colors.primary;
-}
-
-    // Show section if hidden
-    section.classList.remove('hidden');
 }
 
 
@@ -721,9 +734,20 @@ function generateFonts(style) {
 });
 
 //Download PDF
-document.getElementById('download-pdf').addEventListener('click', generatePDF);
+document.getElementById('download-pdf').addEventListener('click', async () => {
+    try {
+        await generatePDF();
+    } catch (error) {
+        console.error('PDF generation failed:', error);
+        alert('Error generating PDF. Please try again.');
+    }
+});
 
-function generatePDF() {
+async function generatePDF() {
+	
+	const { jsPDF } = window.jspdf; // Access from global scope
+	const canvg = window.canvg; // Access from global scope
+	
     if (!currentState.colors || !currentState.fonts) {
         alert('Please generate a brand kit first!');
         return;
@@ -741,12 +765,24 @@ function generatePDF() {
     doc.setFontSize(22);
     doc.setTextColor(40);
     doc.text(`Brand Kit - ${style.toUpperCase()} Style`, pageWidth/2, yPos, { align: 'center' });
+    yPos += 8;
+	
+	// Add contact info
+	doc.setFontSize(16);
+    doc.setTextColor(40);
+    doc.text(`Need help? Contact: support@miketurko.com`, pageWidth/2, yPos, { align: 'center' });
     yPos += 15;
+	
 
     // Add Color Swatches
     doc.setFontSize(16);
     doc.text('Color Palette', margin, yPos);
-    yPos += 10;
+    yPos += 6;
+	
+	// Add swatch name
+	doc.setFontSize(12);
+	doc.text(`Palette Name: ${colors.name}`, margin, yPos);
+	yPos += 8; // 
     
     const swatchSize = 20;
     const swatchSpacing = 25;
@@ -780,6 +816,8 @@ function generatePDF() {
 yPos += swatchSpacing * 2; //You can also adjust this multiplier
 
     // Add Font Section
+	const originalFont = doc.getFont().fontName;
+	
     doc.setFontSize(16);
     doc.text('Typography', margin, yPos);
     yPos += 10;
@@ -788,57 +826,181 @@ yPos += swatchSpacing * 2; //You can also adjust this multiplier
     doc.text(`Main Font: ${fonts.main} (${fonts.main_category})`, margin, yPos);
     yPos += 8;
     doc.text(`Secondary Font: ${fonts.sub} (${fonts.sub_category})`, margin, yPos);
-    yPos += 15;
+    yPos += 12;
+	
+	doc.setFontSize(12);
+	doc.text(`Typography Source: Google Fonts`, margin, yPos);
+	yPos += 8;
+	doc.setFontSize(12);
+	doc.text(`Other Free Sources: Fontsquirrel`, margin, yPos);
+	yPos += 15;
 
-    // Add Font Samples
-    const originalFont = doc.getFont().fontName;
-    const sampleText = 'Branding Sample Text 123';
-    
-    try {
-        doc.setFont(fonts.main);
-        doc.text(sampleText, margin, yPos);
-        yPos += 10;
-    } catch {
-        doc.setFont(originalFont);
-        doc.text(`(Font ${fonts.main} not available in PDF)`, margin, yPos);
-        yPos += 10;
-    }
-    
-    try {
-        doc.setFont(fonts.sub);
-        doc.text(sampleText, margin, yPos);
-        yPos += 15;
-    } catch {
-        doc.setFont(originalFont);
-        doc.text(`(Font ${fonts.sub} not available in PDF)`, margin, yPos);
-        yPos += 15;
-    }
 
-    // Add Icons Section
+
+    
+
+// Add Icons Section - REORDERED CODE
+// Icon rendering section
+const iconSize = 12;
+const iconsPerRow = 6;
+const verticalPadding = 4;
+
+doc.setFont(originalFont);
+doc.setFontSize(16);
+doc.text('Icon Details', margin, yPos);
+yPos += 9;
+
+doc.setFontSize(12);
+doc.text(`Style: ${iconConfig.type}`, margin, yPos);
+yPos += 6; // Space before icons
+
+// --- Set initial icon grid position ---
+let xPos = margin;
+let currentY = yPos; // Start icon grid below header
+
+// Process icons
+for await (const icon of iconConfig.icons) {
+    try {
+        let imgData;
+        let iconPath = '';
+
+        // Handle different icon types
+        if (icon.type === 'local-svg' || icon.type === 'local-svg-fixed') {
+            const fullPath = window.location.origin + icon.path;
+            
+            // Create temporary container
+            const tempDiv = document.createElement('div');
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '-9999px';
+            tempDiv.innerHTML = await (await fetch(fullPath)).text();
+            
+            if (icon.type === 'local-svg') {
+                // Apply brand color to all path elements
+                const paths = tempDiv.querySelectorAll('path');
+                paths.forEach(path => {
+                    path.style.fill = colors.primary;
+                });
+            }
+
+            // Render to canvas
+            document.body.appendChild(tempDiv);
+            const iconCanvas = await html2canvas(tempDiv, {
+                backgroundColor: null,
+                logging: false
+            });
+            imgData = iconCanvas.toDataURL('image/png');
+            document.body.removeChild(tempDiv);
+        } else if (icon.type === 'font-awesome') {
+            // Existing font-awesome handling
+            const tempDiv = document.createElement('div');
+            tempDiv.className = 'temp-icon-capture';
+            tempDiv.innerHTML = `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+            document.body.appendChild(tempDiv);
+            
+            const iconCanvas = await html2canvas(tempDiv);
+            imgData = iconCanvas.toDataURL();
+            document.body.removeChild(tempDiv);
+        }
+
+
+        // Add image to PDF
+        if (imgData) {
+            // Check page boundaries
+            if (currentY + iconSize > doc.internal.pageSize.height - 20) { // 40mm bottom margin
+                doc.addPage();
+                currentY = margin + 10; // Leave space for header on new page
+                xPos = margin;
+            }
+
+            
+
+            doc.addImage(imgData, 'PNG', xPos, currentY, iconSize, iconSize);
+            xPos += iconSize + 8;
+
+            // New row logic
+            if (xPos > (pageWidth - margin - iconSize)) {
+                xPos = margin;
+                currentY += iconSize + 8;
+            }
+        }
+    } catch (error) {
+        console.error(`Failed to process icon ${icon.name}:`, error);
+    }
+}
+
+    // Update Y position for subsequent content
+    yPos = currentY + iconSize + 8;
+		
+	///end new code
+
+	//icon text descriptions
     doc.setFont(originalFont);
-    doc.setFontSize(16);
-    doc.text('Icon Set', margin, yPos);
-    yPos += 10;
+	doc.setFontSize(16);
+	yPos += 0;
     
     doc.setFontSize(12);
-    doc.text(`Icon Style: ${iconConfig.type}`, margin, yPos);
-    yPos += 8;
-    doc.text(`Main Source: ${iconConfig.source}`, margin, yPos);
-    yPos += 8;
-    doc.text(`Additional Sources: ${iconConfig.additional_sources.join(', ')}`, margin, yPos);
-    yPos += 10;
+	doc.text(`Recommended Source: ${iconConfig.source}`, margin, yPos);
+	yPos += 6;
+	doc.text(`Other Free Sources: ${iconConfig.additional_sources.join(', ')}`, margin, yPos);
+	yPos += 8;
     
-    doc.text('Sample Icons:', margin, yPos);
-    yPos += 8;
     
-    const iconList = iconConfig.icons.join(', ')
-    doc.text(iconList, margin, yPos, { maxWidth: pageWidth - margin * 2 });
 
     // Save PDF
     doc.save(`brandkit-${style}-${new Date().toISOString().slice(0,10)}.pdf`);
 }
 
 // HELPER FUNCTIONS
+
+// new icon on pdf code
+	async function processLocalSVG(iconPath, colors) {
+    try {
+        const response = await fetch(iconPath);
+        if (!response.ok) throw new Error(`SVG fetch failed: ${response.status}`);
+        
+        const svgText = await response.text();
+        
+        // Color replacement
+        const coloredSVG = svgText
+            .replace(/fill=["']currentColor["']/gi, `fill="${colors.primary}"`)
+            .replace(/stroke=["']currentColor["']/gi, `stroke="${colors.primary}"`)
+            .replace(/<svg /, '<svg style="overflow:visible" ')
+            .replace(/(fill|stroke)=["']none["']/gi, '$1="none"');
+
+        // Extract viewBox dimensions
+        const viewBoxMatch = coloredSVG.match(/viewBox=["'](-?\d+[\.]?\d*)\s+(-?\d+[\.]?\d*)\s+(\d+[\.]?\d*)\s+(\d+[\.]?\d*)["']/);
+        const viewBoxWidth = viewBoxMatch ? parseFloat(viewBoxMatch[3]) : 24;
+        const viewBoxHeight = viewBoxMatch ? parseFloat(viewBoxMatch[4]) : 24;
+
+        // Calculate scaling
+        const targetSizeMM = 12; // Match your iconSize
+        const scale = targetSizeMM / Math.max(viewBoxWidth, viewBoxHeight);
+
+        // Create canvas
+        const tempCanvas = document.createElement('canvas');
+        tempCanvas.width = viewBoxWidth * 10;
+        tempCanvas.height = viewBoxHeight * 10;
+        
+        await canvg(tempCanvas, coloredSVG, {
+            ignoreClear: true,
+            scaleWidth: viewBoxWidth * scale * 10,
+            scaleHeight: viewBoxHeight * scale * 10
+        });
+
+        // Add white background
+        const ctx = tempCanvas.getContext('2d');
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+
+        return tempCanvas.toDataURL('image/png');
+    } catch (error) {
+        console.error('SVG processing failed:', error);
+        return null;
+    }
+}
+//end new icon on pdf code
+
     function trackSwatchUsage(style, backgroundType, swatchName) {
         if (!usedSwatches[style][backgroundType].includes(swatchName)) {
             usedSwatches[style][backgroundType].push(swatchName);
@@ -944,6 +1106,7 @@ async function loadIcons(style) {
         return [];
     }
 }
+
 
 // SVG loader
 async function loadSVG(iconPath) {
@@ -1052,10 +1215,12 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
                     return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
                 }
                 if (icon.type === 'local-svg') {
-                    // Changed to img element and removed #arrow reference
-                    return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+                    return `<img src="${icon.path}" class="custom-icon-svg color-replace" alt="${icon.name}">`;
                 }
-            }
+				if (icon.type === 'local-svg-fixed') {
+                            return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+                        }
+                }
             if (typeof icon === 'string') {
                 return icon.startsWith('fas ') 
                     ? `<i class="${icon}" style="color: ${colors.primary}"></i>`
@@ -1069,7 +1234,7 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
 }
 
 function processPreviewIcons(previewContainer, colors) {
-    previewContainer.querySelectorAll('.custom-icon-svg').forEach(img => {
+    previewContainer.querySelectorAll('.custom-icon-svg.color-replace').forEach(img => {
         fetch(img.src)
             .then(r => r.text())
             .then(svg => {
