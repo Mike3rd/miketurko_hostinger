@@ -37,10 +37,11 @@
             "type": "Emoji",
             "source": "openmoji.org",
             "additional_sources": ["Emoji Library", "Flaticon", "Iconfinder", "Icons8"],
-            "icons": ["🎈", "🎨", "🎉",
+            "icons": [
 				{
-					"type": "font-awesome",
-					"class": "fas fa-feather"
+					"type": "local-svg-fixed",
+					"name": "gift",
+                    "path": "/img/icons/fun/gift.svg"
 				},
 				{
 					"type": "local-svg-fixed", 
@@ -52,6 +53,12 @@
 					"type": "local-svg-fixed", 
                     "name": "heart",
                     "path": "/img/icons/fun/heart.svg"
+					
+				},
+				{
+					"type": "local-svg-fixed", 
+                    "name": "palm",
+                    "path": "/img/icons/fun/palm.svg"
 					
 				}
 				
