@@ -271,7 +271,7 @@ h1, h2, h3 {
   #preview-box,
 #website-preview,
 #print-preview{
-    padding:0px;
+    padding:10px;
 	margin-top:.9rem
   }
 }

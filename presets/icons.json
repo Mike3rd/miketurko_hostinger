@@ -35,7 +35,7 @@
 	"fun": [
         {
             "type": "Emoji",
-            "source": "openmoji.org",
+            "source": "openmoji",
             "additional_sources": ["Emoji Library", "Flaticon", "Iconfinder", "Icons8"],
             "icons": [
 				{
@@ -129,9 +129,31 @@
 	"extraterrestrial": [
         {
             "type": "Futuristic",
-            "source": "Phosphor Icons",
-            "additional_sources": ["Hero Icons", "Radix Icons", "Universe Icons"],
-            "icons": ["fas fa-rocket", "fas fa-star", "fas fa-meteor"]
+            "source": "openmoji",
+            "additional_sources": ["Phosphor Icons", "Hero Icons", "Radix Icons", "Universe Icons"],
+            "icons": [
+				{
+					"type": "local-svg-fixed",
+					"class": "alien",
+					"path": "/img/icons/extraterrestrial/alien.svg"
+				},
+				{
+					"type": "local-svg-fixed",
+					"class": "planet",
+					"path": "/img/icons/extraterrestrial/planet.svg"
+				},
+				{
+					"type": "local-svg-fixed",
+					"class": "ufo",
+					"path": "/img/icons/extraterrestrial/ufo.svg"
+				},
+				{
+					"type": "local-svg-fixed",
+					"class": "monster",
+					"path": "/img/icons/extraterrestrial/monster.svg"
+				}
+			
+			]
 			
         }
     ]

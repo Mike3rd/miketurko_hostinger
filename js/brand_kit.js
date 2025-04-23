@@ -1173,7 +1173,12 @@ async function displayIcons(style) {
 function generateWebsitePreview(colors, fonts, iconConfig) {
 	 const icons = iconConfig?.icons || [];
   return `
-    <div class="website-preview" style="color: ${colors.body_text}">
+    <div class="website-preview" style="color: ${colors.body_text}; --bg-color: ${colors.background};">
+	
+
+	
+	
+	
       <div class="header-container">
         <div class="header-text">
           <h1 style="font-family: ${fonts.main}">Welcome to Our Brand</h1>
