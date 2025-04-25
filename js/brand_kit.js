@@ -1175,7 +1175,7 @@ function generateWebsitePreview(colors, fonts, iconConfig, style) {
         modern: '/img/previews/modern.jpg',
         fun: '/img/previews/fun.jpg',
         wild: '/img/previews/wild.jpg',
-        extraterrestrial: '/img/previews/futuristic.jpg'
+        extraterrestrial: '/img/previews/extraterrestrial.jpg'
     };
 
     // Fallback image if style not found
