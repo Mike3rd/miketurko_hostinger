@@ -285,72 +285,72 @@
     "light": [
       {
         "name": "Playful Pop",
-        "primary": "#FF6B6B",
-        "secondary": "#4ECDC4",
-        "accent": "#FFD93D",
+        "primary": "#AD0000",
+        "secondary": "#1B5A53",
+        "accent": "#6B5600",
         "neutral": "#2D3436",
         "body_text": "#2D3436",
         "background": "#FFFFFF"
       },
 	   {
 		"name": "Bubblegum Sky",
-		"primary": "#FF4757",     
-		"secondary": "#2ED573",   
-		"accent": "#FFA502",     
+		"primary": "#A3000E",     
+		"secondary": "#135D33",   
+		"accent": "#6B4600",     
 		"neutral": "#2F3542",
 		"body_text": "#2F3542",
 		"background": "#FFF5F8"  
 	  },
 	  {
 		"name": "Lemonade Stand",
-		"primary": "#FFD93D",    
-		"secondary": "#6C5CE7",    
-		"accent": "#00CEC9",     
+		"primary": "#6B5600",    
+		"secondary": "#4733E1",    
+		"accent": "#005C5A",     
 		"neutral": "#34495E",
 		"body_text": "#2C3E50",
 		"background": "#FFFFF0"   
 	  },
 	  {
 		"name": "Cotton Candy",
-		"primary": "#FF7675",      
-		"secondary": "#A66CFF", 
-		"accent": "#55E6C1",      
+		"primary": "#A80000",      
+		"secondary": "#6000F0", 
+		"accent": "#0E5D49",      
 		"neutral": "#2D3436",
 		"body_text": "#2D3436",
 		"background": "#FFFAF4" 
 	  },
       {
         "name": "Joyful Burst",
-        "primary": "#FF9F43",
-        "secondary": "#6C5CE7",
-        "accent": "#00B894",
+        "primary": "#854000",
+        "secondary": "#4733E1",
+        "accent": "#00614E",
         "neutral": "#34495E",
         "body_text": "#2C3E50",
         "background": "#F8F9FA"
       },
       {
         "name": "Bubblegum Bliss",
-        "primary": "#FF7675",
-        "secondary": "#A66CFF",
-        "accent": "#55E6C1",
+        "primary": "#AD0000",
+        "secondary": "#5E00EB",
+        "accent": "#0E5D49",
         "neutral": "#2D3436",
         "body_text": "#2D3436",
         "background": "#FFF5E6"
       },
       {
         "name": "Candy Crush",
-        "primary": "#FF4757",
-        "secondary": "#2ED573",
-        "accent": "#FFA502",
+        "primary": "#AD000E",
+        "secondary": "#156537",
+        "accent": "#754C00",
         "neutral": "#2F3542",
         "body_text": "#2F3542",
         "background": "#FFFFFF"
       },
       {
         "name": "Rainbow Sprinkles",
-        "primary": "#FF6B6B",
-        "secondary": "#FFA801",
-        "accent": "#00CEC9",
+        "primary": "#AD0000",
+        "secondary": "#704900",
+        "accent": "#005755",
         "neutral": "#2D3436",
         "body_text": "#2D3436",
         "background": "#F5F6FA"
@@ -386,7 +386,7 @@
       },
 	  {
 		"name": "Electric Jam",
-		"primary": "#FF6B6B",      
+		"primary": "#FF8A8A",      
 		"secondary": "#4ECDC4",  
 		"accent": "#FFD93D",     
 		"neutral": "#CFD8DC",
@@ -395,7 +395,7 @@
 	  },
 	  {
 		"name": "Pixel Pop",
-		"primary": "#6C5CE7",    
+		"primary": "#A49AEF",    
 		"secondary": "#FF9F43",  
 		"accent": "#00B894",       
 		"neutral": "#ECEFF1",
@@ -404,7 +404,7 @@
 	  },
 	  {
 		"name": "Disco Fever",
-		"primary": "#FF00FF",  
+		"primary": "#FF70FF",  
 		"secondary": "#00FF7F", 
 		"accent": "#FFD700",    
 		"neutral": "#B0BEC5",
@@ -659,16 +659,16 @@
     "dark": [
       {
         "name": "Black Hole",
-        "primary": "#6C5CE7",
-        "secondary": "#00B894",
-        "accent": "#FF7675",
+        "primary": "#C4BBF7",
+        "secondary": "#00FAC8",
+        "accent": "#FFBDBD",
         "neutral": "#E0E0E0",
         "body_text": "#FFFFFF",
         "background": "#2D3436"
       },
       {
         "name": "Astro Dust",
-        "primary": "#A66CFF",
+        "primary": "#BC8FFF",
         "secondary": "#55E6C1",
         "accent": "#FF6B6B",
         "neutral": "#CFD8DC",
@@ -678,7 +678,7 @@
       {
         "name": "Plasma Pulse",
         "primary": "#FFD93D",
-        "secondary": "#6C5CE7",
+        "secondary": "#B1A8F0",
         "accent": "#00CEC9",
         "neutral": "#B0BEC5",
         "body_text": "#FFFFFF",

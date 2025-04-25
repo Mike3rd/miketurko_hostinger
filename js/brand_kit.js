@@ -412,15 +412,12 @@ function displayColorSwatches(colors, backgroundType) {
             label: "Neutral", 
             value: colors.neutral, 
             usage: "Backgrounds", 
-            // Dynamic contrast target based on background type
-            //contrastTarget: 3 
-			contrastTarget: backgroundType === 'light' ? 4.5 : 3
+            contrastTarget: backgroundType === 'light' ? 4.5 : 3
         },
         { label: "Body Text", value: colors.body_text, usage: "Text", contrastTarget: 4.5 },
         { label: "Background", value: colors.background, usage: "Base", contrastTarget: 1 }
     ];
-    
-    // Display current swatch name
+
     document.querySelector('.current-swatch-name').innerHTML = `Current Palette: <span class="swatch-name">${colors.name}</span>`;
 
     swatches.forEach(swatch => {
@@ -429,6 +426,23 @@ function displayColorSwatches(colors, backgroundType) {
         const contrastRatio = swatch.label !== "Background" ? 
             calculateContrastRatio(swatch.value, colors.background) : 0;
         
+        // New contrast messaging logic
+        let contrastMessage = '';
+        if (swatch.label !== "Background") {
+            const isAAA = contrastRatio >= 7;
+            const meetsAA = contrastRatio >= swatch.contrastTarget;
+            
+            if (isAAA) {
+                contrastMessage = '✅ AAA Excellent Contrast';
+            } else if (meetsAA) {
+                contrastMessage = '✅ AA Good Contrast';
+            } else {
+                contrastMessage = swatch.label === "Neutral" && backgroundType === 'light' ?
+                    '⚠️ Low Contrast for Text' :
+                    '⚠️ Low Contrast';
+            }
+        }
+
         swatchItem.innerHTML = `
             <div class="swatch-color" style="background:${swatch.value}"></div>
             <div class="swatch-label">${swatch.label}</div>
@@ -438,43 +452,13 @@ function displayColorSwatches(colors, backgroundType) {
                      data-contrast="${contrastRatio.toFixed(1)}" 
                      data-required="${swatch.contrastTarget}">
                     Contrast: ${contrastRatio.toFixed(1)}:1
-                    <div class="contrast-status-message"></div>
+                    <div class="contrast-status-message">${contrastMessage}</div>
                 </div>
             ` : ''}
         `;
         
         swatchGrid.appendChild(swatchItem);
     });
-
-    // Update contrast status messages
-    document.querySelectorAll('.swatch-contrast-status').forEach(item => {
-    const contrast = parseFloat(item.dataset.contrast);
-    const required = parseFloat(item.dataset.required);
-    const message = item.querySelector('.contrast-status-message');
-    
-    // Get the swatch label from parent element
- /*const swatchLabel = item.closest('.swatch-item')
-                          .querySelector('.swatch-label').textContent.trim();
-
-    if (contrast >= required) {
-        message.textContent = swatchLabel === "Neutral" 
-            ? "✅ Good Contrast" 
-            : "✅ Good Contrast";
-        message.classList.add('contrast-good');
-    } else {
-        message.textContent = swatchLabel === "Neutral"
-            ? "⚠️ Low Contrast for Background"
-            : "⚠️ Low Contrast";
-        message.classList.add('contrast-warning');
-    }*/
-	
-	  // Get the swatch label from parent element
-	if (contrast >= required) {
-    message.textContent = `✅ ${contrast >= required * 1.5 ? "Excellent" : "Good"} Contrast`;
-    message.classList.add('contrast-good');
-}
-	
-});
 }
 
 
@@ -510,28 +494,39 @@ function displayContrastChecks(colors) {
         }
     ];
     
-     const columns = document.createElement('div');
+    const columns = document.createElement('div');
     columns.className = 'contrast-columns';
     
     checks.forEach(check => {
         const ratio = calculateContrastRatio(check.color, check.bgColor);
-        const passes = ratio >= check.minRatio;
+        const passesAA = ratio >= check.minRatio;
+        const passesAAA = ratio >= 7; // WCAG AAA standard
         
+        let statusText, statusSymbol;
+        if (passesAAA) {
+            statusSymbol = '✅';
+            statusText = '(AAA compliant)';
+        } else if (passesAA) {
+            statusSymbol = '✅';
+            statusText = '(AA compliant)';
+        } else {
+            statusSymbol = '❌';
+            statusText = `(Needs ${check.minRatio}:1+)`;
+        }
+
         const col = document.createElement('div');
         col.className = 'contrast-column';
         
-        // Fixed template literal with proper line breaks
         col.innerHTML = `
             <div class="contrast-item">
                 <strong>${check.label}</strong>
                 <span class="color-pair">${check.color} on ${check.bgColor}</span>
                 <span class="contrast-ratio">Ratio: ${ratio.toFixed(1)}:1</span>
-                <span class="compliance-status ${passes ? 'pass' : 'fail'}">
-                    ${passes ? '✅' : '❌'} 
-                    ${passes ? '(AA compliant)' : `(Needs ${check.minRatio}:1+)`}
+                <span class="compliance-status ${passesAA ? 'pass' : 'fail'}">
+                    ${statusSymbol} ${statusText}
                 </span>
             </div>
-        `;  // <-- Make sure this backtick is properly aligned
+        `;
         
         columns.appendChild(col);
     });
