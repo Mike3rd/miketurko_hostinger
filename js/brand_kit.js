@@ -350,13 +350,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   displayContrastChecks(colors);
   
 // Generate previews - MODIFIED VERSION
+
 const websitePreviewElement = document.getElementById('website-preview');
-websitePreviewElement.innerHTML = generateWebsitePreview(colors, fonts, iconConfig);
-processPreviewIcons(websitePreviewElement, colors); // Add this
+websitePreviewElement.innerHTML = generateWebsitePreview(colors, fonts, iconConfig, style); // Pass style here
+processPreviewIcons(websitePreviewElement, colors);
 
 const printPreviewElement = document.getElementById('print-preview');
 printPreviewElement.innerHTML = generatePrintPreview(colors, fonts, iconConfig);
-processPreviewIcons(printPreviewElement, colors); // Add this
+processPreviewIcons(printPreviewElement, colors);
   
    try {
     updateIconSection(style, colors);
@@ -1165,27 +1166,72 @@ async function displayIcons(style) {
 
  
 
-function generateWebsitePreview(colors, fonts, iconConfig) {
+function generateWebsitePreview(colors, fonts, iconConfig, style) {
 	 const icons = iconConfig?.icons || [];
-  return `
-    <div class="website-preview" style="color: ${colors.body_text}; --bg-color: ${colors.background};">
-	
+	 
+	 // Map styles to image paths
+    const styleImages = {
+        corporate: '/img/previews/corporate.jpg',
+        modern: '/img/previews/modern.jpg',
+        fun: '/img/previews/fun.jpg',
+        wild: '/img/previews/wild.jpg',
+        extraterrestrial: '/img/previews/futuristic.jpg'
+    };
 
+    // Fallback image if style not found
+    const previewImage = styleImages[style] || '/img/previews/default.jpg';
+	 
+	 
+  return `
+    
+	<div class="website-preview-wrap">
 	
+	<nav class="bk-nav" style="background-color: ${colors.primary};">
+                <div class="nav-container">
+                    <div class="logo" style="color: ${colors.background}; font-family: ${fonts.main};">miketurko.com</div>
+                    
+                    <!-- Desktop Navigation -->
+                    <ul class="nav-links" style="color: ${colors.background};">
+                        <li>Home</li>
+                        <li>Services</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                    
+                    <!-- Mobile Hamburger -->
+                    <div class="hamburger" style="color: ${colors.background};">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                
+                <!-- Mobile Menu -->
+                <ul class="mobile-nav-links" style="background-color: ${colors.primary}; color: ${colors.background};">
+                    <li>Home</li>
+                    <li>Services</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                </ul>
+            </nav>
 	
-	
+	<div class="website-preview" style="color: ${colors.body_text}; --bg-color: ${colors.background};">
+
       <div class="header-container">
         <div class="header-text">
-          <h1 style="font-family: ${fonts.main}">Welcome to Our Brand</h1>
+          <h1 style="font-family: ${fonts.main}; color:${colors.primary}">Welcome to Brand <span class="swatch-name">${colors.name}</span></h1>
           <p class="subtitle" style="color: ${colors.secondary}">Crafting memorable experiences</p>
           <p>Discover how our new brand identity comes to life across digital experiences.</p>
         </div>
-        <div class="image-placeholder" style="border-color: ${colors.neutral}; color: ${colors.neutral}">
-          Your Image Here
-        </div>
-      </div>
+        
+		<div class="image-placeholder" >
+                    <img src="${previewImage}" 
+                         alt="${style} style example" 
+                         style="width: 100%; height: 100%;">
+                </div>
+            </div>
 
-      <div class="content-block">
+      <div class="content-block" style="background-color:${colors.primary}; color:${colors.background}">
         <p>Our new brand system combines modern aesthetics with functional design. The carefully selected color palette and typography create a cohesive visual language that represents our values.</p>
       </div>
 
@@ -1205,8 +1251,8 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
           </div>
         </div>
       </div>
-
-      <a href="#" class="button" style="background-color: ${colors.accent}; color: ${colors.neutral}">Explore Our Brand Guidelines</a>
+		<div class="bk-button-wrap">
+      <a href="#" class="bk-button" style="background-color: ${colors.accent}; color: ${colors.background}">Explore Our Brand Guidelines</a></div>
 
       <div class="icon-row" style="color: ${colors.primary} !important">
         ${icons.map(icon => {
@@ -1230,6 +1276,7 @@ function generateWebsitePreview(colors, fonts, iconConfig) {
         }).join(' ')}
       </div>
     </div>
+	</div>
   `;
 }
 
