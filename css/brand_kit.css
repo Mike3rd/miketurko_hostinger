@@ -229,7 +229,7 @@ h1, h2, h3 {
 
 .preview-mode-selector {
   display: flex;
-  background: #f5f5f5;
+  background: #ccc;
   margin-top:20px;
 }
 
@@ -241,8 +241,10 @@ h1, h2, h3 {
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
-  color: #ccc; 
-  font-family: var(--ui-text-font)
+  color: #fff; 
+  font-family: var(--ui-text-font);
+
+
 }
 
 .preview-mode-btn.active {
@@ -284,13 +286,13 @@ h1, h2, h3 {
     color: white;
 }
 
+
+
 /* Active state */
 .preview-mode-btn[data-mode="print"].active {
     background-color: var(--gray-color);
     color: white;
 }
-
-
 
 
 /* Explicitly set text colors for interface elements */
@@ -378,7 +380,8 @@ width: 100%;
 
 .content-block {
 padding:15px;
-border-radius: 10px	
+border-radius: 10px;
+font-weight: bold	
 }
 
 .bk-button-wrap {
