@@ -18,7 +18,8 @@
         {"main": "Comic Neue", "sub": "Patrick Hand", "main_category": "handwriting", "sub_category": "handwriting"},
         {"main": "Cherry Cream Soda", "sub": "Quicksand", "main_category": "display", "sub_category": "sans-serif"},
         {"main": "Luckiest Guy", "sub": "Fredoka", "main_category": "display", "sub_category": "sans-serif"},
-        {"main": "Baloo 2", "sub": "M PLUS Rounded 1c", "main_category": "display", "sub_category": "sans-serif"}
+        {"main": "Baloo 2", "sub": "Nunito", "main_category": "display", "sub_category": "sans-serif"},
+		{"main": "Barriecito", "sub": "Fresca", "main_category": "display", "sub_category": "sans-serif"}
     ],
     "wild": [
         {"main": "Bungee Shade", "sub": "Rajdhani", "main_category": "display", "sub_category": "sans-serif"},
@@ -28,7 +29,7 @@
         {"main": "Ultra", "sub": "Fira Sans", "main_category": "serif", "sub_category": "sans-serif"}
     ],
     "extraterrestrial": [
-        {"main": "Orbitron", "sub": "Exo 2", "main_category": "sans-serif", "sub_category": "sans-serif"},
+        {"main": "Orbitron", "sub": "Oxanium", "main_category": "sans-serif", "sub_category": "sans-serif"},
         {"main": "Michroma", "sub": "Titillium Web", "main_category": "sans-serif", "sub_category": "sans-serif"},
         {"main": "Audiowide", "sub": "Rajdhani", "main_category": "display", "sub_category": "sans-serif"},
         {"main": "Nasalization", "sub": "Space Mono", "main_category": "display", "sub_category": "monospace"},

@@ -356,7 +356,7 @@ websitePreviewElement.innerHTML = generateWebsitePreview(colors, fonts, iconConf
 processPreviewIcons(websitePreviewElement, colors);
 
 const printPreviewElement = document.getElementById('print-preview');
-printPreviewElement.innerHTML = generatePrintPreview(colors, fonts, iconConfig);
+printPreviewElement.innerHTML = generatePrintPreview(colors, fonts, iconConfig, style); // Use existing style variable
 processPreviewIcons(printPreviewElement, colors);
   
    try {
@@ -1172,10 +1172,10 @@ function generateWebsitePreview(colors, fonts, iconConfig, style) {
 	 // Map styles to image paths
     const styleImages = {
         corporate: '/img/previews/corporate.jpg',
-        modern: '/img/previews/modern.jpg',
+        modern: '/img/previews/modern.webp',
         fun: '/img/previews/fun.jpg',
         wild: '/img/previews/wild.jpg',
-        extraterrestrial: '/img/previews/extraterrestrial.jpg'
+        extraterrestrial: '/img/previews/extraterrestrial.webp'
     };
 
     // Fallback image if style not found
@@ -1299,34 +1299,94 @@ function processPreviewIcons(previewContainer, colors) {
 
 
 
-function generatePrintPreview(colors, fonts, iconConfig) {
+function generatePrintPreview(colors, fonts, iconConfig, style) {
+	const icons = iconConfig?.icons || [];
+	
+	 // Map styles to image paths
+    const styleImages = {
+        corporate: '/img/previews/corporate.jpg',
+        modern: '/img/previews/modern.webp',
+        fun: '/img/previews/fun.jpg',
+        wild: '/img/previews/wild.jpg',
+        extraterrestrial: '/img/previews/extraterrestrial.webp'
+    };
+
+    // Fallback image if style not found
+    const previewImage = styleImages[style] || '/img/previews/default.jpg';
+	 
+
   return `
-    <div class="print-preview">
-      <h1 style="font-family: ${fonts.main}; color: ${colors.primary}">Brand Flyer</h1>
-	  <div class="image-placeholder" style="border-color: ${colors.neutral}; color: ${colors.neutral}">
-          Your Image Here
+    <div class="website-preview-wrap">
+	
+	<div class="bk-nav" style="background-color: ${colors.primary};">
+                <div class="nav-container"></div>
+               
+            </div>
+	
+	<div class="website-preview" style="color: ${colors.body_text}; --bg-color: ${colors.background};">
+
+      <div class="header-container">
+        <div class="header-text">
+          <h1 style="font-family: ${fonts.main}; color:${colors.primary}">Welcome to Brand <span class="swatch-name">${colors.name}</span></h1>
+          <p class="subtitle" style="color: ${colors.secondary}">Crafting memorable experiences</p>
+          <p>Discover how our new brand identity comes to life across digital experiences.</p>
         </div>
-      <p>This is a sample print document preview using your brand kit. The colors, fonts, and icons are dynamically applied to showcase how your brand might look in a printed format.</p>
-      <p>Here's a <span class="bk_highlight" style="background-color: ${colors.accent}; color: ${colors.neutral}">highlighted section</span> styled with your accent color.</p>
-      <p>
-        ${iconConfig.icons.map(icon => {
-          if (typeof icon === 'object') {
-            if (icon.type === 'font-awesome') {
-              return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+        
+		<div class="image-placeholder" >
+                    <img src="${previewImage}" 
+                         alt="${style} style example" 
+                         style="width: 100%; height: 100%;">
+                </div>
+            </div>
+
+      <div class="content-block" style="background-color:${colors.primary}; color:${colors.background}">
+        <p>Our new brand system combines modern aesthetics with functional design. The carefully selected color palette and typography create a cohesive visual language that represents our values.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-item">
+          <span class="feature-icon" style="color: ${colors.accent}">✓</span>
+          <div>
+            <strong>Visual Harmony</strong>
+            <p>Colors and fonts work in perfect balance</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon" style="color: ${colors.accent}">✓</span>
+          <div>
+            <strong>Brand Consistency</strong>
+            <p>Uniform appearance across all platforms</p>
+          </div>
+        </div>
+      </div>
+		<div class="bk-button-wrap">
+      <a href="#" class="bk-button" style="background-color: ${colors.accent}; color: ${colors.background}">Explore Our Brand Guidelines</a></div>
+
+      <div class="icon-row" style="color: ${colors.primary} !important">
+        ${icons.map(icon => {
+            if (typeof icon === 'object') {
+                if (icon.type === 'font-awesome') {
+                    return `<i class="${icon.class}" style="color: ${colors.primary}"></i>`;
+                }
+                if (icon.type === 'local-svg') {
+                    return `<img src="${icon.path}" class="custom-icon-svg color-replace" alt="${icon.name}">`;
+                }
+				if (icon.type === 'local-svg-fixed') {
+                            return `<img src="${icon.path}" class="custom-icon-svg" alt="${icon.name}">`;
+                        }
+                }
+            if (typeof icon === 'string') {
+                return icon.startsWith('fas ') 
+                    ? `<i class="${icon}" style="color: ${colors.primary}"></i>`
+                    : `<span class="icon">${icon}</span>`;
             }
-            if (icon.type === 'local-svg') {
-              return `<img src="${icon.path}" class="custom-icon" alt="${icon.name}">`;
-            }
-          }
-          if (typeof icon === 'string') {
-            return icon.startsWith('fas ') 
-              ? `<i class="${icon}" style="color: ${colors.primary}"></i>`
-              : icon;
-          }
-          return '';
+            return '';
         }).join(' ')}
-      </p>
+      </div>
     </div>
+	</div>
   `;
 }
+
+
 });
