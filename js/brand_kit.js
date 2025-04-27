@@ -1171,7 +1171,7 @@ function generateWebsitePreview(colors, fonts, iconConfig, style) {
 	 
 	 // Map styles to image paths
     const styleImages = {
-        corporate: '/img/previews/corporate.jpg',
+        corporate: '/img/previews/corporate.webp',
         modern: '/img/previews/modern.webp',
         fun: '/img/previews/fun.jpg',
         wild: '/img/previews/wild.jpg',
@@ -1304,7 +1304,7 @@ function generatePrintPreview(colors, fonts, iconConfig, style) {
 	
 	 // Map styles to image paths
     const styleImages = {
-        corporate: '/img/previews/corporate.jpg',
+        corporate: '/img/previews/corporate.webp',
         modern: '/img/previews/modern.webp',
         fun: '/img/previews/fun.jpg',
         wild: '/img/previews/wild.jpg',
