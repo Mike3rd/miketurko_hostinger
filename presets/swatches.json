@@ -435,27 +435,27 @@
     "light": [
       {
         "name": "Jungle Fever",
-        "primary": "#2ECC71",
+        "primary": "#166437",
         "secondary": "#E74C3C",
-        "accent": "#F1C40F",
+        "accent": "#7F6606",
         "neutral": "#2C3E50",
         "body_text": "#2C3E50",
         "background": "#FFFFFF"
       },
 	  {
 		"name": "Meadow Breeze",
-		"primary": "#2ECC71",     
+		"primary": "#145C32",     
 		"secondary": "#E74C3C",   
-		"accent": "#F1C40F",      
+		"accent": "#765F05",      
 		"neutral": "#34495E",
 		"body_text": "#2C3E50",
 		"background": "#F0FFF0" 
 	  },
 	  {
 		"name": "Desert Bloom",
-		"primary": "#E67E22",    
+		"primary": "#81440E",    
 		"secondary": "#9B59B6", 
-		"accent": "#2ECC71",    
+		"accent": "#1A7540",    
 		"neutral": "#2C3E50",
 		"body_text": "#2C3E50",
 		"background": "#FFF5E6" 
@@ -463,17 +463,17 @@
 	  {
 		"name": "Canyon Light",
 		"primary": "#D2691E",      
-		"secondary": "#3498DB",  
-		"accent": "#FF6347",      
+		"secondary": "#15547E",  
+		"accent": "#A31800",      
 		"neutral": "#2D3436",
 		"body_text": "#2D3436",
 		"background": "#FFF8E1"  
 	  },
       {
         "name": "Savage Bloom",
-        "primary": "#E67E22",
+        "primary": "#81440E",
         "secondary": "#9B59B6",
-        "accent": "#2ECC71",
+        "accent": "#1B7942",
         "neutral": "#34495E",
         "body_text": "#2C3E50",
         "background": "#F8F9FA"
@@ -482,7 +482,7 @@
         "name": "Tropic Thunder",
         "primary": "#E74C3C",
         "secondary": "#3498DB",
-        "accent": "#F1C40F",
+        "accent": "#755F06",
         "neutral": "#2D3436",
         "body_text": "#2D3436",
         "background": "#FFFFFF"
@@ -490,15 +490,15 @@
       {
         "name": "Primal Punch",
         "primary": "#9B59B6",
-        "secondary": "#E67E22",
-        "accent": "#2ECC71",
+        "secondary": "#7C410E",
+        "accent": "#1C7D44",
         "neutral": "#2C3E50",
         "body_text": "#2C3E50",
         "background": "#F5F6FA"
       },
       {
         "name": "Untamed Energy",
-        "primary": "#F1C40F",
+        "primary": "#6B5606",
         "secondary": "#E74C3C",
         "accent": "#3498DB",
         "neutral": "#34495E",
@@ -510,7 +510,7 @@
       {
         "name": "Midnight Safari",
         "primary": "#2ECC71",
-        "secondary": "#E74C3C",
+        "secondary": "#F8C8C3",
         "accent": "#F1C40F",
         "neutral": "#E0E0E0",
         "body_text": "#FFFFFF",
@@ -573,7 +573,7 @@
       {
         "name": "Wildfire Glow",
         "primary": "#E67E22",
-        "secondary": "#9B59B6",
+        "secondary": "#D3B5DE",
         "accent": "#2ECC71",
         "neutral": "#CFD8DC",
         "body_text": "#FFFFFF",
@@ -697,7 +697,7 @@
         "name": "Orion’s Belt",
         "primary": "#00CEC9",
         "secondary": "#FF6B6B",
-        "accent": "#6C5CE7",
+        "accent": "#D3CDF9",
         "neutral": "#CFD8DC",
         "body_text": "#FFFFFF",
         "background": "#263238"

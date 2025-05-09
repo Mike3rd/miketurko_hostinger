@@ -1173,8 +1173,8 @@ function generateWebsitePreview(colors, fonts, iconConfig, style) {
     const styleImages = {
         corporate: '/img/previews/corporate.webp',
         modern: '/img/previews/modern.webp',
-        fun: '/img/previews/fun.jpg',
-        wild: '/img/previews/wild.jpg',
+        fun: '/img/previews/fun.webp',
+        wild: '/img/previews/wild.webp',
         extraterrestrial: '/img/previews/extraterrestrial.webp'
     };
 
@@ -1306,8 +1306,8 @@ function generatePrintPreview(colors, fonts, iconConfig, style) {
     const styleImages = {
         corporate: '/img/previews/corporate.webp',
         modern: '/img/previews/modern.webp',
-        fun: '/img/previews/fun.jpg',
-        wild: '/img/previews/wild.jpg',
+        fun: '/img/previews/fun.webp',
+        wild: '/img/previews/wild.webp',
         extraterrestrial: '/img/previews/extraterrestrial.webp'
     };
 

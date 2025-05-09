@@ -587,6 +587,202 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 </article>
           
             <article class="post-preview">
+    <a href="https://miketurko.com/page/memory_bank/">
+        <h2 class="post-title">Memory Bank</h2>
+        
+        <h3 class="post-subtitle">
+            Create a professional brand color palette
+        </h3>
+        
+        
+        
+    </a>
+
+    <p class="post-meta">
+        <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 1, 0001
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
+  
+  
+  
+    
+      &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Mike Turko
+    
+		    
+  
+  
+  <div id="socialshare_tko">
+     
+          <i class="fas fa-check"></i>&nbsp;Share 
+
+
+
+
+
+<div class="share-container">
+  <button class="share-button" id="shareButton">
+    <i class="fas fa-share-alt" style="color:var(--secondary)"></i>
+  </button>
+  
+  <div class="dropdown-content" id="dropdownContent">
+    <a href="#" class="dropdown-item linkedin">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a href="#" class="dropdown-item facebook">
+      <i class="fab fa-facebook"></i> Facebook
+    </a>
+    <a href="#" class="dropdown-item bluesky">
+      <i class="fab fa-bluesky"></i> Blue Sky
+    </a>
+    <a href="#" class="dropdown-item email">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a href="#" class="dropdown-item copy-link">
+      <i class="fas fa-link"></i> Copy Link
+    </a>
+    <a href="#" class="dropdown-item twitter">
+      <i class="fab fa-x-twitter"></i> X/Twitter
+    </a>
+  </div>
+</div>
+
+
+
+<script>
+
+const shareButton = document.getElementById('shareButton');
+const dropdownContent = document.getElementById('dropdownContent');
+
+
+shareButton.addEventListener('click', (e) => {
+  e.stopPropagation();
+  dropdownContent.classList.toggle('show');
+});
+
+
+document.addEventListener('click', (e) => {
+  if (dropdownContent.classList.contains('show')) {
+    dropdownContent.classList.remove('show');
+  }
+});
+ 
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+
+    switch(true) {
+      case this.classList.contains('linkedin'):
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        break;
+      case this.classList.contains('facebook'):
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        break;
+      case this.classList.contains('bluesky'):
+        window.open(`https://bsky.app/intent/compose?text=${title}%20${url}`, '_blank');
+        break;
+      case this.classList.contains('email'):
+        window.location.href = `mailto:?subject=${title}&body=Check%20this%20out:%20${url}`;
+        break;
+      case this.classList.contains('copy-link'):
+        navigator.clipboard.writeText(window.location.href)
+          .then(() => alert('Link copied to clipboard!'))
+          .catch(err => console.error('Failed to copy link:', err));
+        break;
+      case this.classList.contains('twitter'):
+        window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank');
+        break;
+    }
+  });
+});
+</script>
+
+  
+        </div>	
+		
+</span>
+
+
+    </p>
+    <div class="post-entry">
+        
+        
+
+<head>
+  <title>Memory Bank Chat</title>
+  <link rel="stylesheet" href="../css/mb-styles.css"> <!-- Optional CSS file -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+</head>
+<body>
+  <div class="mb-chat-container">
+ 
+	<!-- Toggle Button -->
+	<button id="toggle-form-btn">➕ Add New Entry</button>	
+	<button onclick="startVoiceInput()">🎤</button>
+
+	   <!-- Form and chat messages -->
+ <div id="entry-form" class="mb-form-container" style="display: none;">
+  <div class="mb-form-content">
+    <h2 id="form-title">Add New Entry</h2>
+    <input type="hidden" id="entry-id">
+    <div class="mb-form-field">
+      <input type="text" id="entry-title" class="mb-input" placeholder="Title">
+    </div>
+    <div class="mb-form-field">
+  <div class="input-container">
+    <input type="text" 
+           id="entry-category" 
+           class="mb-input" 
+           placeholder="Category"
+           autocomplete="off">
+    <div id="category-suggestions" class="suggestions"></div>
+  </div>
+</div>
+    <div class="mb-form-field">
+      <input type="date" id="entry-date" class="mb-input">
+    </div>
+    <div class="mb-form-field">
+      <textarea id="entry-details" class="mb-input" placeholder="Details"></textarea>
+    </div>
+    <div class="mb-form-actions">
+      <button class="mb-primary-btn" id="form-submit-btn" onclick="handleFormSubmit()">Save</button>
+      <button class="mb-secondary-btn" onclick="closeForm()">Cancel</button>
+    </div>
+  </div>
+</div>
+  
+    <div class="mb-chat-messages" id="chat-messages"></div>
+    <div class="input-container">
+      <input type="text" id="user-input" class="mb-input" placeholder="Ask a question (e.g., 'What's my Trek bike tire size?')">
+      <button class="mb-primary-btn" onclick="handleUserInput()">Send</button>
+    </div>
+  </div>
+
+  <!-- Firebase and app logic -->
+   <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+  <script src="../js/firebase-config.js"></script> <!-- Firebase config -->
+  <script src="../js/app.js"></script> <!-- Your app logic -->
+</body>
+
+
+	
+
+
+        
+    </div>
+
+    
+
+</article>
+          
+            <article class="post-preview">
     <a href="https://miketurko.com/page/tri_time_calculator/">
         <h2 class="post-title">Triathlon Time Calculator</h2>
         
@@ -1006,8 +1202,7 @@ function parseTimeToMinutes(timeString, fieldName) {
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.136.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
-          
+          Website by <a href="https://miketurko.com" target="_blank">miketurko.com</a> &bull; theme adapted from <a href="https://github.com/halogenica/beautifulhugo" target="_blank">Beautiful Hugo</a>
         </p>
       </div>
     </div>
