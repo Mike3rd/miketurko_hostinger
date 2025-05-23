@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Mike Turko</title>
-    <link>http://localhost:57597/categories/</link>
+    <link>https://miketurko.com/categories/</link>
     <description>Recent content in Categories on Mike Turko</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>https://example.com (Mike Turko)</managingEditor>
     <webMaster>https://example.com (Mike Turko)</webMaster>
-    <atom:link href="http://localhost:57597/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://miketurko.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
