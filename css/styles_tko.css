@@ -440,6 +440,17 @@ font-family: var(--theme-font-family);
   
 }
 
+@media screen and (max-width: 430px) {
+  .navbar-brand {
+    font-size: 23px!important;
+  }
+  
+
+  
+  
+}
+
+
 
 /* PAYPAL BUTTON */
 
