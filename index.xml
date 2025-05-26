@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mike Turko</title>
+    <title>MikeTurko.com</title>
     <link>https://miketurko.com/</link>
-    <description>Recent content on Mike Turko</description>
+    <description>Recent content on MikeTurko.com</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>https://example.com (Mike Turko)</managingEditor>
@@ -44,6 +44,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>https://example.com (Mike Turko)</author>
       <guid>https://miketurko.com/page/about/</guid>
       <description>&lt;p&gt;Cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Alien Chat</title>
+      <link>https://miketurko.com/page/alien_chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>https://example.com (Mike Turko)</author>
+      <guid>https://miketurko.com/page/alien_chat/</guid>
+      <description>&lt;div id=&#34;chat-container&#34;&gt;&#xA;        &lt;div id=&#34;chat-box&#34;&gt;&lt;/div&gt;&#xA;&#x9;&#x9;&lt;!-- Add loading indicator here --&gt;&#xA;    &lt;div id=&#34;loading&#34; style=&#34;display: none;&#34;&gt;&#xA;        &lt;div class=&#34;typing-indicator&#34;&gt;&#xA;            Alien is typing&#xA;            &lt;span class=&#34;typing-dots&#34;&gt;&#xA;                &lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&#xA;            &lt;/span&gt;&#xA;        &lt;/div&gt;&#xA;    &lt;/div&gt;&#xA;    &lt;!-- End loading indicator --&gt;&#xA;        &lt;div id=&#34;input-container&#34;&gt;&#xA;            &lt;input type=&#34;text&#34; id=&#34;user-input&#34; placeholder=&#34;Chat with the alien...&#34;&gt;&#xA;            &lt;button onclick=&#34;sendMessage()&#34;&gt;Send&lt;/button&gt;&#xA;        &lt;/div&gt;&#xA;   &lt;/div&gt;&#xA;   &lt;div id=&#34;loading&#34;&gt;&#xA;    &lt;div class=&#34;typing-indicator&#34;&gt;&#xA;        &lt;span class=&#34;typing-dots&#34;&gt;&#xA;            &lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&lt;span&gt;.&lt;/span&gt;&#xA;        &lt;/span&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;   &#xA;&#x9;&#xA;&#xA;&lt;h3 id=&#34;about-andy-the-alien&#34;&gt;About Andy the Alien&lt;/h3&gt;&#xA;&lt;p&gt;Sollicitudin proin vitae lacinia himenaeos sagittis, &lt;a href=&#34;https://example.com&#34; rel=&#34;noopener&#34; target=&#34;_blank&#34; title=test&amp;#32;link&gt;Test Link&lt;/a&gt; orci tempor. Nec in facilisi feugiat massa conubia praesent ornare nibh sem. Sit ligula est ipsum lobortis sed felis pellentesque pretium. Hac quam &lt;strong&gt;tortor&lt;/strong&gt; tristique quam congue.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Brand Kit Generator</title>

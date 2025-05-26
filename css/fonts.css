@@ -1,5 +1,17 @@
 /* --- Fonts --- */
 
+
+
+@font-face {
+    font-family: 'barriecitoregular';
+    src: url('/fonts/barriecito/barriecito-regular-webfont.woff2') format('woff2'),
+         url('/fonts/barriecito/barriecito-regular-webfont.woff') format('woff'),
+		 url('/fonts/merriweather/Barriecito-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* merriweather
 ================================================================================ */
 @font-face {
