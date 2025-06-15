@@ -169,10 +169,10 @@ table{}
 
 	}
 	
-	.page-heading h1 {
+/*	.page-heading h1 {
 	font-family: var(--theme-title-family);
 	font-weight:200!important;
-	}
+	}*.
 	
 	.page-heading {color:var(--primary);}
 
